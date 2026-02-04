@@ -6,29 +6,47 @@
     <title>Resources | NexusAI</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-50 text-slate-900">
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+<body class="bg-gradient-to-b from-blue-50 to-white text-slate-900">
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-blue-200">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-indigo-600">NexusAI</a>
+            <a href="index.html" class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent">NexusAI</a>
             <div class="space-x-8 font-medium">
-                <a href="index.html" class="hover:text-indigo-600">Home</a>
-                <a href="tech.html" class="hover:text-indigo-600">Technology</a>
-                <a href="ethics.html" class="hover:text-indigo-600">Ethics</a>
-                <a href="resources.html" class="text-indigo-600">Resources</a>
+                <a href="index.html" class="hover:text-blue-600 transition-colors duration-200">Home</a>
+                <a href="tech.html" class="hover:text-blue-600 transition-colors duration-200">Technology</a>
+                <a href="ethics.html" class="hover:text-blue-600 transition-colors duration-200">Ethics</a>
+                <a href="resources.html" class="text-blue-600 font-semibold">Resources</a>
             </div>
         </div>
     </nav>
 
     <main class="max-w-6xl mx-auto py-20 px-6">
-        <h2 class="text-3xl font-bold mb-8">Toolbox & Learning</h2>
-        <div class="grid md:grid-cols-2 gap-6">
-            <div class="p-6 border border-slate-200 rounded-xl hover:border-indigo-500 transition cursor-pointer">
-                <h3 class="font-bold text-lg">AI Glossary</h3>
-                <p class="text-slate-500">Definitions for over 500+ technical terms.</p>
+        <!-- Resources Hero -->
+        <div class="text-center mb-16">
+            <div class="mb-8">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=300&fit=crop&crop=center" alt="AI Learning Resources" class="mx-auto rounded-2xl shadow-xl">
             </div>
-            <div class="p-6 border border-slate-200 rounded-xl hover:border-indigo-500 transition cursor-pointer">
-                <h3 class="font-bold text-lg">Model Directory</h3>
-                <p class="text-slate-500">A curated list of current open-source LLMs.</p>
+            <h2 class="text-3xl font-bold mb-4 bg-gradient-to-r from-blue-700 to-indigo-800 bg-clip-text text-transparent">Toolbox & Learning</h2>
+            <p class="text-blue-700 text-lg">Essential resources to master artificial intelligence</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="p-6 bg-white border border-blue-200 rounded-xl hover:border-blue-500 hover:shadow-lg transition-all duration-300 cursor-pointer">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-12 h-12 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-lg flex items-center justify-center">
+                        <span class="text-2xl">📚</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-blue-900">AI Glossary</h3>
+                </div>
+                <p class="text-blue-700">Definitions for over 500+ technical terms.</p>
+            </div>
+            <div class="p-6 bg-white border border-blue-200 rounded-xl hover:border-blue-500 hover:shadow-lg transition-all duration-300 cursor-pointer">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="w-12 h-12 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-lg flex items-center justify-center">
+                        <span class="text-2xl">🤖</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-blue-900">Model Directory</h3>
+                </div>
+                <p class="text-blue-700">A curated list of current open-source LLMs.</p>
             </div>
         </div>
     </main>
