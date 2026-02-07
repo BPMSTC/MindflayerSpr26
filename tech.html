@@ -6,29 +6,47 @@
     <title>Technology | NexusAI</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-50 text-slate-900">
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+<body class="bg-gradient-to-b from-blue-50 to-white text-slate-900">
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-blue-200">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-blue-500 bg-clip-text text-transparent">NexusAI</a>
+            <a href="index.html" class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent">NexusAI</a>
             <div class="space-x-8 font-medium">
-                <a href="index.html" class="hover:text-indigo-600">Home</a>
-                <a href="tech.html" class="text-indigo-600">Technology</a>
-                <a href="ethics.html" class="hover:text-indigo-600">Ethics</a>
-                <a href="resources.html" class="hover:text-indigo-600">Resources</a>
+                <a href="index.html" class="hover:text-blue-600 transition-colors duration-200">Home</a>
+                <a href="tech.html" class="text-blue-600 font-semibold">Technology</a>
+                <a href="ethics.html" class="hover:text-blue-600 transition-colors duration-200">Ethics</a>
+                <a href="resources.html" class="hover:text-blue-600 transition-colors duration-200">Resources</a>
             </div>
         </div>
     </nav>
 
     <main class="max-w-4xl mx-auto py-20 px-6">
-        <h2 class="text-4xl font-bold mb-12">The Tech Stack</h2>
-        <div class="grid gap-12">
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
-                <h3 class="text-2xl font-bold mb-4">Neural Networks</h3>
-                <p class="text-slate-600">Computational models inspired by the human brain. They process data through layers of nodes (neurons) to identify complex patterns.</p>
+        <!-- Tech Hero Section -->
+        <div class="text-center mb-16">
+            <div class="mb-8">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=300&fit=crop&crop=center" alt="AI Technology" class="mx-auto rounded-2xl shadow-xl">
             </div>
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
-                <h3 class="text-2xl font-bold mb-4">Natural Language Processing (NLP)</h3>
-                <p class="text-slate-600">The technology that allows machines to understand, interpret, and generate human language. It's the engine behind modern LLMs.</p>
+            <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-700 to-indigo-800 bg-clip-text text-transparent">The Tech Stack</h2>
+            <p class="text-blue-700 text-lg">Discover the cutting-edge technologies powering the AI revolution</p>
+        </div>
+        
+        <div class="grid gap-12">
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-blue-100 hover:shadow-xl transition-all duration-300">
+                <div class="flex items-start gap-6">
+                    <img src="https://images.unsplash.com/photo-1559028006-448665bd7c7f?w=120&h=120&fit=crop&crop=center" alt="Neural Network" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-blue-900">Neural Networks</h3>
+                        <p class="text-blue-700">Computational models inspired by the human brain. They process data through layers of nodes (neurons) to identify complex patterns.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-blue-100 hover:shadow-xl transition-all duration-300">
+                <div class="flex items-start gap-6">
+                    <img src="https://images.unsplash.com/photo-1516110833967-0b5ee7a27e63?w=120&h=120&fit=crop&crop=center" alt="Natural Language Processing" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-blue-900">Natural Language Processing (NLP)</h3>
+                        <p class="text-blue-700">Technology that enables machines to understand and respond to human language, powering chatbots and translation tools.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
