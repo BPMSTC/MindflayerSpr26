@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CAD Sprint Bakery">
+    <meta name="author" content="Zachary, Josh, and Triv">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/index.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Crimson+Text:wght@400;600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <title>Hearth & Crust Artisan Bakery</title>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Hearth & Crust</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#order">Custom Orders</a></li>
+                <li><a href="#recipes">Recipes</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Baked with Love, Served with Joy</h1>
+                <p class="subtitle">Artisan breads & pastries since 1987</p>
+                <p>Every morning, we fire up our ovens before dawn to bring you the freshest, most delicious baked goods. From crusty sourdough to delicate pastries, everything is made by hand using time-honored techniques and the finest ingredients.</p>
+                <a href="#order" class="cta-button">Order Custom Cake</a>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-grid">
+                    <div class="hero-image-item">🥖</div>
+                    <div class="hero-image-item">🥐</div>
+                    <div class="hero-image-item">🍰</div>
+                    <div class="hero-image-item">🥧</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Sellers -->
+    <section class="best-sellers">
+        <div class="section-header">
+            <h2>Our Best Sellers</h2>
+            <p>Loved by our community, perfected over decades</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">🥖</div>
+                <div class="product-info">
+                    <h3>Rustic Sourdough</h3>
+                    <p class="price">$7.50</p>
+                    <p>Our signature 24-hour fermented sourdough with a perfectly crispy crust and tangy, complex flavor. Made with organic flour and our century-old starter.</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🥐</div>
+                <div class="product-info">
+                    <h3>Butter Croissants</h3>
+                    <p class="price">$4.25</p>
+                    <p>Flaky, buttery layers that melt in your mouth. Each croissant is hand-laminated with premium French butter and baked to golden perfection.</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🍰</div>
+                <div class="product-info">
+                    <h3>Chocolate Ganache Cake</h3>
+                    <p class="price">$45.00</p>
+                    <p>Rich, decadent layers of dark chocolate cake with silky ganache frosting. A chocolate lover's dream that's perfect for celebrations.</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🥧</div>
+                <div class="product-info">
+                    <h3>Apple Cinnamon Pie</h3>
+                    <p class="price">$28.00</p>
+                    <p>Made with locally-sourced Honeycrisp apples, warm cinnamon, and our flaky all-butter crust. A timeless classic that tastes like home.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="section-header">
+            <h2>Our Full Menu</h2>
+            <p>Explore our complete selection of artisan baked goods</p>
+        </div>
+
+        <!-- Breads -->
+        <div class="menu-category">
+            <h3>Artisan Breads</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h4>Classic Sourdough</h4>
+                        <span class="price">$7.50</span>
+                    </div>
+                    <p>Traditional sourdough with 24-hour fermentation, organic flour, and sea salt. Features a deeply caramelized crust and soft, tangy interior with an open crumb structure.</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h4>Multigrain Seeded</h4>
+                        <span class="price">$8.50</span>
+                    </div>
+                    <p>Hearty whole wheat blend packed with sunflower seeds, flax, sesame, and pumpkin seeds. High in fiber and nutrients with a satisfying crunch.</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h4>Ciabatta</h4>
+                        <span class="price">$6.00</span>
+                    </div>
+                    <p>Light and airy Italian-style bread with a crispy crust and large, irregular holes. Perfect for sandwiches or dipping in olive oil.</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h4>Rosemary Focaccia</h4>
+                        <span class="price">$9.00</span>
+                    </div>
+                    <p>Fluffy olive oil bread dimpled and topped with fresh rosemary, sea salt, and a drizzle of extra virgin olive oil. Herbaceous and utterly addictive.</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h4>Rye with Caraway</h4>
+                        <span class="price">$7.00</span>
+                    </div>
+                    <p>Dark rye flour combined with caraway seeds for a distinctive, earthy flavor. Dense texture perfect for hearty sandwiches.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pastries -->
+        <div class="menu-category">
+            <h3>Pastries & Viennoiserie</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h4>Butter Croissants</h4>
+                        <span class="price">$4.25</span>
+                    </div>
+                    <p>Classic French croissants with 27 paper-thin layers of butter and dough. Crispy exterior with a soft, honeycomb interior. Baked fresh every morning.</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h4>Chocolate Croissants (Pain au Chocolat)</h4>
+                        <span class="price">$5.00</span>
+                    </div>
+                    <p>Buttery laminated dough wrapped around two batons of premium dark chocolate. The perfect balance of rich chocolate and flaky pastry.</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h4>Almond Croissants</h4>
+                        <span class="price">$5.50</span>
+                    </div>
+                    <p>Day-old croissants transformed into indulgent treats, filled with almond cream, topped with sliced almonds, and dusted with powdered sugar.</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h4>Fruit Danish</h4>
+                        <span class="price">$4.75</span>
+                    </div>
+                    <p>Flaky Danish pastry topped with cream cheese and seasonal fruit compote. Rotating flavors include blueberry, cherry, apricot, and apple.</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h4>Cinnamon Rolls</h4>
+                        <span class="price">$5.25</span>
+                    </div>
+                    <p>Soft, pillowy rolls swirled with cinnamon sugar and brown butter, topped with a generous layer of cream cheese frosting.</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h4>Morning Buns</h4>
+                        <span class="price">$4.50</span>
+                    </div>
+                    <p>Inspired by San Francisco's famous pastry, these feature croissant dough rolled with cinnamon sugar and orange zest, baked in muffin tins.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cakes -->
+        <div class="menu-category">
+            <h3>Cakes & Celebration Desserts</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h4>Chocolate Ganache Cake</h4>
+                        <span class="price">$45.00</span>
+                    </div>
+                    <p>Three layers of moist dark chocolate cake with rich chocolate ganache between each layer and a silky ganache coating. Pure chocolate decadence.</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h4>Vanilla Bean Layer Cake</h4>
+                        <span class="price">$42.00</span>
+                    </div>
+                    <p>Classic vanilla cake made with real vanilla beans, layered with vanilla buttercream. Light, elegant, and endlessly customizable.</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h4>Red Velvet Cake</h4>
+                        <span class="price">$46.00</span>
+                    </div>
+                    <p>Vibrant red layers with hints of cocoa, paired with tangy cream cheese frosting. A Southern classic that's both beautiful and delicious.</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h4>Lemon Elderflower Cake</h4>
+                        <span class="price">$48.00</span>
+                    </div>
+                    <p>Light lemon cake infused with elderflower, layered with lemon curd and elderflower buttercream. Fresh, floral, and perfect for spring celebrations.</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h4>Carrot Cake</h4>
+                        <span class="price">$44.00</span>
+                    </div>
+                    <p>Moist spice cake loaded with fresh carrots, walnuts, and pineapple, frosted with cream cheese frosting. Topped with toasted walnuts.</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h4>Apple Cinnamon Pie</h4>
+                        <span class="price">$28.00</span>
+                    </div>
+                    <p>All-butter double crust filled with spiced Honeycrisp apples. Served warm or cold, perfect with vanilla ice cream.</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h4>Seasonal Fruit Tart</h4>
+                        <span class="price">$38.00</span>
+                    </div>
+                    <p>Sweet tart shell filled with vanilla pastry cream and topped with fresh seasonal fruit. A beautiful, elegant dessert.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Order Section -->
+    <section id="order" class="custom-order">
+        <div class="section-header">
+            <h2>Order Your Custom Cake</h2>
+            <p>Let us create something special for your celebration</p>
+        </div>
+        <div class="order-form-container">
+            <div class="success-message" id="successMessage">
+                🎉 Thank you! Your custom cake order has been received. We'll contact you within 24 hours to confirm the details.
+            </div>
+            <form id="orderForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cakeType">Cake Flavor *</label>
+                        <select id="cakeType" name="cakeType" required>
+                            <option value="">Select a flavor</option>
+                            <option value="chocolate">Chocolate Ganache</option>
+                            <option value="vanilla">Vanilla Bean</option>
+                            <option value="red-velvet">Red Velvet</option>
+                            <option value="lemon">Lemon Elderflower</option>
+                            <option value="carrot">Carrot Cake</option>
+                            <option value="marble">Marble</option>
+                            <option value="strawberry">Strawberry</option>
+                            <option value="custom">Custom Flavor</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="size">Cake Size *</label>
+                        <select id="size" name="size" required>
+                            <option value="">Select size</option>
+                            <option value="6-inch">6" (serves 8-10)</option>
+                            <option value="8-inch">8" (serves 15-20)</option>
+                            <option value="10-inch">10" (serves 25-30)</option>
+                            <option value="12-inch">12" (serves 35-40)</option>
+                            <option value="sheet">Sheet Cake (serves 50+)</option>
+                            <option value="tiered">Multi-tiered</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="occasion">Occasion</label>
+                        <select id="occasion" name="occasion">
+                            <option value="">Select occasion</option>
+                            <option value="birthday">Birthday</option>
+                            <option value="wedding">Wedding</option>
+                            <option value="anniversary">Anniversary</option>
+                            <option value="graduation">Graduation</option>
+                            <option value="baby-shower">Baby Shower</option>
+                            <option value="corporate">Corporate Event</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Pickup/Delivery Date *</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="design">Design Description *</label>
+                    <textarea id="design" name="design" placeholder="Please describe your desired cake design in detail. Include colors, themes, decorations, text for the cake, and any specific design elements you'd like..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="dietary">Dietary Requirements or Allergies</label>
+                    <textarea id="dietary" name="dietary" placeholder="Let us know about any dietary restrictions, allergies, or special requirements..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="additional">Additional Notes</label>
+                    <textarea id="additional" name="additional" placeholder="Any other details we should know?"></textarea>
+                </div>
+
+                <button type="submit" class="submit-button">Submit Order Request</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Recipes Section -->
+    <section id="recipes" class="recipes">
+        <div class="section-header">
+            <h2>From Our Kitchen to Yours</h2>
+            <p>Recipes, tips, and baking secrets from our master bakers</p>
+        </div>
+        <div class="recipes-grid">
+            <div class="recipe-card">
+                <div class="recipe-image">🥖</div>
+                <div class="recipe-content">
+                    <h3>Perfect Sourdough Starter</h3>
+                    <div class="recipe-meta">
+                        <span>⏱️ 7 Days</span>
+                        <span>👨‍🍳 Beginner</span>
+                    </div>
+                    <p>Creating your own sourdough starter is easier than you think! All you need is flour, water, and patience. This living culture will become your baking companion for years to come.</p>
+                    <div class="recipe-tips">
+                        <strong>Pro Tip:</strong>
+                        <p>Feed your starter at the same time every day and keep it in a warm spot (around 75°F). Look for bubbles and a pleasant, tangy aroma – these are signs of a healthy, active starter.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-image">🥐</div>
+                <div class="recipe-content">
+                    <h3>Classic French Croissants</h3>
+                    <div class="recipe-meta">
+                        <span>⏱️ 2 Days</span>
+                        <span>👨‍🍳 Advanced</span>
+                    </div>
+                    <p>Master the art of lamination with this classic recipe. While time-intensive, the result is worth every fold – impossibly flaky, buttery croissants that rival any French bakery.</p>
+                    <div class="recipe-tips">
+                        <strong>Pro Tip:</strong>
+                        <p>Keep everything cold! Work quickly during lamination and return the dough to the fridge if the butter starts to soften. The key to flaky layers is maintaining distinct butter and dough.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-image">🍪</div>
+                <div class="recipe-content">
+                    <h3>Brown Butter Chocolate Chip Cookies</h3>
+                    <div class="recipe-meta">
+                        <span>⏱️ 45 Minutes</span>
+                        <span>👨‍🍳 Easy</span>
+                    </div>
+                    <p>Elevate the classic chocolate chip cookie by browning the butter first. This simple technique adds deep, nutty flavors and creates cookies with crispy edges and chewy centers.</p>
+                    <div class="recipe-tips">
+                        <strong>Pro Tip:</strong>
+                        <p>Chill the dough for at least 2 hours before baking. This allows the flour to fully hydrate and prevents spreading. For extra flavor, use a mix of milk and dark chocolate chunks.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-image">🍞</div>
+                <div class="recipe-content">
+                    <h3>No-Knead Artisan Bread</h3>
+                    <div class="recipe-meta">
+                        <span>⏱️ 18 Hours</span>
+                        <span>👨‍🍳 Beginner</span>
+                    </div>
+                    <p>This revolutionary method requires minimal effort for maximum reward. Just mix flour, water, salt, and a tiny bit of yeast, then let time do the work to develop flavor and structure.</p>
+                    <div class="recipe-tips">
+                        <strong>Pro Tip:</strong>
+                        <p>Bake in a preheated Dutch oven with the lid on for the first 30 minutes. This traps steam and creates that coveted crispy, deeply browned crust.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-image">🧁</div>
+                <div class="recipe-content">
+                    <h3>Vanilla Bean Cupcakes</h3>
+                    <div class="recipe-meta">
+                        <span>⏱️ 1 Hour</span>
+                        <span>👨‍🍳 Easy</span>
+                    </div>
+                    <p>Light, fluffy cupcakes infused with real vanilla beans. Perfect for any occasion and endlessly customizable with different frostings and decorations.</p>
+                    <div class="recipe-tips">
+                        <strong>Pro Tip:</strong>
+                        <p>Room temperature ingredients are crucial! Let eggs and butter sit out for 30 minutes before starting. This ensures proper emulsification and a tender crumb.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-image">🥧</div>
+                <div class="recipe-content">
+                    <h3>All-Butter Pie Crust</h3>
+                    <div class="recipe-meta">
+                        <span>⏱️ 3 Hours</span>
+                        <span>👨‍🍳 Intermediate</span>
+                    </div>
+                    <p>A flaky, tender pie crust is the foundation of great pies. This recipe uses only butter (no shortening) for superior flavor and texture. Master this and you'll never buy store-bought again.</p>
+                    <div class="recipe-tips">
+                        <strong>Pro Tip:</strong>
+                        <p>Work quickly and handle the dough as little as possible. Visible butter pieces are good – they create steam pockets during baking that result in flakiness. Always chill before rolling.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>Hearth & Crust</h3>
+                <p>For over 35 years, we've been bringing handcrafted breads, pastries, and cakes to our community. Every item is made with care, using traditional techniques and the finest ingredients. Visit us and taste the difference that passion makes.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Hours</h4>
+                <ul>
+                    <li>Monday - Friday: 7am - 6pm</li>
+                    <li>Saturday: 7am - 7pm</li>
+                    <li>Sunday: 8am - 5pm</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul>
+                    <li>123 Baker Street</li>
+                    <li>Artisan Quarter, CA 94102</li>
+                    <li>Phone: (555) 123-4567</li>
+                    <li>hello@hearthandcrust.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Hearth & Crust Artisan Bakery. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+</body>
+</html>
