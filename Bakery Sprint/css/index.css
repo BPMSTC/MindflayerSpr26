@@ -655,6 +655,199 @@ footer {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+
+    /* Responsive styles for careers and job application pages */
+    .section-padding-large,
+    .section-padding-bottom {
+        padding: 4rem 2rem;
+    }
+
+    .job-filters {
+        gap: 1rem;
+        margin: 2rem 0;
+    }
+
+    .filter-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .filter-group label {
+        margin-bottom: 0.5rem;
+        margin-right: 0;
+    }
+
+    .cta-button-large {
+        font-size: 1rem;
+        padding: 0.875rem 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-text .subtitle {
+        font-size: 1rem;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .section-padding-large,
+    .section-padding-bottom,
+    .best-sellers,
+    .menu,
+    .custom-order,
+    .recipes {
+        padding: 3rem 1.5rem;
+    }
+
+    .job-filters {
+        flex-direction: column;
+        gap: 1.5rem;
+        margin: 1.5rem 0 2rem;
+    }
+
+    .filter-group {
+        width: 100%;
+    }
+
+    .filter-group select {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .large-icon {
+        font-size: 2.5rem;
+    }
+
+    .form-section-title {
+        font-size: 1.3rem;
+    }
+
+    .cta-button-large {
+        font-size: 0.95rem;
+        padding: 0.75rem 1.5rem;
+    }
+
+    .apply-center {
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: 1rem 1rem;
+    }
+
+    nav ul {
+        gap: 0.75rem;
+        font-size: 0.85rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+        line-height: 1.1;
+    }
+
+    .hero-text p {
+        font-size: 0.9rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.75rem;
+    }
+
+    .section-header p {
+        font-size: 0.9rem;
+    }
+
+    .section-padding-large,
+    .section-padding-bottom,
+    .best-sellers,
+    .menu,
+    .custom-order,
+    .recipes {
+        padding: 2rem 1rem;
+    }
+
+    .job-filters {
+        margin: 1rem 0 1.5rem;
+    }
+
+    .filter-group select {
+        max-width: 250px;
+        font-size: 0.9rem;
+    }
+
+    .product-card {
+        padding: 1.5rem;
+    }
+
+    .product-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .large-icon {
+        font-size: 2rem;
+    }
+
+    .form-section-title {
+        font-size: 1.2rem;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 0.9rem;
+        padding: 0.75rem;
+    }
+
+    .terms-label {
+        font-size: 0.85rem;
+    }
+
+    .cta-button,
+    .cta-button-large {
+        font-size: 0.9rem;
+        padding: 0.75rem 1.25rem;
+    }
+
+    .no-jobs-message {
+        padding: 2rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .apply-center {
+        margin-top: 1.5rem;
+    }
+
+    .footer-content {
+        padding: 2rem 1rem;
+    }
 }
 
 /* Animation delays for staggered effect */
@@ -662,3 +855,98 @@ footer {
 .product-card:nth-child(2) { animation-delay: 0.2s; }
 .product-card:nth-child(3) { animation-delay: 0.3s; }
 .product-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Custom styles for careers and job application pages */
+
+/* Large emoji icons for culture and job cards */
+.large-icon {
+    font-size: 3rem;
+}
+
+/* Section padding variants */
+.section-padding-large {
+    padding: 5rem 4rem;
+}
+
+.section-padding-bottom {
+    padding: 4rem 4rem 5rem;
+}
+
+/* White background sections */
+.warm-white-bg {
+    background: var(--warm-white);
+}
+
+/* Job filters styling */
+.job-filters {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0 3rem;
+    flex-wrap: wrap;
+}
+
+.filter-group label {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    margin-right: 0.5rem;
+    color: var(--deep-brown);
+}
+
+.filter-group select {
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--wheat);
+    border-radius: 5px;
+    font-family: 'Crimson Text', serif;
+    background: white;
+}
+
+/* Job application form sections */
+.form-section {
+    margin-bottom: 2rem;
+}
+
+.form-section-title {
+    color: var(--burnt-orange);
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.terms-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.terms-label {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.button-center {
+    text-align: center;
+}
+
+/* No jobs message */
+.no-jobs-message {
+    display: none;
+    text-align: center;
+    padding: 3rem;
+    color: var(--deep-brown);
+    font-style: italic;
+}
+
+/* Center container for apply button */
+.apply-center {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* Enhanced CTA button for careers page */
+.cta-button-large {
+    display: inline-block;
+    font-size: 1.1rem;
+    padding: 1rem 2.5rem;
+}
