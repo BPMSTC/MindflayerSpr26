@@ -16,7 +16,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Form submission handler
-document.getElementById('orderForm').addEventListener('submit', function(e) {
+document.getElementById('orderForm')?.addEventListener('submit', function(e) {
     e.preventDefault();
     
     // Show success message
@@ -35,11 +35,40 @@ document.getElementById('orderForm').addEventListener('submit', function(e) {
     }, 10000);
 });
 
+// Job application form submission handler
+document.getElementById('applicationForm')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Show success message
+    const successMessage = document.getElementById('successMessage');
+    successMessage.classList.add('show');
+    
+    // Reset form
+    this.reset();
+    
+    // Scroll to success message
+    successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    
+    // Hide success message after 15 seconds (longer for application)
+    setTimeout(() => {
+        successMessage.classList.remove('show');
+    }, 15000);
+});
+
 // Set minimum date to tomorrow for the date picker
 const dateInput = document.getElementById('date');
+const availabilityInput = document.getElementById('availability');
 const tomorrow = new Date();
 tomorrow.setDate(tomorrow.getDate() + 1);
-dateInput.min = tomorrow.toISOString().split('T')[0];
+const tomorrowString = tomorrow.toISOString().split('T')[0];
+
+if (dateInput) {
+    dateInput.min = tomorrowString;
+}
+
+if (availabilityInput) {
+    availabilityInput.min = tomorrowString;
+}
 
 // Add animation on scroll
 const observerOptions = {
@@ -63,3 +92,45 @@ document.querySelectorAll('.menu-item, .recipe-card').forEach(el => {
     el.style.transition = 'all 0.6s ease-out';
     observer.observe(el);
 });
+
+// Job filtering functionality
+function filterJobs() {
+    const positionFilter = document.getElementById('positionFilter')?.value || '';
+    const locationFilter = document.getElementById('locationFilter')?.value || '';
+    const scheduleFilter = document.getElementById('scheduleFilter')?.value || '';
+    
+    const jobCards = document.querySelectorAll('.job-card');
+    const noJobsMessage = document.getElementById('noJobsMessage');
+    let visibleJobs = 0;
+    
+    jobCards.forEach(card => {
+        const position = card.getAttribute('data-position');
+        const location = card.getAttribute('data-location');
+        const schedule = card.getAttribute('data-schedule');
+        
+        const positionMatch = !positionFilter || position === positionFilter;
+        const locationMatch = !locationFilter || location === locationFilter;
+        const scheduleMatch = !scheduleFilter || schedule === scheduleFilter;
+        
+        if (positionMatch && locationMatch && scheduleMatch) {
+            card.style.display = 'block';
+            visibleJobs++;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+    
+    // Show/hide no jobs message
+    if (noJobsMessage) {
+        if (visibleJobs === 0) {
+            noJobsMessage.style.display = 'block';
+        } else {
+            noJobsMessage.style.display = 'none';
+        }
+    }
+}
+
+// Add event listeners for job filters
+document.getElementById('positionFilter')?.addEventListener('change', filterJobs);
+document.getElementById('locationFilter')?.addEventListener('change', filterJobs);
+document.getElementById('scheduleFilter')?.addEventListener('change', filterJobs);
