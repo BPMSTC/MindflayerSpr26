@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CAD Sprint Bakery">
+    <meta name="author" content="Zachary, Josh, and Triv">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="../js/index.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Crimson+Text:wght@400;600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <title>Hearth & Crust Artisan Bakery</title>
+</head>
+<body>
+    <nav>
+      <div class="container">
+          <div class="logo">Hearth & Crust</div>
+          <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="#menu">Menu</a></li>
+              <li><a href="#customOrders">Custom Orders</a></li>
+              <li><a href="./recipe-blog.html">Recipes</a></li>
+          </ul>
+      </div>
+  </nav>
+
+<!-- Custom Order Section -->
+  <section id="order" class="custom-order">
+      <div class="section-header">
+          <h2>Order Your Custom Cake</h2>
+          <p>Let us create something special for your celebration</p>
+      </div>
+      <div class="order-form-container">
+          <div class="success-message" id="successMessage">
+              🎉 Thank you! Your custom cake order has been received. We'll contact you within 24 hours to confirm the details.
+          </div>
+          <form id="orderForm">
+              <div class="form-row">
+                  <div class="form-group">
+                      <label for="name">Your Name *</label>
+                      <input type="text" id="name" name="name" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="phone">Phone Number *</label>
+                      <input type="tel" id="phone" name="phone" required>
+                  </div>
+              </div>
+
+              <div class="form-group">
+                  <label for="email">Email Address *</label>
+                  <input type="email" id="email" name="email" required>
+              </div>
+
+              <div class="form-row">
+                  <div class="form-group">
+                      <label for="cakeType">Cake Flavor *</label>
+                      <select id="cakeType" name="cakeType" required>
+                          <option value="">Select a flavor</option>
+                          <option value="chocolate">Chocolate Ganache</option>
+                          <option value="vanilla">Vanilla Bean</option>
+                          <option value="red-velvet">Red Velvet</option>
+                          <option value="lemon">Lemon Elderflower</option>
+                          <option value="carrot">Carrot Cake</option>
+                          <option value="marble">Marble</option>
+                          <option value="strawberry">Strawberry</option>
+                          <option value="custom">Custom Flavor</option>
+                      </select>
+                  </div>
+                  <div class="form-group">
+                      <label for="size">Cake Size *</label>
+                      <select id="size" name="size" required>
+                          <option value="">Select size</option>
+                          <option value="6-inch">6" (serves 8-10)</option>
+                          <option value="8-inch">8" (serves 15-20)</option>
+                          <option value="10-inch">10" (serves 25-30)</option>
+                          <option value="12-inch">12" (serves 35-40)</option>
+                          <option value="sheet">Sheet Cake (serves 50+)</option>
+                          <option value="tiered">Multi-tiered</option>
+                      </select>
+                  </div>
+              </div>
+
+              <div class="form-row">
+                  <div class="form-group">
+                      <label for="occasion">Occasion</label>
+                      <select id="occasion" name="occasion">
+                          <option value="">Select occasion</option>
+                          <option value="birthday">Birthday</option>
+                          <option value="wedding">Wedding</option>
+                          <option value="anniversary">Anniversary</option>
+                          <option value="graduation">Graduation</option>
+                          <option value="baby-shower">Baby Shower</option>
+                          <option value="corporate">Corporate Event</option>
+                          <option value="other">Other</option>
+                      </select>
+                  </div>
+                  <div class="form-group">
+                      <label for="date">Pickup/Delivery Date *</label>
+                      <input type="date" id="date" name="date" required>
+                  </div>
+              </div>
+
+              <div class="form-group">
+                  <label for="design">Design Description *</label>
+                  <textarea id="design" name="design" placeholder="Please describe your desired cake design in detail. Include colors, themes, decorations, text for the cake, and any specific design elements you'd like..." required></textarea>
+              </div>
+
+              <div class="form-group">
+                  <label for="dietary">Dietary Requirements or Allergies</label>
+                  <textarea id="dietary" name="dietary" placeholder="Let us know about any dietary restrictions, allergies, or special requirements..."></textarea>
+              </div>
+
+              <div class="form-group">
+                  <label for="additional">Additional Notes</label>
+                  <textarea id="additional" name="additional" placeholder="Any other details we should know?"></textarea>
+              </div>
+
+              <button type="submit" class="submit-button">Submit Order Request</button>
+          </form>
+      </div>
+  </section>
+
+  <footer>
+      <div class="footer-content">
+          <div class="footer-about">
+              <h3>Hearth & Crust</h3>
+              <p>For over 35 years, we've been bringing handcrafted breads, pastries, and cakes to our community. Every item is made with care, using traditional techniques and the finest ingredients. Visit us and taste the difference that passion makes.</p>
+          </div>
+          <div class="footer-section">
+              <h4>Hours</h4>
+              <ul>
+                  <li>Monday - Friday: 7am - 6pm</li>
+                  <li>Saturday: 7am - 7pm</li>
+                  <li>Sunday: 8am - 5pm</li>
+              </ul>
+          </div>
+          <div class="footer-section">
+              <h4>Contact</h4>
+              <ul>
+                  <li>123 Baker Street</li>
+                  <li>Artisan Quarter, CA 94102</li>
+                  <li>Phone: (555) 123-4567</li>
+                  <li>hello@hearthandcrust.com</li>
+              </ul>
+          </div>
+      </div>
+      <div class="footer-bottom">
+          <p>&copy; 2026 Hearth & Crust Artisan Bakery. All rights reserved.</p>
+      </div>
+  </footer>
+
+
+</body>
+</html>
