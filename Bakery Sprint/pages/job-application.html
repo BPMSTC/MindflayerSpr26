@@ -12,278 +12,280 @@
     <title>Job Application - Hearth & Crust Artisan Bakery</title>
 </head>
 <body>
-    <nav>
-        <div class="container">
-            <div class="logo"><a href="../index.html">Hearth & Crust</a></div>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../index.html#menu">Menu</a></li>
-                <li><a href="./special-order.html">Custom Orders</a></li>
-                <li><a href="./recipe-blog.html">Recipes</a></li>
-                <li><a href="./careers.html">Careers</a></li>
-                <li><a href="../index.html#about">About</a></li>
-                <li><a href="../index.html#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <!-- Job Application Section -->
-    <section id="application" class="custom-order">
-        <div class="section-header">
-            <h2>Join Our Team</h2>
-            <p>We'd love to learn more about you and how you can contribute to our bakery family</p>
-        </div>
-        <div class="order-form-container">
-            <div class="success-message" id="successMessage">
-                🎉 Thank you for your interest in joining Hearth & Crust! Your application has been received. We'll review your information and contact you within one week if we'd like to schedule an interview.
-            </div>
-            <form id="applicationForm">
-                <!-- Personal Information -->
-                <div class="form-section">
-                    <h3 class="form-section-title">Personal Information</h3>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName">First Name *</label>
-                            <input type="text" id="firstName" name="firstName" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName">Last Name *</label>
-                            <input type="text" id="lastName" name="lastName" required>
-                        </div>
-                    </div>
+  <!-- Navigation -->
+  <nav>
+      <div class="container">
+          <div class="logo"><a href="../index.html">Hearth & Crust</a></div>
+          <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="./menu.html">Menu</a></li>
+              <li><a href="./special-order.html">Custom Orders</a></li>
+              <li><a href="./recipe-blog.html">Recipes</a></li>
+              <li><a href="./careers.html">Careers</a></li>
+              <li><a href="./about.html">About</a></li>
+              <li><a href="./contact.html">Contact</a></li>
+          </ul>
+      </div>
+  </nav>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                    </div>
+  <!-- Job Application Section -->
+  <section id="application" class="custom-order">
+      <div class="section-header">
+          <h2>Join Our Team</h2>
+          <p>We'd love to learn more about you and how you can contribute to our bakery family</p>
+      </div>
+      <div class="order-form-container">
+          <div class="success-message" id="successMessage">
+              🎉 Thank you for your interest in joining Hearth & Crust! Your application has been received. We'll review your information and contact you within one week if we'd like to schedule an interview.
+          </div>
+          <form id="applicationForm">
+              <!-- Personal Information -->
+              <div class="form-section">
+                  <h3 class="form-section-title">Personal Information</h3>
+                  
+                  <div class="form-row">
+                      <div class="form-group">
+                          <label for="firstName">First Name *</label>
+                          <input type="text" id="firstName" name="firstName" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="lastName">Last Name *</label>
+                          <input type="text" id="lastName" name="lastName" required>
+                      </div>
+                  </div>
 
-                    <div class="form-group">
-                        <label for="address">Address</label>
-                        <input type="text" id="address" name="address" placeholder="Street Address, City, State, ZIP">
-                    </div>
-                </div>
+                  <div class="form-row">
+                      <div class="form-group">
+                          <label for="email">Email Address *</label>
+                          <input type="email" id="email" name="email" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="phone">Phone Number *</label>
+                          <input type="tel" id="phone" name="phone" required>
+                      </div>
+                  </div>
 
-                <!-- Position Interest -->
-                <div class="form-section">
-                    <h3 class="form-section-title">Position of Interest</h3>
-                    
-                    <div class="form-group">
-                        <label for="position">Which position are you applying for? *</label>
-                        <select id="position" name="position" required>
-                            <option value="">Select a position</option>
-                            <option value="apprentice-baker">Apprentice Baker</option>
-                            <option value="pastry-specialist">Pastry Specialist</option>
-                            <option value="part-time-baker">Part-time Baker</option>
-                            <option value="front-house">Front of House Associate</option>
-                            <option value="cafe-associate">Café Associate</option>
-                            <option value="student-associate">Student Associate</option>
-                            <option value="pastry-assistant">Pastry Assistant</option>
-                            <option value="weekend-baker">Weekend Baker</option>
-                            <option value="early-shift-baker">Early Shift Baker</option>
-                            <option value="assistant-manager">Assistant Manager</option>
-                            <option value="general">General Application (No specific position)</option>
-                        </select>
-                    </div>
+                  <div class="form-group">
+                      <label for="address">Address</label>
+                      <input type="text" id="address" name="address" placeholder="Street Address, City, State, ZIP">
+                  </div>
+              </div>
 
-                    <div class="form-group">
-                        <label for="location">Preferred Location *</label>
-                        <select id="location" name="location" required>
-                            <option value="">Select a location</option>
-                            <option value="downtown">Downtown (123 Baker Street)</option>
-                            <option value="westside">West Side (456 Artisan Ave)</option>
-                            <option value="university">University District (789 Campus Blvd)</option>
-                            <option value="any">Any Location</option>
-                        </select>
-                    </div>
+              <!-- Position Interest -->
+              <div class="form-section">
+                  <h3 class="form-section-title">Position of Interest</h3>
+                  
+                  <div class="form-group">
+                      <label for="position">Which position are you applying for? *</label>
+                      <select id="position" name="position" required>
+                          <option value="">Select a position</option>
+                          <option value="apprentice-baker">Apprentice Baker</option>
+                          <option value="pastry-specialist">Pastry Specialist</option>
+                          <option value="part-time-baker">Part-time Baker</option>
+                          <option value="front-house">Front of House Associate</option>
+                          <option value="cafe-associate">Café Associate</option>
+                          <option value="student-associate">Student Associate</option>
+                          <option value="pastry-assistant">Pastry Assistant</option>
+                          <option value="weekend-baker">Weekend Baker</option>
+                          <option value="early-shift-baker">Early Shift Baker</option>
+                          <option value="assistant-manager">Assistant Manager</option>
+                          <option value="general">General Application (No specific position)</option>
+                      </select>
+                  </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="availability">When can you start? *</label>
-                            <input type="date" id="availability" name="availability" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="schedule">Preferred Schedule</label>
-                            <select id="schedule" name="schedule">
-                                <option value="">Select schedule preference</option>
-                                <option value="full-time">Full-time</option>
-                                <option value="part-time">Part-time</option>
-                                <option value="weekends">Weekends only</option>
-                                <option value="flexible">Flexible</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
+                  <div class="form-group">
+                      <label for="location">Preferred Location *</label>
+                      <select id="location" name="location" required>
+                          <option value="">Select a location</option>
+                          <option value="downtown">Downtown (123 Baker Street)</option>
+                          <option value="westside">West Side (456 Artisan Ave)</option>
+                          <option value="university">University District (789 Campus Blvd)</option>
+                          <option value="any">Any Location</option>
+                      </select>
+                  </div>
 
-                <!-- Experience & Skills -->
-                <div class="form-section">
-                    <h3 class="form-section-title">Experience & Skills</h3>
-                    
-                    <div class="form-group">
-                        <label for="experience">Do you have previous baking or food service experience?</label>
-                        <select id="experience" name="experience">
-                            <option value="">Select experience level</option>
-                            <option value="none">No experience</option>
-                            <option value="some">Some experience (less than 1 year)</option>
-                            <option value="moderate">Moderate experience (1-3 years)</option>
-                            <option value="experienced">Experienced (3+ years)</option>
-                            <option value="professional">Professional baker/chef</option>
-                        </select>
-                    </div>
+                  <div class="form-row">
+                      <div class="form-group">
+                          <label for="availability">When can you start? *</label>
+                          <input type="date" id="availability" name="availability" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="schedule">Preferred Schedule</label>
+                          <select id="schedule" name="schedule">
+                              <option value="">Select schedule preference</option>
+                              <option value="full-time">Full-time</option>
+                              <option value="part-time">Part-time</option>
+                              <option value="weekends">Weekends only</option>
+                              <option value="flexible">Flexible</option>
+                          </select>
+                      </div>
+                  </div>
+              </div>
 
-                    <div class="form-group">
-                        <label for="skills">What baking or food service skills do you have?</label>
-                        <textarea id="skills" name="skills" rows="4" 
-                                placeholder="Tell us about any relevant skills: bread making, pastry work, customer service, cash handling, etc."></textarea>
-                    </div>
+              <!-- Experience & Skills -->
+              <div class="form-section">
+                  <h3 class="form-section-title">Experience & Skills</h3>
+                  
+                  <div class="form-group">
+                      <label for="experience">Do you have previous baking or food service experience?</label>
+                      <select id="experience" name="experience">
+                          <option value="">Select experience level</option>
+                          <option value="none">No experience</option>
+                          <option value="some">Some experience (less than 1 year)</option>
+                          <option value="moderate">Moderate experience (1-3 years)</option>
+                          <option value="experienced">Experienced (3+ years)</option>
+                          <option value="professional">Professional baker/chef</option>
+                      </select>
+                  </div>
 
-                    <div class="form-group">
-                        <label for="workHistory">Brief work history (most recent 2-3 jobs)</label>
-                        <textarea id="workHistory" name="workHistory" rows="4" 
-                                placeholder="Include company name, position, dates worked, and key responsibilities."></textarea>
-                    </div>
-                </div>
+                  <div class="form-group">
+                      <label for="skills">What baking or food service skills do you have?</label>
+                      <textarea id="skills" name="skills" rows="4" 
+                              placeholder="Tell us about any relevant skills: bread making, pastry work, customer service, cash handling, etc."></textarea>
+                  </div>
 
-                <!-- Motivations & Fit -->
-                <div class="form-section">
-                    <h3 class="form-section-title">Tell Us About You</h3>
-                    
-                    <div class="form-group">
-                        <label for="motivation">Why do you want to work at Hearth & Crust? *</label>
-                        <textarea id="motivation" name="motivation" rows="4" required
-                                placeholder="What attracts you to our bakery? What are you hoping to gain from this position?"></textarea>
-                    </div>
+                  <div class="form-group">
+                      <label for="workHistory">Brief work history (most recent 2-3 jobs)</label>
+                      <textarea id="workHistory" name="workHistory" rows="4" 
+                              placeholder="Include company name, position, dates worked, and key responsibilities."></textarea>
+                  </div>
+              </div>
 
-                    <div class="form-group">
-                        <label for="qualities">What qualities would you bring to our team?</label>
-                        <textarea id="qualities" name="qualities" rows="3" 
-                                placeholder="Describe your work style, strengths, and what makes you a good team member."></textarea>
-                    </div>
+              <!-- Motivations & Fit -->
+              <div class="form-section">
+                  <h3 class="form-section-title">Tell Us About You</h3>
+                  
+                  <div class="form-group">
+                      <label for="motivation">Why do you want to work at Hearth & Crust? *</label>
+                      <textarea id="motivation" name="motivation" rows="4" required
+                              placeholder="What attracts you to our bakery? What are you hoping to gain from this position?"></textarea>
+                  </div>
 
-                    <div class="form-group">
-                        <label for="earlyMorning">Are you comfortable with early morning shifts (starting as early as 4 AM)?</label>
-                        <select id="earlyMorning" name="earlyMorning">
-                            <option value="">Select your comfort level</option>
-                            <option value="yes">Yes, I prefer early shifts</option>
-                            <option value="ok">Yes, I can handle early shifts</option>
-                            <option value="prefer-not">I'd prefer later shifts if possible</option>
-                            <option value="no">No, early mornings are difficult for me</option>
-                        </select>
-                    </div>
-                </div>
+                  <div class="form-group">
+                      <label for="qualities">What qualities would you bring to our team?</label>
+                      <textarea id="qualities" name="qualities" rows="3" 
+                              placeholder="Describe your work style, strengths, and what makes you a good team member."></textarea>
+                  </div>
 
-                <!-- Additional Information -->
-                <div class="form-section">
-                    <h3 class="form-section-title">Additional Information</h3>
-                    
-                    <div class="form-group">
-                        <label for="references">References (Name, relationship, phone/email)</label>
-                        <textarea id="references" name="references" rows="3" 
-                                placeholder="Please provide 2-3 references who can speak to your work ethic and character."></textarea>
-                    </div>
+                  <div class="form-group">
+                      <label for="earlyMorning">Are you comfortable with early morning shifts (starting as early as 4 AM)?</label>
+                      <select id="earlyMorning" name="earlyMorning">
+                          <option value="">Select your comfort level</option>
+                          <option value="yes">Yes, I prefer early shifts</option>
+                          <option value="ok">Yes, I can handle early shifts</option>
+                          <option value="prefer-not">I'd prefer later shifts if possible</option>
+                          <option value="no">No, early mornings are difficult for me</option>
+                      </select>
+                  </div>
+              </div>
 
-                    <div class="form-group">
-                        <label for="questions">Do you have any questions for us?</label>
-                        <textarea id="questions" name="questions" rows="3" 
-                                placeholder="Any questions about the position, schedule, or our bakery?"></textarea>
-                    </div>
+              <!-- Additional Information -->
+              <div class="form-section">
+                  <h3 class="form-section-title">Additional Information</h3>
+                  
+                  <div class="form-group">
+                      <label for="references">References (Name, relationship, phone/email)</label>
+                      <textarea id="references" name="references" rows="3" 
+                              placeholder="Please provide 2-3 references who can speak to your work ethic and character."></textarea>
+                  </div>
 
-                    <div class="form-group">
-                        <label for="additionalInfo">Anything else you'd like us to know?</label>
-                        <textarea id="additionalInfo" name="additionalInfo" rows="3" 
-                                placeholder="Share anything else that might help us get to know you better."></textarea>
-                    </div>
-                </div>
+                  <div class="form-group">
+                      <label for="questions">Do you have any questions for us?</label>
+                      <textarea id="questions" name="questions" rows="3" 
+                              placeholder="Any questions about the position, schedule, or our bakery?"></textarea>
+                  </div>
 
-                <div class="form-group">
-                    <div class="terms-container">
-                        <input type="checkbox" id="terms" name="terms" required>
-                        <label for="terms" class="terms-label">
-                            I understand that this is an application for employment and that no promise of employment is made. I certify that the information provided is true and complete. I authorize Hearth & Crust to verify my information and contact references. *
-                        </label>
-                    </div>
-                </div>
+                  <div class="form-group">
+                      <label for="additionalInfo">Anything else you'd like us to know?</label>
+                      <textarea id="additionalInfo" name="additionalInfo" rows="3" 
+                              placeholder="Share anything else that might help us get to know you better."></textarea>
+                  </div>
+              </div>
 
-                <div class="button-center">
-                    <button type="submit" class="cta-button">Submit Application</button>
-                </div>
-            </form>
-        </div>
-    </section>
+              <div class="form-group">
+                  <div class="terms-container">
+                      <input type="checkbox" id="terms" name="terms" required>
+                      <label for="terms" class="terms-label">
+                          I understand that this is an application for employment and that no promise of employment is made. I certify that the information provided is true and complete. I authorize Hearth & Crust to verify my information and contact references. *
+                      </label>
+                  </div>
+              </div>
 
-    <!-- Call to Action -->
-    <section class="best-sellers warm-white-bg section-padding-bottom">
-        <div class="section-header">
-            <h2>What Happens Next?</h2>
-            <p>Here's what you can expect after submitting your application</p>
-        </div>
-        <div class="products-grid">
-            <div class="product-card">
-                <div class="product-image large-icon">📋</div>
-                <div class="product-info">
-                    <h3>Application Review</h3>
-                    <p>We'll carefully review your application within 3-5 business days, considering your experience, availability, and fit with our team culture.</p>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-image large-icon">☎️</div>
-                <div class="product-info">
-                    <h3>Initial Contact</h3>
-                    <p>If we feel you'd be a good fit, we'll call you within one week to discuss the position and schedule a time to meet in person.</p>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-image large-icon">🤝</div>
-                <div class="product-info">
-                    <h3>Meet the Team</h3>
-                    <p>Come visit our bakery for an informal interview. You'll meet your potential teammates and see our workspace firsthand.</p>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-image large-icon">🌟</div>
-                <div class="product-info">
-                    <h3>Welcome Aboard</h3>
-                    <p>If we're a mutual match, we'll welcome you to the Hearth & Crust family with comprehensive training and mentorship.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+              <div class="button-center">
+                  <button type="submit" class="cta-button">Submit Application</button>
+              </div>
+          </form>
+      </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-about">
-                <h3>Hearth & Crust</h3>
-                <p>For over 35 years, we've been bringing handcrafted breads, pastries, and cakes to our community. Every item is made with care, using traditional techniques and the finest ingredients. Visit us and taste the difference that passion makes.</p>
-            </div>
-            <div class="footer-section">
-                <h4>Hours</h4>
-                <ul>
-                    <li>Monday - Friday: 7am - 6pm</li>
-                    <li>Saturday: 7am - 7pm</li>
-                    <li>Sunday: 8am - 5pm</li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Contact</h4>
-                <ul>
-                    <li>123 Baker Street</li>
-                    <li>Artisan Quarter, CA 94102</li>
-                    <li>Phone: (555) 123-4567</li>
-                    <li>hello@hearthandcrust.com</li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Hearth & Crust Artisan Bakery. All rights reserved.</p>
-        </div>
-    </footer>
+  <!-- Call to Action -->
+  <section class="best-sellers warm-white-bg section-padding-bottom">
+      <div class="section-header">
+          <h2>What Happens Next?</h2>
+          <p>Here's what you can expect after submitting your application</p>
+      </div>
+      <div class="products-grid">
+          <div class="product-card">
+              <div class="product-image large-icon">📋</div>
+              <div class="product-info">
+                  <h3>Application Review</h3>
+                  <p>We'll carefully review your application within 3-5 business days, considering your experience, availability, and fit with our team culture.</p>
+              </div>
+          </div>
+          <div class="product-card">
+              <div class="product-image large-icon">☎️</div>
+              <div class="product-info">
+                  <h3>Initial Contact</h3>
+                  <p>If we feel you'd be a good fit, we'll call you within one week to discuss the position and schedule a time to meet in person.</p>
+              </div>
+          </div>
+          <div class="product-card">
+              <div class="product-image large-icon">🤝</div>
+              <div class="product-info">
+                  <h3>Meet the Team</h3>
+                  <p>Come visit our bakery for an informal interview. You'll meet your potential teammates and see our workspace firsthand.</p>
+              </div>
+          </div>
+          <div class="product-card">
+              <div class="product-image large-icon">🌟</div>
+              <div class="product-info">
+                  <h3>Welcome Aboard</h3>
+                  <p>If we're a mutual match, we'll welcome you to the Hearth & Crust family with comprehensive training and mentorship.</p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+      <div class="footer-content">
+          <div class="footer-about">
+              <h3>Hearth & Crust</h3>
+              <p>For over 35 years, we've been bringing handcrafted breads, pastries, and cakes to our community. Every item is made with care, using traditional techniques and the finest ingredients. Visit us and taste the difference that passion makes.</p>
+          </div>
+          <div class="footer-section">
+              <h4>Hours</h4>
+              <ul>
+                  <li>Monday - Friday: 7am - 6pm</li>
+                  <li>Saturday: 7am - 7pm</li>
+                  <li>Sunday: 8am - 5pm</li>
+              </ul>
+          </div>
+          <div class="footer-section">
+              <h4>Contact</h4>
+              <ul>
+                  <li>123 Baker Street</li>
+                  <li>Artisan Quarter, CA 94102</li>
+                  <li>Phone: (555) 123-4567</li>
+                  <li>hello@hearthandcrust.com</li>
+              </ul>
+          </div>
+      </div>
+      <div class="footer-bottom">
+          <p>&copy; 2026 Hearth & Crust Artisan Bakery. All rights reserved.</p>
+      </div>
+  </footer>
 
 </body>
 </html>
