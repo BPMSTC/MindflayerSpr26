@@ -1,2 +1,5 @@
 # IDE Files
 .vscode/
+
+# AI Agents
+.claude

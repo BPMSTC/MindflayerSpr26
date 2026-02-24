@@ -94,31 +94,45 @@ document.querySelectorAll('.menu-item, .recipe-card').forEach(el => {
 });
 
 // Job filtering functionality
+let currentPositionFilter = '';
+let currentScheduleFilter = '';
+
 function filterJobs() {
-    const positionFilter = document.getElementById('positionFilter')?.value || '';
-    const locationFilter = document.getElementById('locationFilter')?.value || '';
-    const scheduleFilter = document.getElementById('scheduleFilter')?.value || '';
+    const positionFilter = currentPositionFilter;
+    const scheduleFilter = currentScheduleFilter;
     
     const jobCards = document.querySelectorAll('.job-card');
+    const jobContainer = document.getElementById('jobListings');
     const noJobsMessage = document.getElementById('noJobsMessage');
     let visibleJobs = 0;
     
+    // First pass: determine which jobs match
+    const matchingCards = [];
     jobCards.forEach(card => {
         const position = card.getAttribute('data-position');
-        const location = card.getAttribute('data-location');
         const schedule = card.getAttribute('data-schedule');
         
         const positionMatch = !positionFilter || position === positionFilter;
-        const locationMatch = !locationFilter || location === locationFilter;
         const scheduleMatch = !scheduleFilter || schedule === scheduleFilter;
         
-        if (positionMatch && locationMatch && scheduleMatch) {
-            card.style.display = 'block';
+        if (positionMatch && scheduleMatch) {
+            matchingCards.push(card.parentElement); // Get the column wrapper
             visibleJobs++;
-        } else {
-            card.style.display = 'none';
         }
     });
+    
+    // Clear the container and re-add only matching cards
+    if (jobContainer) {
+        // Hide all cards first
+        jobCards.forEach(card => {
+            card.parentElement.style.display = 'none';
+        });
+        
+        // Show matching cards
+        matchingCards.forEach(cardColumn => {
+            cardColumn.style.display = 'block';
+        });
+    }
     
     // Show/hide no jobs message
     if (noJobsMessage) {
@@ -130,7 +144,46 @@ function filterJobs() {
     }
 }
 
-// Add event listeners for job filters
-document.getElementById('positionFilter')?.addEventListener('change', filterJobs);
-document.getElementById('locationFilter')?.addEventListener('change', filterJobs);
-document.getElementById('scheduleFilter')?.addEventListener('change', filterJobs);
+// Add event listeners for job filter dropdowns
+document.addEventListener('DOMContentLoaded', function() {
+    // Position filter dropdown listeners
+    document.querySelectorAll('.position-filter').forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            const value = this.getAttribute('data-value');
+            const text = this.textContent;
+            
+            currentPositionFilter = value;
+            
+            // Update display text in button
+            const positionText = document.getElementById('positionText');
+            if (positionText) {
+                positionText.textContent = text;
+            }
+            
+            filterJobs();
+        });
+    });
+    
+    // Schedule filter dropdown listeners
+    document.querySelectorAll('.schedule-filter').forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            const value = this.getAttribute('data-value');
+            const text = this.textContent;
+            
+            currentScheduleFilter = value;
+            
+            // Update display text in button
+            const scheduleText = document.getElementById('scheduleText');
+            if (scheduleText) {
+                scheduleText.textContent = text;
+            }
+            
+            filterJobs();
+        });
+    });
+    
+    // Initial filter call
+    filterJobs();
+});
