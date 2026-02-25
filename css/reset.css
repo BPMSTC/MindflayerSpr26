@@ -19,11 +19,10 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: arial;
+	font-family: Arial, sans-serif;
 	vertical-align: middle;
   letter-spacing: 1px;
 }
-/* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
