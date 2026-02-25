@@ -14,6 +14,11 @@
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 body {
     font-family: 'Crimson Text', serif;
     background: var(--cream);
