@@ -1,0 +1,47 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #2a2a2a;
+  color: #FEFEFE;
+}
+
+.card {
+  background-color: #3a3a3a;
+  border-color: #D3A555;
+}
+
+.card-header {
+  background-color: #BCA591;
+  color: #FEFEFE;
+}
+
+.card-footer {
+  background-color: #3a3a3a;
+  border-top-color: #D3A555;
+}
+
+.form-control, .form-select {
+  background-color: #4a4a4a;
+  border-color: #BCA591;
+  color: #FEFEFE;
+}
+
+.form-control:focus, .form-select:focus {
+  background-color: #4a4a4a;
+  border-color: #D3A555;
+  color: #FEFEFE;
+  box-shadow: 0 0 0 0.25rem rgba(211, 165, 85, 0.25);
+}
+
+.form-label {
+  color: #BCA591;
+}
+
+a {
+  color: #D3A555;
+}
+
+a:hover {
+  color: #e8c17a;
+}

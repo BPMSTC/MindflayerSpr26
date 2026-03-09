@@ -3,3 +3,19 @@
 
 # AI Agents
 .claude
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+api/dist/
+
+# Environment
+.env
+
+# MongoDB data
+mongo/db/
+
+# OS files
+.DS_Store
