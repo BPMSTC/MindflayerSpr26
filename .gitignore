@@ -1,18 +1,14 @@
-# IDE Files
-.vscode/
-
 # Dependencies
 node_modules/
 
 # Build output
 dist/
-api/dist/
 
-# Environment
-.env
-
-# MongoDB data
-mongo/db/
+# IDE files
+.vscode/
+.vs/
+.idea/
 
 # OS files
 .DS_Store
+Thumbs.db
