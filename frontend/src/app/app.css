@@ -1,0 +1,164 @@
+/* Styles for the hero section on the homepage */
+
+.hero-image {
+  background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.45)), url(/hero_image.png);
+  background-size: cover;
+  background-position: center;
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: #fbff14 solid 2px;
+  border-bottom: #fbff14 solid 2px;
+}
+
+.hero-text {
+  text-align: center;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-text h1 {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.hero-text p {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.hero-text button {
+  background-color: #555;
+  color: #fff;
+  border: none;
+  padding: .75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition-duration: .3s;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-text button:hover {
+  background-color: #fbff14;
+  color: #000;
+}
+
+/* Styles for the gameplay section on the homepage */
+.background {
+  width: 100%;
+  height: 100%;
+  --color: #fbff1442;
+  background-color: #79797900;
+  background-image: linear-gradient(
+      0deg,
+      transparent 24%,
+      var(--color) 25%,
+      var(--color) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--color) 75%,
+      var(--color) 76%,
+      transparent 77%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%,
+      var(--color) 25%,
+      var(--color) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--color) 75%,
+      var(--color) 76%,
+      transparent 77%,
+      transparent
+    );
+  background-size: 55px 55px;
+}
+
+.gameplay {
+  justify-content: space-around;
+  padding: 2rem;
+  border-bottom: #fbff14 solid 2px;
+}
+
+.gameplay h2 {
+  font-size: 1.75rem;
+  margin: 1rem;
+}
+
+.gameplay p {
+  font-size: 1rem;
+  margin: 1rem;
+  font-weight: bold;
+}
+
+.gameplay-card {
+  width: fit-content;
+  border-radius: 20px;
+  padding: .15rem;
+  box-shadow: #000 0px 4px 8px, #000 0px 15px 30px -5px;
+  background-image: linear-gradient(144deg, #fbff14, #fdff97 50%, #fbff14);
+}
+
+.gameplay-content {
+  background:#000;
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  padding: .5rem 1rem .25rem 1rem;
+}
+
+.gameplay-title-card {
+  width: 50%;
+  border-radius: 20px;
+  padding: .15rem;
+  box-shadow: #000 0px 4px 8px, #000 0px 15px 30px -5px;
+  background-image: linear-gradient(144deg, #555 50%, #2e2e2e, #555);
+  margin-top: 1.5rem;
+}
+
+.gameplay-title-content {
+  background:#000;
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  padding: .5rem 1rem .25rem 1rem;
+}
+
+.gameplay-choice-card {
+  width: 50%;
+  border-radius: 20px;
+  padding: .15rem;
+  box-shadow: #000 0px 4px 8px, #000 0px 15px 30px -5px;
+  background-image: linear-gradient(144deg, #555, #2e2e2e 50%, #555);
+  margin-top: 1.5rem;
+}
+
+.gameplay-choice-content {
+  background:#000;
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  padding: .5rem 1rem .25rem 1rem;
+}
+
+.gameplay-discover-card {
+  width: 50%;
+  border-radius: 20px;
+  padding: .15rem;
+  box-shadow: #000 0px 4px 8px, #000 0px 15px 30px -5px;
+  background-image: linear-gradient(144deg, #555, #2e2e2e, #555 50%);
+  margin-top: 1.5rem;
+}
+
+.gameplay-discover-content {
+  background:#000;
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  padding: .5rem 1rem .25rem 1rem;
+}

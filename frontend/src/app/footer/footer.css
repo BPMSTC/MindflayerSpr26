@@ -1,0 +1,38 @@
+/* Styles for the footer component */
+
+/* Styles for the footer nav component */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  padding: 7.5rem 10rem;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.footer nav {
+  display: flex;
+  list-style: none;
+}
+
+.footer nav li {
+  margin: 0 .5rem;
+}
+
+.footer-brand {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: .0 1rem 0 .75rem;
+}
+
+/* Add some spacing between the navigation links and the sign-in button */
+.example-spacer {
+flex: 1 1 auto;
+}
+
+/* Adjust the image size and add some styling */
+img {
+  height: 3.5rem;
+  border-radius: 4px;
+}
