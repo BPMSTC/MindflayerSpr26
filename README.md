@@ -31,7 +31,7 @@ frontend/
 │   ├── app.config.ts # App configuration
 │   └── app.routes.ts # Route definitions
 ├── src/styles.css    # Global theme styles
-├── public/           # Static assets (images, icons)
+├── images/           # Static assets (images, icons)
 ├── angular.json      # Angular CLI config
 └── package.json      # Dependencies
 ```
