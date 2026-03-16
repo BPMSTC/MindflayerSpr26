@@ -1,0 +1,64 @@
+/* Styles for the header component */
+
+/* Styles for the header nav component */
+.navbar {
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.navbar nav {
+  display: flex;
+  list-style: none;
+}
+
+.navbar nav li {
+  margin: 0 1rem;
+} 
+
+.navbar nav li a {
+  color: #fff;
+  text-decoration: none;
+  transition-duration: .3s;
+}
+
+.navbar nav li a:hover {
+  color: #fbff14;
+}
+
+/* Title of the application */
+.navbar-brand { 
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: .0 1rem 0 .75rem;
+}
+
+/* Adjust the image size and add some styling */
+img {
+  height: 2.5rem;
+  border-radius: 4px 4px 4px 4px;
+}
+
+/* Style the sign-in button */
+button {
+  background-color: #555;
+  color: #fff;
+  border: none;
+  padding: .5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition-duration: .3s;
+}
+
+button:hover {
+  background-color: #fbff14;
+  color: #000;
+}
+
+/* Add some spacing between the navigation links and the sign-in button */
+.example-spacer {
+  flex: 1 1 auto;
+}
