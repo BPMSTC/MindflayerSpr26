@@ -87,10 +87,11 @@
 .instructions {
   max-width: 800px; /* Maximum width to keep text readable */
   margin: 0 auto 3rem auto; /* Center horizontally with bottom margin */
-  background-color: rgba(211, 165, 85, 0.1); /* Semi-transparent background */
+  background: linear-gradient(135deg, #BCA591, #D3A555); /* Gradient background matching catmon cards */
   padding: 1.5rem; /* Padding inside container */
-  border-radius: 10px; /* Rounded corners */
-  border: 2px solid #D3A555; /* Border using primary color */
+  border-radius: 15px; /* Rounded corners matching catmon cards */
+  border: 3px solid #FEFEFE; /* White border matching catmon cards */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Drop shadow matching catmon cards */
 }
 
 /* Instructions text */
