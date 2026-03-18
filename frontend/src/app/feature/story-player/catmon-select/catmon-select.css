@@ -179,8 +179,6 @@
 /* Active button styles (for when buttons are enabled) */
 .select-button:not(:disabled) {
   cursor: pointer; /* Show pointer cursor */
-  background-color: #FEFEFE; /* Solid background */
-  color: #D3A555; /* Primary color text */
 }
 
 /* Hover effect for active buttons */

@@ -1,0 +1,180 @@
+<!-- ===================== STAGE 1: NarMon Intro ===================== -->
+<div *ngIf="stage === 1">
+  <!-- Hero section with NarMon background -->
+  <div class="hero-image narmon-hero">
+    <div class="hero-text">
+      <h1>{{ narmon.name }}</h1>
+      <p>A new adventure begins...</p>
+    </div>
+  </div>
+
+  <!-- Main content area -->
+  <div class="background">
+    <div class="adventure-content">
+      <!-- NarMon profile card -->
+      <div class="catmon-profile">
+        <img [src]="narmon.image" [alt]="narmon.name" class="catmon-image">
+        <h2>{{ narmon.name }}</h2>
+        <p class="catmon-description">{{ narmon.description }}</p>
+      </div>
+
+      <!-- Choice section -->
+      <div class="choice-section">
+        <h3>What will NarMon do?</h3>
+        <div class="choice-grid">
+          <!-- Correct choice -->
+          <div class="choice-card" (click)="choose(1)">
+            <div class="choice-card-content">
+              <h4>Train in the Hidden Valley</h4>
+              <p>NarMon senses a deep power within and seeks the legendary Hidden Valley to unlock its true potential through rigorous training.</p>
+              <button class="select-button">Choose this path</button>
+            </div>
+          </div>
+          <!-- Wrong choice -->
+          <div class="choice-card" (click)="choose(2)">
+            <div class="choice-card-content">
+              <h4>Challenge the Shadow Beast alone</h4>
+              <p>NarMon rushes headfirst into battle against the fearsome Shadow Beast without preparing, relying on raw courage alone.</p>
+              <button class="select-button">Choose this path</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="navigation">
+        <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== STAGE 2: NarMon Defeated ===================== -->
+<div *ngIf="stage === 2">
+  <div class="hero-image defeat-hero">
+    <div class="hero-text">
+      <h1>NarMon was Defeated!</h1>
+      <p>The Shadow Beast was too powerful...</p>
+    </div>
+  </div>
+
+  <div class="background">
+    <div class="adventure-content">
+      <div class="outcome-card defeat-card">
+        <img [src]="narmon.image" [alt]="narmon.name" class="catmon-image defeated">
+        <h2>Defeat</h2>
+        <p class="catmon-description">NarMon charged bravely into battle against the Shadow Beast, but without proper training, the odds were insurmountable. The Shadow Beast's dark energy overwhelmed NarMon, leaving it unable to continue. Sometimes courage alone isn't enough — a true warrior knows when to prepare.</p>
+      </div>
+
+      <div class="navigation">
+        <button (click)="restart()" class="back-button">Try Again</button>
+        <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== STAGE 3: RutoMon Evolution ===================== -->
+<div *ngIf="stage === 3">
+  <div class="hero-image rutomon-hero">
+    <div class="hero-text">
+      <h1>NarMon evolved into RutoMon!</h1>
+      <p>A new power has been unleashed!</p>
+    </div>
+  </div>
+
+  <div class="background">
+    <div class="adventure-content">
+      <!-- RutoMon profile card -->
+      <div class="catmon-profile evolution-glow">
+        <img [src]="rutomon.image" [alt]="rutomon.name" class="catmon-image">
+        <h2>{{ rutomon.name }}</h2>
+        <p class="catmon-description">{{ rutomon.description }}</p>
+      </div>
+
+      <!-- Choice section -->
+      <div class="choice-section">
+        <h3>What will RutoMon do?</h3>
+        <div class="choice-grid">
+          <!-- Correct choice -->
+          <div class="choice-card" (click)="choose(1)">
+            <div class="choice-card-content">
+              <h4>Embrace the Nine-Tail Spirit</h4>
+              <p>RutoMon feels an ancient presence calling from within. By meditating at the Spirit Shrine, RutoMon can merge with the legendary Nine-Tail Spirit and achieve its final form.</p>
+              <button class="select-button">Choose this path</button>
+            </div>
+          </div>
+          <!-- Wrong choice -->
+          <div class="choice-card" (click)="choose(2)">
+            <div class="choice-card-content">
+              <h4>Reject the power and fight alone</h4>
+              <p>RutoMon refuses the mysterious energy, believing its own strength is enough. It heads straight to confront the Dark Lord without unlocking its full potential.</p>
+              <button class="select-button">Choose this path</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="navigation">
+        <button (click)="restart()" class="back-button">← Restart Adventure</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== STAGE 4: RutoMon Defeated ===================== -->
+<div *ngIf="stage === 4">
+  <div class="hero-image defeat-hero">
+    <div class="hero-text">
+      <h1>RutoMon was Defeated!</h1>
+      <p>The Dark Lord proved too powerful...</p>
+    </div>
+  </div>
+
+  <div class="background">
+    <div class="adventure-content">
+      <div class="outcome-card defeat-card">
+        <img [src]="rutomon.image" [alt]="rutomon.name" class="catmon-image defeated">
+        <h2>Defeat</h2>
+        <p class="catmon-description">RutoMon's pride led to its downfall. Without embracing its full potential, the Dark Lord's overwhelming power crushed RutoMon's resistance. The ancient Nine-Tail Spirit faded away, and with it, the chance of becoming something truly legendary. True strength comes from accepting help when it's offered.</p>
+      </div>
+
+      <div class="navigation">
+        <button (click)="restart()" class="back-button">Try Again</button>
+        <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== STAGE 5: KuramaMon Final Evolution ===================== -->
+<div *ngIf="stage === 5">
+  <div class="hero-image kuramamon-hero">
+    <div class="hero-text">
+      <h1>RutoMon evolved into KuramaMon!</h1>
+      <p>The ultimate evolution has been achieved!</p>
+    </div>
+  </div>
+
+  <div class="background">
+    <div class="adventure-content">
+      <!-- KuramaMon profile card -->
+      <div class="catmon-profile final-evolution-glow">
+        <img [src]="kuramamon.image" [alt]="kuramamon.name" class="catmon-image">
+        <h2>{{ kuramamon.name }}</h2>
+        <p class="catmon-description">{{ kuramamon.description }}</p>
+      </div>
+
+      <!-- Victory message -->
+      <div class="victory-card">
+        <h3>Victory!</h3>
+        <p>You guided NarMon through every challenge, making the right choices at every turn. From a clever feline to the legendary KuramaMon — the journey is complete. You are a true CatMon master!</p>
+      </div>
+
+      <div class="navigation">
+        <button (click)="restart()" class="back-button">Play Again</button>
+        <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
+      </div>
+    </div>
+  </div>
+</div>

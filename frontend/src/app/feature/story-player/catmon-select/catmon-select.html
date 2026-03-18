@@ -29,8 +29,9 @@
           <h3>{{ catmon.name }}</h3>
           <!-- Dynamic description using catmon.description property -->
           <p>{{ catmon.description }}</p>
-          <!-- Placeholder button (disabled for now, will be linked later) -->
-          <button class="select-button" disabled>Choose {{ catmon.name }}</button>
+          <!-- NarMon links to adventure, others are disabled -->
+          <button *ngIf="catmon.name === 'NarMon'" class="select-button" routerLink="/narmon-adventure">Choose {{ catmon.name }}</button>
+          <button *ngIf="catmon.name !== 'NarMon'" class="select-button" disabled>Choose {{ catmon.name }}</button>
         </div>
       </div>
     </div>
