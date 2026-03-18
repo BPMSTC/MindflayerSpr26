@@ -1,7 +1,7 @@
 /* === HERO SECTION STYLES === */
 /* Main hero section with background image and overlay */
 .hero-image {
-  background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.45)), url('hero_image.png');
+  background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.45)), url('/MindflayerSpr26/hero_image.png');
   background-size: cover; /* Ensures image covers entire area */
   background-position: center; /* Centers the background image */
   height: 600px; /* Fixed height for hero section */
