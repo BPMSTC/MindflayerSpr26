@@ -6,7 +6,7 @@
 .narmon-hero { background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.45)),url(/Catmon/NarMon.png); }
 .rutomon-hero { background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.45)),url(/Catmon/RutoMon.png); }
 .kuramamon-hero { background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.45)),url(/Catmon/KuramaMon.png); }
-.defeat-hero { background-image: linear-gradient(rgba(80,0,0,.6),rgba(80,0,0,.5)),url(/hero_image.png); }
+.defeat-hero { background-image: linear-gradient(rgba(80,0,0,.6),rgba(80,0,0,.5)),url('hero_image.png'); }
 .hero-text { text-align: center; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,.5); }
 .hero-text h1 { font-size: 4rem; margin-bottom: 1rem; font-weight: bold; }
 .hero-text p { font-size: 1.5rem; margin-bottom: 1rem; font-weight: bold; }
