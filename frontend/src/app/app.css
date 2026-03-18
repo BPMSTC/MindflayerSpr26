@@ -1,7 +1,7 @@
 /* Styles for the hero section on the homepage */
 
 .hero-image {
-  background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.45)), url(/hero_image.png);
+  background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.45)), url(../../images/hero_image.png);
   background-size: cover;
   background-position: center;
   height: 800px;
