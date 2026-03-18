@@ -3,7 +3,7 @@
 /* === HERO SECTION STYLES === */
 .hero-image {
   /* Background image with dark overlay for text readability */
-  background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.45)), url(/hero_image.png);
+  background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.45)), url('hero_image.png');
   background-size: cover; /* Scale image to cover entire container */
   background-position: center; /* Center the background image */
   height: 800px; /* Fixed height for hero section */
