@@ -1,55 +1,14 @@
+<!-- Main application template -->
+<!-- Header component - contains navigation, logo, etc. -->
 <app-header></app-header>
 
+<!-- Main content area -->
 <main>
+  <!-- Router outlet - this is where different page components will be displayed -->
+  <!-- When user navigates to '/', HomeComponent content appears here -->
+  <!-- When user navigates to '/catmon-select', CatmonSelectComponent content appears here -->
   <router-outlet></router-outlet>
 </main>
 
-<div class="hero-image">
-  <div class="hero-text">
-    <h1>Welcome to {{ title }}</h1>
-    <p> A text-based choose your own adventure with a feline twist! </p>
-    <button routerLink="/play">PLAY ONLINE FREE</button>
-  </div>
-</div>
-
-<div class="background">
-  <div class="gameplay">
-    <div class="gameplay-card">
-      <div class="gameplay-content">
-        <h5>GAMEPLAY</h5>
-      </div>
-    </div>
-
-    <div class="gameplay-title-card">
-      <div class="gameplay-title-content">
-        <h2>What is CatMon?</h2>
-        <p>CatMon is a text-based choose your own adventure game with monster-taming elements where your decisions shape your journey.</p>
-      </div>
-    </div>
-
-    <div class="gameplay-choice-card">
-      <div class="gameplay-choice-content">
-        <h2>What will you choose?</h2>
-        <p>
-          Pick your CatMon, pick a path, and shape your destiny in this immersive text-based adventure!
-          You can decide on what your character will do. 
-          Will you explore the world, battle other trainers, or focus on collecting and training your CatMon? 
-          The choice is yours!
-        </p>
-      </div>
-    </div>
-
-    <div class="gameplay-discover-card">
-      <div class="gameplay-discover-content">
-        <h2>What will you discover?</h2>
-        <p>Embark on a quest to unravel the mysteries of the CatMon world, collecting a diverse array of CatMon to become the ultimate CatMon master. 
-          Along the way, you'll encounter various challenges and make choices that will determine your fate. </p>
-      </div>
-    </div>
-
-    <!-- <p>Will you become the ultimate CatMon master?</p> -->
-
-  </div>
-</div>
-
+<!-- Footer component - contains footer links, copyright, etc. -->
 <app-footer></app-footer>

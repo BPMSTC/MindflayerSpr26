@@ -1,0 +1,184 @@
+/* === HOME PAGE STYLES === */
+
+/* === HERO SECTION STYLES === */
+.hero-image {
+  /* Background image with dark overlay for text readability */
+  background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.45)), url(/hero_image.png);
+  background-size: cover; /* Scale image to cover entire container */
+  background-position: center; /* Center the background image */
+  height: 800px; /* Fixed height for hero section */
+  display: flex; /* Flexbox for centering content */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  border-top: #fbff14 solid 2px; /* Yellow border at top */
+  border-bottom: #fbff14 solid 2px; /* Yellow border at bottom */
+}
+
+/* Container for hero text content */
+.hero-text {
+  text-align: center; /* Center align all text */
+  color: #fff; /* White text color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for text readability */
+}
+
+/* Main heading in hero section */
+.hero-text h1 {
+  font-size: 5rem; /* Large font size for impact */
+  margin-bottom: 1rem; /* Space below heading */
+  font-weight: bold; /* Bold font weight */
+}
+
+/* Subtitle text in hero section */
+.hero-text p {
+  font-size: 1.5rem; /* Medium font size */
+  margin-bottom: 1rem; /* Space below paragraph */
+  font-weight: bold; /* Bold font weight */
+}
+
+/* Call-to-action button in hero section */
+.hero-text button {
+  background-color: #555; /* Dark gray background */
+  color: #fff; /* White text */
+  border: none; /* Remove default border */
+  padding: .75rem 1.5rem; /* Padding inside button */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Show pointer cursor on hover */
+  transition-duration: .3s; /* Smooth transition for hover effects */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow */
+}
+
+/* Hover effect for hero button */
+.hero-text button:hover {
+  background-color: #fbff14; /* Bright yellow background on hover */
+  color: #000; /* Black text on hover */
+}
+
+/* === GAMEPLAY SECTION STYLES === */
+/* Main background container for gameplay content */
+.background {
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  --color: #fbff1442; /* CSS custom property for grid pattern color */
+  background-color: #79797900; /* Transparent background */
+  /* Grid pattern created with linear gradients */
+  background-image: linear-gradient(
+      0deg, /* Vertical lines */
+      transparent 24%,
+      var(--color) 25%,
+      var(--color) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--color) 75%,
+      var(--color) 76%,
+      transparent 77%,
+      transparent
+    ),
+    linear-gradient(
+      90deg, /* Horizontal lines */
+      transparent 24%,
+      var(--color) 25%,
+      var(--color) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--color) 75%,
+      var(--color) 76%,
+      transparent 77%,
+      transparent
+    );
+  background-size: 55px 55px; /* Size of each grid cell */
+}
+
+/* Main container for gameplay content */
+.gameplay {
+  justify-content: space-around; /* Distribute space evenly */
+  padding: 2rem; /* Padding around content */
+  border-bottom: #fbff14 solid 2px; /* Yellow bottom border */
+}
+
+/* Headings within gameplay section */
+.gameplay h2 {
+  font-size: 1.75rem; /* Large font size for headings */
+  margin: 1rem; /* Margin around headings */
+}
+
+/* Paragraphs within gameplay section */
+.gameplay p {
+  font-size: 1rem; /* Standard font size */
+  margin: 1rem; /* Margin around paragraphs */
+  font-weight: bold; /* Bold text */
+}
+
+/* Highlighted gameplay card (yellow gradient) */
+.gameplay-card {
+  width: fit-content; /* Width fits content */
+  border-radius: 20px; /* Rounded corners */
+  padding: .15rem; /* Small padding for border effect */
+  box-shadow: #000 0px 4px 8px, #000 0px 15px 30px -5px; /* Multiple shadows for depth */
+  background-image: linear-gradient(144deg, #fbff14, #fdff97 50%, #fbff14); /* Yellow gradient */
+}
+
+/* Content inside gameplay card */
+.gameplay-content {
+  background:#000; /* Black background */
+  border-radius: 20px; /* Rounded corners to match parent */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  padding: .5rem 1rem .25rem 1rem; /* Asymmetric padding */
+}
+
+/* Title card with gray gradient */
+.gameplay-title-card {
+  width: 50%; /* Half width */
+  border-radius: 20px; /* Rounded corners */
+  padding: .15rem; /* Small padding for border effect */
+  box-shadow: #000 0px 4px 8px, #000 0px 15px 30px -5px; /* Multiple shadows */
+  background-image: linear-gradient(144deg, #555 50%, #2e2e2e, #555); /* Gray gradient */
+  margin-top: 1.5rem; /* Space above card */
+}
+
+/* Content inside title card */
+.gameplay-title-content {
+  background:#000; /* Black background */
+  border-radius: 20px; /* Rounded corners */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  padding: .5rem 1rem .25rem 1rem; /* Asymmetric padding */
+}
+
+/* Choice card with gray gradient (different direction) */
+.gameplay-choice-card {
+  width: 50%; /* Half width */
+  border-radius: 20px; /* Rounded corners */
+  padding: .15rem; /* Small padding for border effect */
+  box-shadow: #000 0px 4px 8px, #000 0px 15px 30px -5px; /* Multiple shadows */
+  background-image: linear-gradient(144deg, #555, #2e2e2e 50%, #555); /* Gray gradient */
+  margin-top: 1.5rem; /* Space above card */
+}
+
+/* Content inside choice card */
+.gameplay-choice-content {
+  background:#000; /* Black background */
+  border-radius: 20px; /* Rounded corners */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  padding: .5rem 1rem .25rem 1rem; /* Asymmetric padding */
+}
+
+/* Discover card with gray gradient (different direction) */
+.gameplay-discover-card {
+  width: 50%; /* Half width */
+  border-radius: 20px; /* Rounded corners */
+  padding: .15rem; /* Small padding for border effect */
+  box-shadow: #000 0px 4px 8px, #000 0px 15px 30px -5px; /* Multiple shadows */
+  background-image: linear-gradient(144deg, #555, #2e2e2e, #555 50%); /* Gray gradient */
+  margin-top: 1.5rem; /* Space above card */
+}
+
+/* Content inside discover card */
+.gameplay-discover-content {
+  background:#000; /* Black background */
+  border-radius: 20px; /* Rounded corners */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  padding: .5rem 1rem .25rem 1rem; /* Asymmetric padding */
+}

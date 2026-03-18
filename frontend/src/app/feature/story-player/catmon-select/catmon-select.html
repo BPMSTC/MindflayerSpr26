@@ -1,0 +1,44 @@
+<!-- Hero section with background image and main heading -->
+<div class="hero-image">
+  <div class="hero-text">
+    <h1>Choose Your CatMon</h1>
+    <p>Select your feline companion to begin your adventure!</p>
+  </div>
+</div>
+
+<!-- Main content area with background pattern -->
+<div class="background">
+  <div class="catmon-selection">
+    <!-- Page heading -->
+    <h2>Choose your companion:</h2>
+    
+    <!-- Instructions for the user -->
+    <div class="instructions">
+      <p>Select one of the three CatMons below to begin your journey. Each companion has unique traits that will affect your adventure. Click on a card to continue! (Coming Soon)</p>
+    </div>
+    
+    <!-- Grid container for catmon cards -->
+    <!-- *ngFor loops through the catmons array from the component -->
+    <div class="catmon-grid">
+      <!-- This div repeats for each catmon in the array (NarMon, KirMon, ShikaMon) -->
+      <div class="catmon-card" *ngFor="let catmon of catmons">
+        <div class="catmon-card-content">
+          <!-- Dynamic image source using catmon.image property -->
+          <img [src]="catmon.image" [alt]="catmon.name" class="catmon-image">
+          <!-- Dynamic heading using catmon.name property -->
+          <h3>{{ catmon.name }}</h3>
+          <!-- Dynamic description using catmon.description property -->
+          <p>{{ catmon.description }}</p>
+          <!-- Placeholder button (disabled for now, will be linked later) -->
+          <button class="select-button" disabled>Choose {{ catmon.name }}</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Navigation section -->
+    <div class="navigation">
+      <!-- Back button using routerLink directive to navigate to home page -->
+      <button routerLink="/" class="back-button">← Back to Home</button>
+    </div>
+  </div>
+</div>

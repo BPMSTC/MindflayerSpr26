@@ -1,0 +1,241 @@
+/* === HERO SECTION STYLES === */
+/* Main hero section with background image and overlay */
+.hero-image {
+  background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.45)), url(/hero_image.png);
+  background-size: cover; /* Ensures image covers entire area */
+  background-position: center; /* Centers the background image */
+  height: 600px; /* Fixed height for hero section */
+  display: flex; /* Flexbox for centering content */
+  justify-content: center; /* Horizontally center content */
+  align-items: center; /* Vertically center content */
+  border-top: #fbff14 solid 2px; /* Yellow top border */
+  border-bottom: #fbff14 solid 2px; /* Yellow bottom border */
+}
+
+/* Text container within hero section */
+.hero-text {
+  text-align: center; /* Center-align all text */
+  color: #fff; /* White text color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Drop shadow for readability */
+}
+
+/* Main heading in hero section */
+.hero-text h1 {
+  font-size: 4rem; /* Large font size for main heading */
+  margin-bottom: 1rem; /* Space below heading */
+  font-weight: bold; /* Bold text */
+}
+
+/* Subtext in hero section */
+.hero-text p {
+  font-size: 1.5rem; /* Medium font size for subtext */
+  margin-bottom: 1rem; /* Space below paragraph */
+  font-weight: bold; /* Bold text */
+}
+
+/* === BACKGROUND PATTERN STYLES === */
+/* Main content background with grid pattern */
+.background {
+  width: 100%; /* Full width */
+  min-height: 100vh; /* Minimum full viewport height */
+  --color: #fbff1442; /* CSS custom property for grid color (semi-transparent yellow) */
+  background-color: #79797900; /* Transparent background color */
+  /* Creates a grid pattern using linear gradients */
+  background-image: linear-gradient(
+      0deg,
+      transparent 24%,
+      var(--color) 25%,
+      var(--color) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--color) 75%,
+      var(--color) 76%,
+      transparent 77%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%,
+      var(--color) 25%,
+      var(--color) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--color) 75%,
+      var(--color) 76%,
+      transparent 77%,
+      transparent
+    );
+  background-size: 55px 55px; /* Size of each grid cell */
+}
+
+/* === CATMON SELECTION STYLES === */
+/* Main container for catmon selection content */
+.catmon-selection {
+  padding: 3rem 2rem; /* Padding around content */
+  text-align: center; /* Center-align all content */
+}
+
+/* Main heading for catmon selection */
+.catmon-selection h2 {
+  font-size: 2.5rem; /* Large heading font size */
+  margin-bottom: 2rem; /* Space below heading */
+  color: #D3A555; /* Primary theme color (golden) */
+  font-weight: bold; /* Bold text */
+}
+
+/* Instructions container */
+.instructions {
+  max-width: 800px; /* Maximum width to keep text readable */
+  margin: 0 auto 3rem auto; /* Center horizontally with bottom margin */
+  background-color: rgba(211, 165, 85, 0.1); /* Semi-transparent background */
+  padding: 1.5rem; /* Padding inside container */
+  border-radius: 10px; /* Rounded corners */
+  border: 2px solid #D3A555; /* Border using primary color */
+}
+
+/* Instructions text */
+.instructions p {
+  font-size: 1.2rem; /* Medium font size */
+  color: #FEFEFE; /* Text color (off-white) */
+  margin: 0; /* Remove default margin */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Text shadow for readability */
+}
+
+/* Grid container for catmon cards */
+.catmon-grid {
+  display: grid; /* CSS Grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+  gap: 2rem; /* Space between grid items */
+  max-width: 1200px; /* Maximum width of grid */
+  margin: 0 auto 3rem auto; /* Center horizontally with bottom margin */
+  padding: 0 1rem; /* Horizontal padding */
+}
+
+/* Individual catmon card */
+.catmon-card {
+  background: linear-gradient(135deg, #BCA591, #D3A555); /* Gradient background */
+  border-radius: 15px; /* Rounded corners */
+  overflow: hidden; /* Hide content that overflows */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Drop shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animations */
+  border: 3px solid #FEFEFE; /* White border */
+}
+
+/* Hover effect for catmon cards */
+.catmon-card:hover {
+  transform: translateY(-5px); /* Move card up slightly */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); /* Increase shadow on hover */
+}
+
+/* Content container within each card */
+.catmon-card-content {
+  padding: 1.5rem; /* Padding inside card */
+  text-align: center; /* Center-align content */
+  color: #FEFEFE; /* Text color (off-white) */
+}
+
+/* Catmon image styling */
+.catmon-image {
+  width: 150px; /* Fixed width */
+  height: 150px; /* Fixed height (creates square) */
+  object-fit: cover; /* Maintain aspect ratio, crop if necessary */
+  border-radius: 50%; /* Make image circular */
+  margin-bottom: 1rem; /* Space below image */
+  border: 4px solid #FEFEFE; /* White border around image */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Shadow around image */
+}
+
+/* Catmon name heading */
+.catmon-card h3 {
+  font-size: 1.8rem; /* Large font size */
+  margin-bottom: 1rem; /* Space below heading */
+  font-weight: bold; /* Bold text */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow */
+}
+
+/* Catmon description */
+.catmon-card p {
+  font-size: 1rem; /* Standard font size */
+  margin-bottom: 1.5rem; /* Space below paragraph */
+  line-height: 1.5; /* Line spacing for readability */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Text shadow */
+}
+
+/* Selection button (currently disabled) */
+.select-button {
+  background-color: rgba(254, 254, 254, 0.2); /* Semi-transparent background */
+  color: #FEFEFE; /* Text color */
+  border: 2px solid #FEFEFE; /* Border */
+  padding: 0.75rem 1.5rem; /* Padding inside button */
+  border-radius: 8px; /* Rounded corners */
+  cursor: not-allowed; /* Shows disabled cursor */
+  font-weight: bold; /* Bold text */
+  font-size: 1rem; /* Font size */
+  transition: all 0.3s ease; /* Smooth transitions */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Text shadow */
+}
+
+/* Active button styles (for when buttons are enabled) */
+.select-button:not(:disabled) {
+  cursor: pointer; /* Show pointer cursor */
+  background-color: #FEFEFE; /* Solid background */
+  color: #D3A555; /* Primary color text */
+}
+
+/* Hover effect for active buttons */
+.select-button:not(:disabled):hover {
+  background-color: #fbff14; /* Bright yellow background */
+  color: #000; /* Black text */
+  transform: scale(1.05); /* Slightly enlarge button */
+}
+
+/* === NAVIGATION STYLES === */
+/* Navigation container */
+.navigation {
+  text-align: center; /* Center-align navigation */
+  margin-top: 2rem; /* Space above navigation */
+}
+
+/* Back to home button */
+.back-button {
+  background-color: #D3A555; /* Primary color background */
+  color: #FEFEFE; /* Text color */
+  border: none; /* Remove default border */
+  padding: 0.75rem 1.5rem; /* Padding inside button */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Show pointer cursor */
+  font-weight: bold; /* Bold text */
+  font-size: 1rem; /* Font size */
+  transition: all 0.3s ease; /* Smooth transitions */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Text shadow */
+}
+
+/* Hover effect for back button */
+.back-button:hover {
+  background-color: #BCA591; /* Secondary color on hover */
+  transform: scale(1.05); /* Slightly enlarge button */
+}
+
+/* === RESPONSIVE DESIGN === */
+/* Styles for mobile devices */
+@media (max-width: 768px) {
+  /* Single column layout on mobile */
+  .catmon-grid {
+    grid-template-columns: 1fr; /* Single column */
+    gap: 1.5rem; /* Reduced gap */
+  }
+  
+  /* Smaller hero text on mobile */
+  .hero-text h1 {
+    font-size: 2.5rem; /* Smaller heading */
+  }
+  
+  .hero-text p {
+    font-size: 1.2rem; /* Smaller subtext */
+  }
+  
+  /* Smaller section heading on mobile */
+  .catmon-selection h2 {
+    font-size: 2rem; /* Smaller heading */
+  }
+}
