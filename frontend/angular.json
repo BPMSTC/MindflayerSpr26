@@ -47,7 +47,7 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "images"
+                "input": "public"
               }
             ],
             "styles": [
