@@ -3,9 +3,9 @@
   display: flex; justify-content: center; align-items: center;
   border-top: #fbff14 solid 2px; border-bottom: #fbff14 solid 2px;
 }
-.narmon-hero { background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.45)),url('/MindflayerSpr26/Catmon/NarMon/NarMon.png'); }
-.rutomon-hero { background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.45)),url('/MindflayerSpr26/Catmon/NarMon/RutoMon.png'); }
-.kuramamon-hero { background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.45)),url('/MindflayerSpr26/Catmon/NarMon/KuramaMon.png'); }
+.kirmon-hero { background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.45)),url('/MindflayerSpr26/Catmon/KirMon/KirMon.png'); }
+.inemon-hero { background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.45)),url('/MindflayerSpr26/Catmon/KirMon/IneMon.png'); }
+.ameratosamom-hero { background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.45)),url('/MindflayerSpr26/Catmon/KirMon/AmaterosaMon.png'); }
 .defeat-hero { background-image: linear-gradient(rgba(80,0,0,.6),rgba(80,0,0,.5)),url('/MindflayerSpr26/hero_image.png'); }
 .hero-text { text-align: center; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,.5); }
 .hero-text h1 { font-size: 4rem; margin-bottom: 1rem; font-weight: bold; }

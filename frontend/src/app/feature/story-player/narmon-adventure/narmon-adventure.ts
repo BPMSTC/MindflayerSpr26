@@ -19,50 +19,56 @@ export class NarmonAdventureComponent {
   // 5 = KuramaMon final evolution (correct choice from stage 3)
   stage = 1;
 
+  // Randomly determines if the correct choice appears on the right instead of the left
+  swapped = Math.random() < 0.5;
+
   // Stage 1: NarMon data
   narmon = {
     name: 'NarMon',
-    image: 'Catmon/NarMon.png',
+    image: 'Catmon/NarMon/NarMon.png',
     description: 'NarMon is a clever and agile feline companion with keen intelligence. Known for its quick reflexes and cunning strategies, NarMon never backs down from a challenge. But every great warrior must choose their path wisely...'
   };
 
   // Stage 3: RutoMon data
   rutomon = {
     name: 'RutoMon',
-    image: 'Catmon/RutoMon.png',
+    image: 'Catmon/NarMon/RutoMon.png',
     description: 'RutoMon is the evolved form of NarMon, having unlocked a powerful inner strength. With blazing speed and fierce determination, RutoMon possesses the ability to sense danger before it strikes. But an even greater power lies dormant within...'
   };
 
   // Stage 5: KuramaMon data
   kuramamon = {
     name: 'KuramaMon',
-    image: 'Catmon/KuramaMon.png',
+    image: 'Catmon/NarMon/KuramaMon.png',
     description: 'KuramaMon is the ultimate evolution — a legendary feline of immense power. Nine spectral tails shimmer behind it, each one channeling ancient energy. KuramaMon has transcended ordinary limits, becoming a guardian of balance between worlds. Few have ever witnessed this form, and fewer still have earned its trust.'
   };
 
   // Handle the player's choice at each stage
   choose(option: number) {
+    // If swapped, flip the option so the correct/wrong logic stays consistent
+    const effective = this.swapped ? (option === 1 ? 2 : 1) : option;
+
     if (this.stage === 1) {
-      if (option === 1) {
-        // Correct choice - NarMon evolves into RutoMon
+      if (effective === 1) {
         this.stage = 3;
       } else {
-        // Wrong choice - NarMon is defeated
         this.stage = 2;
       }
     } else if (this.stage === 3) {
-      if (option === 1) {
-        // Correct choice - RutoMon evolves into KuramaMon
+      if (effective === 1) {
         this.stage = 5;
       } else {
-        // Wrong choice - RutoMon is defeated
         this.stage = 4;
       }
     }
+
+    // Re-randomize for the next choice
+    this.swapped = Math.random() < 0.5;
   }
 
   // Reset the adventure back to stage 1
   restart() {
     this.stage = 1;
+    this.swapped = Math.random() < 0.5;
   }
 }

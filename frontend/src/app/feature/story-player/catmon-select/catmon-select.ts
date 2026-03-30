@@ -16,17 +16,17 @@ export class CatmonSelectComponent {
   catmons = [
     {
       name: 'NarMon', // Display name for the first catmon
-      image: 'Catmon/NarMon.png', // Path to the catmon image in the assets
+      image: 'Catmon/NarMon/NarMon.png', // Path to the catmon image in the assets
       description: 'A clever and agile feline companion with keen intelligence.' // Description text
     },
     {
       name: 'KirMon', // Display name for the second catmon
-      image: 'Catmon/KirMon.png', // Path to the catmon image in the assets
+      image: 'Catmon/KirMon/KirMon.png', // Path to the catmon image in the assets
       description: 'A strong and loyal warrior cat with a brave heart.' // Description text
     },
     {
       name: 'ShikaMon', // Display name for the third catmon
-      image: 'Catmon/ShikaMon.png', // Path to the catmon image in the assets
+      image: 'Catmon/ShikaMon/ShikaMon.png', // Path to the catmon image in the assets
       description: 'A mysterious and graceful cat with ancient wisdom.' // Description text
     }
   ];

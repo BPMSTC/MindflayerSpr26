@@ -1,0 +1,212 @@
+<!-- ===================== STAGE 1: ShikaMon Intro ===================== -->
+<div *ngIf="stage === 1">
+  <!-- Hero section with ShikaMon background -->
+  <div class="hero-image shikamon-hero">
+    <div class="hero-text">
+      <h1>{{ shikamon.name }}</h1>
+      <p>A new adventure begins...</p>
+    </div>
+  </div>
+
+  <!-- Main content area -->
+  <div class="background">
+    <div class="adventure-content">
+      <!-- ShikaMon profile card -->
+      <div class="catmon-profile">
+        <img [src]="shikamon.image" [alt]="shikamon.name" class="catmon-image">
+        <h2>{{ shikamon.name }}</h2>
+        <p class="catmon-description">{{ shikamon.description }}</p>
+      </div>
+
+      <!-- Choice section -->
+      <div class="choice-section">
+        <h3>What will ShikaMon do?</h3>
+        <div class="choice-grid">
+          <ng-container *ngIf="!swapped; else stage1Swapped">
+            <div class="choice-card" (click)="choose(1)">
+              <div class="choice-card-content">
+                <h4>Meditate in the Shadow Grove</h4>
+                <p>ShikaMon senses a deep resonance within the ancient Shadow Grove. By meditating among the whispering trees, ShikaMon may unlock the secrets of shadow manipulation.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+            <div class="choice-card" (click)="choose(2)">
+              <div class="choice-card-content">
+                <h4>Outsmart the Phantom Stalker</h4>
+                <p>ShikaMon attempts to outwit the Phantom Stalker using cunning alone, venturing into its labyrinth without understanding the true nature of shadows.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+          </ng-container>
+          <ng-template #stage1Swapped>
+            <div class="choice-card" (click)="choose(1)">
+              <div class="choice-card-content">
+                <h4>Outsmart the Phantom Stalker</h4>
+                <p>ShikaMon attempts to outwit the Phantom Stalker using cunning alone, venturing into its labyrinth without understanding the true nature of shadows.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+            <div class="choice-card" (click)="choose(2)">
+              <div class="choice-card-content">
+                <h4>Meditate in the Shadow Grove</h4>
+                <p>ShikaMon senses a deep resonance within the ancient Shadow Grove. By meditating among the whispering trees, ShikaMon may unlock the secrets of shadow manipulation.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="navigation">
+        <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== STAGE 2: ShikaMon Defeated ===================== -->
+<div *ngIf="stage === 2">
+  <div class="hero-image defeat-hero">
+    <div class="hero-text">
+      <h1>ShikaMon was Defeated!</h1>
+      <p>The Phantom Stalker vanished into darkness...</p>
+    </div>
+  </div>
+
+  <div class="background">
+    <div class="adventure-content">
+      <div class="outcome-card defeat-card">
+        <img [src]="shikamon.image" [alt]="shikamon.name" class="catmon-image defeated">
+        <h2>Defeat</h2>
+        <p class="catmon-description">ShikaMon's brilliant mind wove trap after trap, but the Phantom Stalker was born from shadow itself. Without learning to control the darkness, ShikaMon's strategies unraveled one by one. The labyrinth consumed every trick, every plan. Even the greatest strategist must first understand their battlefield before they can conquer it.</p>
+      </div>
+
+      <div class="navigation">
+        <button (click)="restart()" class="back-button">Try Again</button>
+        <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== STAGE 3: MaruMon Evolution ===================== -->
+<div *ngIf="stage === 3">
+  <div class="hero-image marumon-hero">
+    <div class="hero-text">
+      <h1>ShikaMon evolved into MaruMon!</h1>
+      <p>The shadows bend to a new master!</p>
+    </div>
+  </div>
+
+  <div class="background">
+    <div class="adventure-content">
+      <!-- MaruMon profile card -->
+      <div class="catmon-profile evolution-glow">
+        <img [src]="marumon.image" [alt]="marumon.name" class="catmon-image">
+        <h2>{{ marumon.name }}</h2>
+        <p class="catmon-description">{{ marumon.description }}</p>
+      </div>
+
+      <!-- Choice section -->
+      <div class="choice-section">
+        <h3>What will MaruMon do?</h3>
+        <div class="choice-grid">
+          <ng-container *ngIf="!swapped; else stage3Swapped">
+            <div class="choice-card" (click)="choose(1)">
+              <div class="choice-card-content">
+                <h4>Enter the Spirit Gate</h4>
+                <p>MaruMon discovers a shimmering gateway between the physical world and the spirit realm. By passing through, MaruMon can merge with the ancient phantom energy and achieve its final, transcendent form.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+            <div class="choice-card" (click)="choose(2)">
+              <div class="choice-card-content">
+                <h4>Seal the gate and keep current power</h4>
+                <p>MaruMon fears the unknown beyond the Spirit Gate. It chooses to seal the gateway and face the Phantom Stalker with only its current shadow abilities.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+          </ng-container>
+          <ng-template #stage3Swapped>
+            <div class="choice-card" (click)="choose(1)">
+              <div class="choice-card-content">
+                <h4>Seal the gate and keep current power</h4>
+                <p>MaruMon fears the unknown beyond the Spirit Gate. It chooses to seal the gateway and face the Phantom Stalker with only its current shadow abilities.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+            <div class="choice-card" (click)="choose(2)">
+              <div class="choice-card-content">
+                <h4>Enter the Spirit Gate</h4>
+                <p>MaruMon discovers a shimmering gateway between the physical world and the spirit realm. By passing through, MaruMon can merge with the ancient phantom energy and achieve its final, transcendent form.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+
+      <div class="navigation">
+        <button (click)="restart()" class="back-button">← Restart Adventure</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== STAGE 4: MaruMon Defeated ===================== -->
+<div *ngIf="stage === 4">
+  <div class="hero-image defeat-hero">
+    <div class="hero-text">
+      <h1>MaruMon was Defeated!</h1>
+      <p>The Phantom Stalker consumed the shadows...</p>
+    </div>
+  </div>
+
+  <div class="background">
+    <div class="adventure-content">
+      <div class="outcome-card defeat-card">
+        <img [src]="marumon.image" [alt]="marumon.name" class="catmon-image defeated">
+        <h2>Defeat</h2>
+        <p class="catmon-description">MaruMon's shadow powers clashed with the Phantom Stalker, but without crossing into the spirit realm, its abilities were only half-formed. The Phantom Stalker devoured MaruMon's shadows one by one until nothing remained but silence. The Spirit Gate crumbled, and with it, the path to transcendence. True wisdom means embracing the unknown, not running from it.</p>
+      </div>
+
+      <div class="navigation">
+        <button (click)="restart()" class="back-button">Try Again</button>
+        <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== STAGE 5: MatatabiMon Final Evolution ===================== -->
+<div *ngIf="stage === 5">
+  <div class="hero-image matatabimon-hero">
+    <div class="hero-text">
+      <h1>MaruMon evolved into MatatabiMon!</h1>
+      <p>The ultimate evolution has been achieved!</p>
+    </div>
+  </div>
+
+  <div class="background">
+    <div class="adventure-content">
+      <!-- MatatabiMon profile card -->
+      <div class="catmon-profile final-evolution-glow">
+        <img [src]="matatabimon.image" [alt]="matatabimon.name" class="catmon-image">
+        <h2>{{ matatabimon.name }}</h2>
+        <p class="catmon-description">{{ matatabimon.description }}</p>
+      </div>
+
+      <!-- Victory message -->
+      <div class="victory-card">
+        <h3>Victory!</h3>
+        <p>You guided ShikaMon through every shadow, making the right choices at every turn. From a mysterious strategist to the transcendent MatatabiMon — the journey is complete. The veil between worlds parts before you, true CatMon master!</p>
+      </div>
+
+      <div class="navigation">
+        <button (click)="restart()" class="back-button">Play Again</button>
+        <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
+      </div>
+    </div>
+  </div>
+</div>

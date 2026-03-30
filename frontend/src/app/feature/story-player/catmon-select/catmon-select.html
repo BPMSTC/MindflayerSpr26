@@ -1,11 +1,3 @@
-<!-- Hero section with background image and main heading -->
-<div class="hero-image">
-  <div class="hero-text">
-    <h1>Choose Your CatMon</h1>
-    <p>Select your feline companion to begin your adventure!</p>
-  </div>
-</div>
-
 <!-- Main content area with background pattern -->
 <div class="background">
   <div class="catmon-selection">
@@ -14,7 +6,7 @@
     
     <!-- Instructions for the user -->
     <div class="instructions">
-      <p>Select one of the three CatMons below to begin your journey. Each companion has unique traits that will affect your adventure. Click on a card to continue! (Coming Soon)</p>
+      <p>Select one of the three CatMons below to begin your journey. Each companion has unique traits that will affect your adventure. Click on a card to continue!</p>
     </div>
     
     <!-- Grid container for catmon cards -->
@@ -29,9 +21,10 @@
           <h3>{{ catmon.name }}</h3>
           <!-- Dynamic description using catmon.description property -->
           <p>{{ catmon.description }}</p>
-          <!-- NarMon links to adventure, others are disabled -->
+          <!-- Each CatMon links to its adventure -->
           <button *ngIf="catmon.name === 'NarMon'" class="select-button" routerLink="/narmon-adventure">Choose {{ catmon.name }}</button>
-          <button *ngIf="catmon.name !== 'NarMon'" class="select-button" disabled>Choose {{ catmon.name }}</button>
+          <button *ngIf="catmon.name === 'KirMon'" class="select-button" routerLink="/kirmon-adventure">Choose {{ catmon.name }}</button>
+          <button *ngIf="catmon.name === 'ShikaMon'" class="select-button" routerLink="/shikamon-adventure">Choose {{ catmon.name }}</button>
         </div>
       </div>
     </div>
