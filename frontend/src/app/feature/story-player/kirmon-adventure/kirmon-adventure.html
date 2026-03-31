@@ -1,9 +1,9 @@
-<!-- ===================== STAGE 1: NarMon Intro ===================== -->
+<!-- ===================== STAGE 1: KirMon Intro ===================== -->
 <div *ngIf="stage === 1">
-  <!-- Hero section with NarMon background -->
-  <div class="hero-image narmon-hero">
+  <!-- Hero section with KirMon background -->
+  <div class="hero-image kirmon-hero">
     <div class="hero-text">
-      <h1>{{ narmon.name }}</h1>
+      <h1>{{ kirmon.name }}</h1>
       <p>A new adventure begins...</p>
     </div>
   </div>
@@ -11,29 +11,29 @@
   <!-- Main content area -->
   <div class="background">
     <div class="adventure-content">
-      <!-- NarMon profile card -->
+      <!-- KirMon profile card -->
       <div class="catmon-profile">
-        <img [src]="narmon.image" [alt]="narmon.name" class="catmon-image">
-        <h2>{{ narmon.name }}</h2>
-        <p class="catmon-description">{{ narmon.description }}</p>
+        <img [src]="kirmon.image" [alt]="kirmon.name" class="catmon-image">
+        <h2>{{ kirmon.name }}</h2>
+        <p class="catmon-description">{{ kirmon.description }}</p>
       </div>
 
       <!-- Choice section -->
       <div class="choice-section">
-        <h3>What will NarMon do?</h3>
+        <h3>What will KirMon do?</h3>
         <div class="choice-grid">
           <ng-container *ngIf="!swapped; else stage1Swapped">
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
-                <h4>Train in the Hidden Valley</h4>
-                <p>NarMon senses a deep power within and seeks the legendary Hidden Valley to unlock its true potential through rigorous training.</p>
+                <h4>Defend the Thunder Shrine</h4>
+                <p>KirMon senses a disturbance at the ancient Thunder Shrine. By standing guard and channeling the shrine's energy, KirMon may unlock its hidden potential.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
-                <h4>Challenge the Shadow Beast alone</h4>
-                <p>NarMon rushes headfirst into battle against the fearsome Shadow Beast without preparing, relying on raw courage alone.</p>
+                <h4>Charge into the Iron Fortress</h4>
+                <p>KirMon storms the Iron Fortress alone, hoping brute strength will be enough to topple the Ironclad General and its mechanical army.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
@@ -41,15 +41,15 @@
           <ng-template #stage1Swapped>
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
-                <h4>Challenge the Shadow Beast alone</h4>
-                <p>NarMon rushes headfirst into battle against the fearsome Shadow Beast without preparing, relying on raw courage alone.</p>
+                <h4>Charge into the Iron Fortress</h4>
+                <p>KirMon storms the Iron Fortress alone, hoping brute strength will be enough to topple the Ironclad General and its mechanical army.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
-                <h4>Train in the Hidden Valley</h4>
-                <p>NarMon senses a deep power within and seeks the legendary Hidden Valley to unlock its true potential through rigorous training.</p>
+                <h4>Defend the Thunder Shrine</h4>
+                <p>KirMon senses a disturbance at the ancient Thunder Shrine. By standing guard and channeling the shrine's energy, KirMon may unlock its hidden potential.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
@@ -65,21 +65,21 @@
   </div>
 </div>
 
-<!-- ===================== STAGE 2: NarMon Defeated ===================== -->
+<!-- ===================== STAGE 2: KirMon Defeated ===================== -->
 <div *ngIf="stage === 2">
   <div class="hero-image defeat-hero">
     <div class="hero-text">
-      <h1>NarMon was Defeated!</h1>
-      <p>The Shadow Beast was too powerful...</p>
+      <h1>KirMon was Defeated!</h1>
+      <p>The Ironclad General was too powerful...</p>
     </div>
   </div>
 
   <div class="background">
     <div class="adventure-content">
       <div class="outcome-card defeat-card">
-        <img [src]="narmon.image" [alt]="narmon.name" class="catmon-image defeated">
+        <img [src]="kirmon.image" [alt]="kirmon.name" class="catmon-image defeated">
         <h2>Defeat</h2>
-        <p class="catmon-description">NarMon charged bravely into battle against the Shadow Beast, but without proper training, the odds were insurmountable. The Shadow Beast's dark energy overwhelmed NarMon, leaving it unable to continue. Sometimes courage alone isn't enough — a true warrior knows when to prepare.</p>
+        <p class="catmon-description">KirMon smashed through the fortress gates with incredible force, but the Ironclad General's mechanical soldiers were endless. Without the power of the Thunder Shrine, KirMon's strength gave out. Even the bravest warrior needs more than courage — sometimes patience is the greatest weapon.</p>
       </div>
 
       <div class="navigation">
@@ -90,40 +90,40 @@
   </div>
 </div>
 
-<!-- ===================== STAGE 3: RutoMon Evolution ===================== -->
+<!-- ===================== STAGE 3: IneMon Evolution ===================== -->
 <div *ngIf="stage === 3">
-  <div class="hero-image rutomon-hero">
+  <div class="hero-image inemon-hero">
     <div class="hero-text">
-      <h1>NarMon evolved into RutoMon!</h1>
-      <p>A new power has been unleashed!</p>
+      <h1>KirMon evolved into IneMon!</h1>
+      <p>A crackling new power surges forth!</p>
     </div>
   </div>
 
   <div class="background">
     <div class="adventure-content">
-      <!-- RutoMon profile card -->
+      <!-- IneMon profile card -->
       <div class="catmon-profile evolution-glow">
-        <img [src]="rutomon.image" [alt]="rutomon.name" class="catmon-image">
-        <h2>{{ rutomon.name }}</h2>
-        <p class="catmon-description">{{ rutomon.description }}</p>
+        <img [src]="inemon.image" [alt]="inemon.name" class="catmon-image">
+        <h2>{{ inemon.name }}</h2>
+        <p class="catmon-description">{{ inemon.description }}</p>
       </div>
 
       <!-- Choice section -->
       <div class="choice-section">
-        <h3>What will RutoMon do?</h3>
+        <h3>What will IneMon do?</h3>
         <div class="choice-grid">
           <ng-container *ngIf="!swapped; else stage3Swapped">
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
-                <h4>Embrace the Nine-Tail Spirit</h4>
-                <p>RutoMon feels an ancient presence calling from within. By meditating at the Spirit Shrine, RutoMon can merge with the legendary Nine-Tail Spirit and achieve its final form.</p>
+                <h4>Ascend the Storm Peak</h4>
+                <p>IneMon feels a call from the summit of Storm Peak, where ancient lightning never stops striking. By absorbing the eternal storm, IneMon could reach its final, legendary form.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
-                <h4>Reject the power and fight alone</h4>
-                <p>RutoMon refuses the mysterious energy, believing its own strength is enough. It heads straight to confront the Dark Lord without unlocking its full potential.</p>
+                <h4>Ignore the storm and strike now</h4>
+                <p>IneMon decides the current power is enough and launches a direct assault on the Ironclad General's stronghold without reaching full potential.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
@@ -131,15 +131,15 @@
           <ng-template #stage3Swapped>
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
-                <h4>Reject the power and fight alone</h4>
-                <p>RutoMon refuses the mysterious energy, believing its own strength is enough. It heads straight to confront the Dark Lord without unlocking its full potential.</p>
+                <h4>Ignore the storm and strike now</h4>
+                <p>IneMon decides the current power is enough and launches a direct assault on the Ironclad General's stronghold without reaching full potential.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
-                <h4>Embrace the Nine-Tail Spirit</h4>
-                <p>RutoMon feels an ancient presence calling from within. By meditating at the Spirit Shrine, RutoMon can merge with the legendary Nine-Tail Spirit and achieve its final form.</p>
+                <h4>Ascend the Storm Peak</h4>
+                <p>IneMon feels a call from the summit of Storm Peak, where ancient lightning never stops striking. By absorbing the eternal storm, IneMon could reach its final, legendary form.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
@@ -154,21 +154,21 @@
   </div>
 </div>
 
-<!-- ===================== STAGE 4: RutoMon Defeated ===================== -->
+<!-- ===================== STAGE 4: IneMon Defeated ===================== -->
 <div *ngIf="stage === 4">
   <div class="hero-image defeat-hero">
     <div class="hero-text">
-      <h1>RutoMon was Defeated!</h1>
-      <p>The Dark Lord proved too powerful...</p>
+      <h1>IneMon was Defeated!</h1>
+      <p>The Ironclad General stood firm...</p>
     </div>
   </div>
 
   <div class="background">
     <div class="adventure-content">
       <div class="outcome-card defeat-card">
-        <img [src]="rutomon.image" [alt]="rutomon.name" class="catmon-image defeated">
+        <img [src]="inemon.image" [alt]="inemon.name" class="catmon-image defeated">
         <h2>Defeat</h2>
-        <p class="catmon-description">RutoMon's pride led to its downfall. Without embracing its full potential, the Dark Lord's overwhelming power crushed RutoMon's resistance. The ancient Nine-Tail Spirit faded away, and with it, the chance of becoming something truly legendary. True strength comes from accepting help when it's offered.</p>
+        <p class="catmon-description">IneMon's lightning strikes scorched the fortress walls, but the Ironclad General had prepared for this. Without the full power of the eternal storm, IneMon's bolts were absorbed and turned back. The storm faded, and with it, the chance of becoming something truly divine. True power demands patience and sacrifice.</p>
       </div>
 
       <div class="navigation">
@@ -179,28 +179,28 @@
   </div>
 </div>
 
-<!-- ===================== STAGE 5: KuramaMon Final Evolution ===================== -->
+<!-- ===================== STAGE 5: AmaterosaMon Final Evolution ===================== -->
 <div *ngIf="stage === 5">
-  <div class="hero-image kuramamon-hero">
+  <div class="hero-image ameratosamom-hero">
     <div class="hero-text">
-      <h1>RutoMon evolved into KuramaMon!</h1>
+      <h1>IneMon evolved into AmaterosaMon!</h1>
       <p>The ultimate evolution has been achieved!</p>
     </div>
   </div>
 
   <div class="background">
     <div class="adventure-content">
-      <!-- KuramaMon profile card -->
+      <!-- AmaterosaMon profile card -->
       <div class="catmon-profile final-evolution-glow">
-        <img [src]="kuramamon.image" [alt]="kuramamon.name" class="catmon-image">
-        <h2>{{ kuramamon.name }}</h2>
-        <p class="catmon-description">{{ kuramamon.description }}</p>
+        <img [src]="ameratosamom.image" [alt]="ameratosamom.name" class="catmon-image">
+        <h2>{{ ameratosamom.name }}</h2>
+        <p class="catmon-description">{{ ameratosamom.description }}</p>
       </div>
 
       <!-- Victory message -->
       <div class="victory-card">
         <h3>Victory!</h3>
-        <p>You guided NarMon through every challenge, making the right choices at every turn. From a clever feline to the legendary KuramaMon — the journey is complete. You are a true CatMon master!</p>
+        <p>You guided KirMon through every trial, making the right choices at every turn. From a loyal warrior to the divine AmaterosaMon — the journey is complete. The skies themselves bow before you, true CatMon master!</p>
       </div>
 
       <div class="navigation">
