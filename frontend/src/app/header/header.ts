@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 @Component({
   selector: 'app-header',
@@ -7,5 +8,5 @@ import { RouterLink } from '@angular/router';
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
-export class Header {}
+export class Header {} 
  
