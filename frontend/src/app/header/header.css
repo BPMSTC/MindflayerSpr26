@@ -1,49 +1,46 @@
-/* Styles for the header component */
+/* Importing Bootstrap CSS for styling the header component */
+@import 'bootstrap/dist/css/bootstrap.min.css'; 
 
-/* Styles for the header nav component */
+/* Styles for the header component */ 
+.navbar-brand {
+  font-size: 2rem; /* Larger font size for the brand name */
+  color: #fff; /* Bright color for the brand name */
+  font-weight: bold; /* Bold text for emphasis */
+  padding: 0 0 0 .75rem; /* Padding around the brand name */
+}
+
+.navbar-brand img {
+  border-radius: 3px; /* Slightly rounded corners for the logo image */
+  margin-right: 0.5rem; /* Space between the logo and the brand name */
+}
+
+.navbar-brand:hover {
+  color: #fff; /* Highlight color on hover */
+}
+
+/* Styles for the nav component */
 .navbar {
-  justify-content: space-between;
-  align-items: center;
-  background-color: #333;
-  padding: 1rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  background-color: #333 !important; /* Light background color for the navbar */
+  padding: 1rem; /* Padding around the navbar */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
 
-.navbar nav {
-  display: flex;
-  list-style: none;
+.navbar-nav {
+  margin: 0 1rem; /* Margin around the navigation items */
 }
 
-.navbar nav li {
-  margin: 0 1rem;
-} 
-
-.navbar nav li a {
-  color: #fff;
-  text-decoration: none;
-  transition-duration: .3s;
+.navbar-nav .nav-link {
+  color: #fff; /* Bright color for navigation links */
+  font-size: 1.1rem; /* Slightly larger font size for navigation links */
+  transition-duration: .3s; /* Smooth transition for hover effect */
 }
 
-.navbar nav li a:hover {
-  color: #fbff14;
+.navbar-nav .nav-link:hover {
+  color: #ffcc00; /* Highlight color on hover */
 }
 
-/* Title of the application */
-.navbar-brand { 
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding: .0 1rem 0 .75rem;
-}
-
-/* Adjust the image size and add some styling */
-img {
-  height: 2.5rem;
-  border-radius: 4px 4px 4px 4px;
-}
-
-/* Style the sign-in button */
-button {
+/* Styles for the Sign In component */
+.btn{
   background-color: #555;
   color: #fff;
   border: none;
@@ -53,12 +50,18 @@ button {
   transition-duration: .3s;
 }
 
-button:hover {
-  background-color: #fbff14;
+.btn:hover {
+  background-color: #ffcc00;
   color: #000;
 }
 
-/* Add some spacing between the navigation links and the sign-in button */
-.example-spacer {
-  flex: 1 1 auto;
+/* Styles for the Hamburger menu */
+.navbar-toggler {
+  background-color: #ffcc00; /* Bright background color for the hamburger menu */
+  border: none; /* Remove default border */
+}
+
+.navbar-toggler::after {
+  background-color: #ffcc00; /* Keep the same color when active or focused */
+  outline: none; /* Remove default focus outline */
 }

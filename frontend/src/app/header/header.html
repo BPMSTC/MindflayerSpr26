@@ -1,16 +1,38 @@
-<header class="navbar">
+<header>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary px-3">
 
-  <img src="CatMon Logo.png" alt="Game Logo">
+    <!-- Logo + Brand Name -->
+    <span class="navbar-brand d-flex align-items-center gap-2" href="#">
+      <img src="CatMon Logo.png" alt="Game Logo" width="30" height="30">
+      Catmon
+    </span>
 
-  <div class="navbar-brand">CatMon</div> <!-- Logo or title of the application -->
+    <!-- Hamburger toggle (shown on mobile) -->
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarContent"
+            aria-controls="navbarContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <nav>
-    <li><a routerLink="#">🏠︎ Home</a></li>
-    <li><a routerLink="/about">⏍ CatDex</a></li>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarContent">
+
+      <!-- Nav Links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="#">Home</a> <!--I think we could remove 'Home' if we can stylize the logo-->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about">CatDex</a>
+        </li>
+      </ul>
+
+      <!-- Sign In Button (pushed right on desktop) -->
+      <button class="btn btn-primary ms-auto">Sign In</button>
+
+    </div>
   </nav>
-
-  <span class="example-spacer"></span>
-
-  <button>Sign In</button> <!-- Button for Sign In -->
-
 </header>
