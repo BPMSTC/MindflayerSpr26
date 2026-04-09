@@ -1,7 +1,8 @@
 // Import necessary Angular modules
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../auth/auth.service';
 
 // Component decorator - defines this as an Angular component
 @Component({
@@ -11,6 +12,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './narmon-adventure.css'
 })
 export class NarmonAdventureComponent {
+  private auth = inject(AuthService);
+
   // Tracks which stage of the adventure the player is on
   // 1 = NarMon intro with two choices
   // 2 = NarMon defeated (wrong choice)
@@ -51,12 +54,14 @@ export class NarmonAdventureComponent {
     if (this.stage === 1) {
       if (effective === 1) {
         this.stage = 3;
+        this.auth.discoverCatmon('RutoMon');
       } else {
         this.stage = 2;
       }
     } else if (this.stage === 3) {
       if (effective === 1) {
         this.stage = 5;
+        this.auth.discoverCatmon('KuramaMon');
       } else {
         this.stage = 4;
       }

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-shikamon-adventure',
@@ -9,6 +10,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './shikamon-adventure.css'
 })
 export class ShikamonAdventureComponent {
+  private auth = inject(AuthService);
+
   // Tracks which stage of the adventure the player is on
   // 1 = ShikaMon intro with two choices
   // 2 = ShikaMon defeated (wrong choice)
@@ -48,12 +51,14 @@ export class ShikamonAdventureComponent {
     if (this.stage === 1) {
       if (effective === 1) {
         this.stage = 3;
+        this.auth.discoverCatmon('MaruMon');
       } else {
         this.stage = 2;
       }
     } else if (this.stage === 3) {
       if (effective === 1) {
         this.stage = 5;
+        this.auth.discoverCatmon('MatatabiMon');
       } else {
         this.stage = 4;
       }

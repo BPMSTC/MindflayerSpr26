@@ -9,8 +9,10 @@ Based on Pokemon but all cats instead.
 ## Theme Colors
 - Primary color:
     - #D3A555
-- Secondary color:
-    - #BCA591
 - Text Color:
     - #FEFEFE
+## Catmon Evolutions
+NarMon -> RutoMon -> KuramaMon
+KirMon -> IneMon -> AmaterosaMon
+ShikaMon -> MaruMon -> MatatabiMon 
 

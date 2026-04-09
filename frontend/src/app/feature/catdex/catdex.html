@@ -1,0 +1,37 @@
+<div class="catdex-page">
+  <div class="container py-4">
+    @if (auth.currentUser(); as user) {
+      <h1 class="catdex-title">{{ user.username }}'s CatDex</h1>
+      <p class="catdex-subtitle">Complete each adventure to evolve your Catmon!</p>
+
+      @for (line of lines(); track line.starter) {
+        <section class="evolution-line mb-5">
+          <h2 class="line-title">{{ line.starter }} Line</h2>
+          <div class="row g-3">
+            @for (entry of line.entries; track entry.name) {
+              <div class="col-12 col-sm-6 col-md-4">
+                <div class="card catdex-card" [class.locked]="!entry.discovered">
+                  <img
+                    [src]="entry.image"
+                    [alt]="entry.name"
+                    class="card-img-top catdex-img"
+                  />
+                  <div class="card-body text-center">
+                    <h5 class="card-title mb-0">
+                      {{ entry.discovered ? entry.name : '???' }}
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        </section>
+      }
+    } @else {
+      <div class="text-center py-5">
+        <h1 class="catdex-title">CatDex</h1>
+        <p>You need to <a routerLink="/login">sign in</a> to view your CatDex.</p>
+      </div>
+    }
+  </div>
+</div>

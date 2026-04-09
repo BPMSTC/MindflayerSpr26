@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../feature/auth/auth.service';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 @Component({
@@ -8,5 +9,16 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
-export class Header {} 
- 
+export class Header {
+  private router = inject(Router);
+  readonly auth = inject(AuthService);
+
+  signIn(): void {
+    this.router.navigateByUrl('/login');
+  }
+
+  signOut(): void {
+    this.auth.logout();
+    this.router.navigateByUrl('/');
+  }
+}
