@@ -8,6 +8,10 @@ import { KirmonAdventureComponent } from './feature/story-player/kirmon-adventur
 import { ShikamonAdventureComponent } from './feature/story-player/shikamon-adventure/shikamon-adventure.js';
 // Import the home page component
 import { HomeComponent } from './feature/user/home/home.js';
+// Auth components
+import { LoginComponent } from './feature/auth/login/login.js';
+import { SignupComponent } from './feature/auth/signup/signup.js';
+import { CatdexComponent } from './feature/catdex/catdex.js';
 
 // Define the application routes - maps URLs to components
 export const routes: Routes = [
@@ -19,6 +23,10 @@ export const routes: Routes = [
   { path: 'narmon-adventure', component: NarmonAdventureComponent },
   { path: 'kirmon-adventure', component: KirmonAdventureComponent },
   { path: 'shikamon-adventure', component: ShikamonAdventureComponent },
+  // Auth routes
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'catdex', component: CatdexComponent },
   // Wildcard route - any unmatched URL redirects to the home page
   { path: '**', redirectTo: '' }
 ];

@@ -1,0 +1,76 @@
+.catdex-page {
+  min-height: 80vh;
+  --color: #fbff1442;
+  background-color: #79797900;
+  background-image: linear-gradient(
+      0deg,
+      transparent 24%,
+      var(--color) 25%,
+      var(--color) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--color) 75%,
+      var(--color) 76%,
+      transparent 77%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%,
+      var(--color) 25%,
+      var(--color) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--color) 75%,
+      var(--color) 76%,
+      transparent 77%,
+      transparent
+    );
+  background-size: 55px 55px;
+}
+
+.catdex-title {
+  color: #D3A555;
+  text-align: center;
+  font-weight: bold;
+}
+
+.catdex-subtitle {
+  color: #FEFEFE;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.line-title {
+  color: #D3A555;
+  border-bottom: 2px solid #D3A555;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.catdex-card {
+  background: linear-gradient(144deg, #555, #2e2e2e, #555 50%);
+  border: 2px solid #D3A555;
+  color: #FEFEFE;
+  transition: transform 0.2s ease;
+}
+
+.catdex-card:hover {
+  transform: translateY(-4px);
+}
+
+.catdex-img {
+  height: 220px;
+  object-fit: contain;
+  background-color: #2e2e2e;
+  padding: 1rem;
+}
+
+.catdex-card.locked .catdex-img {
+  filter: grayscale(100%) brightness(0.25);
+}
+
+.catdex-card.locked {
+  opacity: 0.85;
+  border-color: #555;
+}

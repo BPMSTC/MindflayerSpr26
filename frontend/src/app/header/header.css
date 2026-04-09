@@ -39,20 +39,40 @@
   color: #ffcc00; /* Highlight color on hover */
 }
 
-/* Styles for the Sign In component */
-.btn{
-  background-color: #555;
-  color: #fff;
-  border: none;
-  padding: .5rem 1rem;
+/* Themed Sign In / Sign Out buttons (Catmon palette) */
+.btn-catmon {
+  background-color: #D3A555;
+  color: #FEFEFE;
+  border: 1px solid #D3A555;
+  padding: .5rem 1.25rem;
   border-radius: 4px;
+  font-weight: 600;
   cursor: pointer;
   transition-duration: .3s;
 }
 
-.btn:hover {
-  background-color: #ffcc00;
-  color: #000;
+.btn-catmon:hover,
+.btn-catmon:focus {
+  background-color: #BCA591;
+  border-color: #BCA591;
+  color: #FEFEFE;
+}
+
+.btn-catmon-outline {
+  background-color: transparent;
+  color: #D3A555;
+  border: 1px solid #D3A555;
+  padding: .5rem 1.25rem;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition-duration: .3s;
+}
+
+.btn-catmon-outline:hover,
+.btn-catmon-outline:focus {
+  background-color: #D3A555;
+  color: #FEFEFE;
 }
 
 /* Styles for the Hamburger menu */

@@ -26,12 +26,17 @@
           <a class="nav-link" routerLink="#">Home</a> <!--I think we could remove 'Home' if we can stylize the logo-->
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/about">CatDex</a>
+          <a class="nav-link" routerLink="/catdex">CatDex</a>
         </li>
       </ul>
 
-      <!-- Sign In Button (pushed right on desktop) -->
-      <button class="btn btn-primary ms-auto">Sign In</button>
+      <!-- Sign In / Sign Out Button (pushed right on desktop) -->
+      @if (auth.currentUser(); as user) {
+        <span class="navbar-text ms-auto me-3 text-light">Hi, {{ user.username }}</span>
+        <button class="btn btn-catmon-outline" (click)="signOut()">Sign Out</button>
+      } @else {
+        <button class="btn btn-catmon ms-auto" (click)="signIn()">Sign In</button>
+      }
 
     </div>
   </nav>

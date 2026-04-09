@@ -1,0 +1,65 @@
+.auth-page {
+  min-height: 80vh;
+  padding: 2rem 1rem;
+  --color: #fbff1442;
+  background-color: #79797900;
+  background-image: linear-gradient(
+      0deg,
+      transparent 24%,
+      var(--color) 25%,
+      var(--color) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--color) 75%,
+      var(--color) 76%,
+      transparent 77%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%,
+      var(--color) 25%,
+      var(--color) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--color) 75%,
+      var(--color) 76%,
+      transparent 77%,
+      transparent
+    );
+  background-size: 55px 55px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+}
+
+.btn-catmon {
+  background-color: #D3A555;
+  border-color: #D3A555;
+  color: #FEFEFE;
+}
+
+.auth-card .card-body {
+  background: linear-gradient(144deg, #555, #2e2e2e, #555 50%);
+  color: #FEFEFE;
+}
+
+.auth-card .card-header {
+  background-color: #D3A555;
+  border-bottom-color: #D3A555;
+  color: #FEFEFE;
+}
+
+.auth-card .card-footer {
+  background: linear-gradient(144deg, #555, #2e2e2e, #555 50%);
+  border-top-color: #D3A555;
+}
+
+.auth-card .card-footer,
+.auth-card .card-footer small,
+.auth-card .card-footer a,
+.auth-card .card-footer a:hover {
+  color: #FEFEFE;
+}
