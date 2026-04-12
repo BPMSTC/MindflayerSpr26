@@ -41,8 +41,8 @@
 
 /* Themed Sign In / Sign Out buttons (Catmon palette) */
 .btn-catmon {
-  background-color: #D3A555;
-  color: #FEFEFE;
+  background-color: #2e2e2e;
+  color: #fff;
   border: 1px solid #D3A555;
   padding: .5rem 1.25rem;
   border-radius: 4px;
@@ -53,14 +53,14 @@
 
 .btn-catmon:hover,
 .btn-catmon:focus {
-  background-color: #BCA591;
+  background-color: #fbff14;
   border-color: #BCA591;
-  color: #FEFEFE;
+  color: #000;
 }
 
 .btn-catmon-outline {
-  background-color: transparent;
-  color: #D3A555;
+  background-color: #2e2e2e;
+  color: #fff;
   border: 1px solid #D3A555;
   padding: .5rem 1.25rem;
   border-radius: 4px;
@@ -71,8 +71,8 @@
 
 .btn-catmon-outline:hover,
 .btn-catmon-outline:focus {
-  background-color: #D3A555;
-  color: #FEFEFE;
+  background-color: #fbff14;
+  color: #000;
 }
 
 /* Styles for the Hamburger menu */
