@@ -28,6 +28,8 @@
       transparent
     );
   background-size: 55px 55px;
+  border-top: #fbff14 solid 2px;
+  border-bottom: #fbff14 solid 2px;
 }
 
 .auth-card {
@@ -36,25 +38,25 @@
 }
 
 .btn-catmon {
-  background-color: #D3A555;
+  background-color: #fbff00;
   border-color: #D3A555;
-  color: #FEFEFE;
+  color: #000;
 }
 
 .auth-card .card-body {
-  background: linear-gradient(144deg, #555, #2e2e2e, #555 50%);
-  color: #FEFEFE;
+  background:  #2e2e2e;
+  color: #fff;
 }
 
 .auth-card .card-header {
-  background-color: #D3A555;
-  border-bottom-color: #D3A555;
-  color: #FEFEFE;
+  background-color: #fbff14;
+  border-bottom-color: #fbff14;
+  color: #fff;
 }
 
 .auth-card .card-footer {
-  background: linear-gradient(144deg, #555, #2e2e2e, #555 50%);
-  border-top-color: #D3A555;
+  background:  #2e2e2e;
+  border-top-color: #fbff14;
 }
 
 .auth-card .card-footer,
@@ -62,4 +64,8 @@
 .auth-card .card-footer a,
 .auth-card .card-footer a:hover {
   color: #FEFEFE;
+}
+
+.form-label {
+  color: #fff;
 }
