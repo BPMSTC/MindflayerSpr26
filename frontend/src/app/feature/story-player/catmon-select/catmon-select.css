@@ -10,7 +10,7 @@
   align-items: center; /* Vertically center content */
   border-top: #fbff14 solid 2px; /* Yellow top border */
   border-bottom: #fbff14 solid 2px; /* Yellow bottom border */
-}
+} 
 
 /* Text container within hero section */
 .hero-text {
@@ -185,9 +185,10 @@
 
 /* Hover effect for active buttons */
 .select-button:not(:disabled):hover {
-  background-color: #fbff14; /* Bright yellow background */
+  background-color: #fbff14d2; /* Bright yellow background */
   color: #000; /* Black text */
   transform: scale(1.05); /* Slightly enlarge button */
+  text-shadow: none; /* Remove text shadow on hover for better contrast */
 }
 
 /* === NAVIGATION STYLES === */
@@ -199,8 +200,8 @@
 
 /* Back to home button */
 .back-button {
-  background-color: #D3A555; /* Primary color background */
-  color: #FEFEFE; /* Text color */
+  background-color: #000000; /* Primary color background */
+  color: #fff; /* Text color */
   border: none; /* Remove default border */
   padding: 0.75rem 1.5rem; /* Padding inside button */
   border-radius: 8px; /* Rounded corners */

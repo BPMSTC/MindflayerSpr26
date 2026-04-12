@@ -10,6 +10,7 @@
 .hero-text { text-align: center; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,.5); }
 .hero-text h1 { font-size: 4rem; margin-bottom: 1rem; font-weight: bold; }
 .hero-text p { font-size: 1.5rem; margin-bottom: 1rem; font-weight: bold; } 
+
 .background {
   width: 100%; min-height: 90vh; --c: #fbff1442;
   background-image: linear-gradient(0deg,transparent 24%,var(--c) 25%,var(--c) 26%,transparent 27%,transparent 74%,var(--c) 75%,var(--c) 76%,transparent 77%,transparent),linear-gradient(90deg,transparent 24%,var(--c) 25%,var(--c) 26%,transparent 27%,transparent 74%,var(--c) 75%,var(--c) 76%,transparent 77%,transparent);
@@ -89,37 +90,69 @@
 .choice-card p { font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.5; }
 
 .select-button { 
-  background-color: #D3A555; 
-  color: #2e2e2e; 
+  background-color: #555;
+  color: #fff;
   padding: .75rem 1.5rem; 
   border-radius: 10px; 
   cursor: pointer; 
   font-weight: bold; 
   font-size: 1rem; 
-  transition: all .3s ease; 
+  transition: all .3s ease;  
 }
 
 
 .select-button:hover { background-color: #fbff14; 
   color: #000; 
   transform: scale(1.05);
+  border: #000 outset 2px;
 }
 
 
-.defeat-card { background: linear-gradient(135deg,#8B4513,#A0522D); border-color: #ff4444; }
+.defeat-card { 
+  background: linear-gradient(135deg,#8B4513,#A0522D); 
+  border-color: #ff4444; 
+}
 
 .victory-card {
-  max-width: 800px; margin: 0 auto 3rem; background: linear-gradient(135deg,#D3A555,#fbff14);
+  max-width: 800px; 
+  margin: 0 auto 3rem; 
+  background: linear-gradient(135deg,#D3A555,#fbff14);
   border-radius: 15px; padding: 2rem; border: 3px solid #FEFEFE;
-  box-shadow: 0 8px 20px rgba(0,0,0,.3),0 0 40px rgba(251,255,20,.3); color: #000;
+  box-shadow: 0 8px 20px rgba(0,0,0,.3),0 0 40px rgba(251,255,20,.3); 
+  color: #000;
 }
-.victory-card h3 { font-size: 2.5rem; margin-bottom: 1rem; font-weight: bold; }
 
-.victory-card p { font-size: 1.1rem; line-height: 1.6; }
+.victory-card h3 { 
+  font-size: 3rem; 
+  margin-bottom: 1rem; 
+  font-weight: bold; 
+}
 
-.navigation { text-align: center; margin-top: 2rem; display: flex; justify-content: center; gap: 1rem; }
+.victory-card p { 
+  font-size: 1.1rem; 
+  line-height: 1.6; 
+}
 
-.back-button { background-color: #D3A555; color: #FEFEFE; border: none; padding: .75rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1rem; transition: all .3s ease; }
+.navigation { 
+  text-align: center; 
+  margin-top: 2rem; 
+  display: flex; 
+  justify-content: center; 
+  gap: 1rem; 
+}
+
+.back-button {
+  background-color: #000000; /* Primary color background */
+  color: #fff; /* Text color */
+  border: none; /* Remove default border */
+  padding: 0.75rem 1.5rem; /* Padding inside button */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Show pointer cursor */
+  font-weight: bold; /* Bold text */
+  font-size: 1rem; /* Font size */
+  transition: all 0.3s ease; /* Smooth transitions */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Text shadow */
+}
 
 .back-button:hover { background-color: #BCA591; transform: scale(1.05); }
 
