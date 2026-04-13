@@ -1,72 +1,102 @@
-/* Importing Bootstrap CSS for styling the header component */
-@import 'bootstrap/dist/css/bootstrap.min.css'; 
+﻿/* ============================================================
+   HEADER / NAVBAR STYLES
+   Bootstrap's navbar classes provide the structural layout;
+   these rules apply Catmon theming on top.
+   Bootstrap's own CSS is imported here so it is scoped to
+   this component bundle by Angular's build step.
+   ============================================================ */
+@import 'bootstrap/dist/css/bootstrap.min.css';
 
-/* Styles for the header component */ 
+/* ------------------------------------------------------------
+   BRAND LOGO + NAME
+   ------------------------------------------------------------ */
+
+/* Site name text next to the logo */
 .navbar-brand {
-  font-size: 2rem; /* Larger font size for the brand name */
-  color: #fff; /* Bright color for the brand name */
-  font-weight: bold; /* Bold text for emphasis */
-  padding: 0 0 0 .75rem; /* Padding around the brand name */
-}
-
-.navbar-brand img {
-  border-radius: 3px; /* Slightly rounded corners for the logo image */
-  margin-right: 0.5rem; /* Space between the logo and the brand name */
-}
-
-.navbar-brand:hover {
-  color: #fff; /* Highlight color on hover */
-}
-
-/* Styles for the nav component */
-.navbar {
-  background-color: #333 !important; /* Light background color for the navbar */
-  padding: 1rem; /* Padding around the navbar */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-}
-
-.navbar-nav {
-  margin: 0 1rem; /* Margin around the navigation items */
-}
-
-.navbar-nav .nav-link {
-  color: #fff; /* Bright color for navigation links */
-  font-size: 1.1rem; /* Slightly larger font size for navigation links */
-  transition-duration: .3s; /* Smooth transition for hover effect */
-}
-
-.navbar-nav .nav-link:hover {
-  color: #ffcc00; /* Highlight color on hover */
-}
-
-/* Themed Sign In / Sign Out buttons (Catmon palette) */
-.btn-catmon {
-  background-color: #2e2e2e;
+  font-size: 2rem;
   color: #fff;
-  border: 1px solid #D3A555;
-  padding: .5rem 1.25rem;
+  font-weight: bold;
+  padding: 0 0 0 0.75rem; /* Left padding separates brand from the nav edge */
+}
+
+/* Logo image sits to the left of the brand text */
+.navbar-brand img {
+  border-radius: 3px;   /* Slight rounding softens the square logo */
+  margin-right: 0.5rem; /* Gap between logo and brand name */
+}
+
+/* Keep brand text white on hover — Bootstrap would otherwise
+   apply a colour-shift via its anchor override */
+.navbar-brand:hover {
+  color: #fff;
+}
+
+/* ------------------------------------------------------------
+   NAVBAR BAR
+   !important is required on background-color because Bootstrap
+   applies colour via .bg-dark / .navbar-dark utility classes that
+   carry higher specificity than a plain class selector.
+   Using !important here is the narrowest possible override —
+   it affects only this one property on this one element.
+   ------------------------------------------------------------ */
+.navbar {
+  background-color: #333 !important; /* Dark charcoal — overrides Bootstrap bg utilities */
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Subtle drop shadow below the bar */
+}
+
+/* Horizontal spacing around the link group */
+.navbar-nav {
+  margin: 0 1rem;
+}
+
+/* Individual navigation links */
+.navbar-nav .nav-link {
+  color: #fff;
+  font-size: 1.1rem;
+  transition-duration: 0.3s; /* Smooth colour shift on hover */
+}
+
+/* Yellow highlight on hover for visual feedback */
+.navbar-nav .nav-link:hover {
+  color: #ffcc00;
+}
+
+/* ------------------------------------------------------------
+   CATMON ACTION BUTTONS
+   .btn-catmon       — solid filled (primary action, e.g. Sign In)
+   .btn-catmon-outline — identical base; kept as a separate class
+                         so templates can be semantically distinct
+   ------------------------------------------------------------ */
+.btn-catmon {
+  background-color: #2e2e2e; /* Dark background matches navbar */
+  color: #fff;
+  border: 1px solid #D3A555; /* Gold border ties to the Catmon accent colour */
+  padding: 0.5rem 1.25rem;
   border-radius: 4px;
   font-weight: 600;
   cursor: pointer;
-  transition-duration: .3s;
+  transition-duration: 0.3s;
 }
 
+/* On hover AND keyboard focus: flash to bright yellow */
 .btn-catmon:hover,
 .btn-catmon:focus {
   background-color: #fbff14;
   border-color: #BCA591;
-  color: #000;
+  color: #000; /* Black text ensures contrast on the bright yellow */
 }
 
+/* Intentionally identical to .btn-catmon — see note above */
 .btn-catmon-outline {
   background-color: #2e2e2e;
   color: #fff;
   border: 1px solid #D3A555;
-  padding: .5rem 1.25rem;
+  padding: 0.5rem 1.25rem;
   border-radius: 4px;
   font-weight: 600;
   cursor: pointer;
-  transition-duration: .3s;
+  transition-duration: 0.3s;
 }
 
 .btn-catmon-outline:hover,
@@ -75,13 +105,170 @@
   color: #000;
 }
 
-/* Styles for the Hamburger menu */
+/* ------------------------------------------------------------
+   HAMBURGER MENU TOGGLE (mobile collapsed nav)
+   ------------------------------------------------------------ */
+
+/* Bright yellow makes the toggle instantly visible on dark navbar */
 .navbar-toggler {
-  background-color: #ffcc00; /* Bright background color for the hamburger menu */
-  border: none; /* Remove default border */
+  background-color: #ffcc00;
+  border: none; /* Remove Bootstrap's default border */
 }
 
+/* ::after pseudo-element also needs the yellow so it does not
+   flash a different colour when the menu opens */
 .navbar-toggler::after {
-  background-color: #ffcc00; /* Keep the same color when active or focused */
-  outline: none; /* Remove default focus outline */
+  background-color: #ffcc00;
+  outline: none;
+}
+
+/* ------------------------------------------------------------
+   RESPONSIVE — LARGE TABLET (<=1024px portrait)
+   Slightly smaller brand and link text; fluid gutter padding
+   uses the global --container-gutter token.
+   ------------------------------------------------------------ */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 0.75rem var(--container-gutter);
+  }
+
+  .navbar-brand {
+    font-size: 1.45rem; /* Reduced from desktop 2rem */
+  }
+
+  .navbar-brand img {
+    width: 28px;
+    height: 28px; /* Explicit size prevents layout shift on image load */
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 0.95rem;
+  }
+}
+
+/* ------------------------------------------------------------
+   RESPONSIVE — SMALL TABLET / LARGE PHONE (<=768px portrait)
+   The hamburger menu is visible at this width; buttons go
+   full-width inside the collapsed panel for easy tap targets.
+   ------------------------------------------------------------ */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.75rem 1rem;
+  }
+
+  .navbar-brand {
+    font-size: 1.35rem;
+    padding-left: 0; /* Remove extra left pad — less space available */
+  }
+
+  .navbar-brand img {
+    width: 26px;
+    height: 26px;
+  }
+
+  /* Extra breathing room between stacked nav items */
+  .navbar-nav {
+    margin: 0.75rem 0;
+    gap: 0.25rem;
+  }
+
+  /* Small top gap so collapsed items do not crowd the toggle */
+  .navbar-collapse {
+    padding-top: 0.5rem;
+  }
+
+  /* Full-width buttons are easier to tap on a phone */
+  .navbar-collapse .btn-catmon,
+  .navbar-collapse .btn-catmon-outline {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  /* Logged-in username: force block so it stacks above the buttons */
+  .navbar-text {
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+}
+
+/* ------------------------------------------------------------
+   RESPONSIVE — TABLET LANDSCAPE (<=1024px + landscape)
+   Landscape viewports are shorter, so the navbar must be
+   more compact to preserve page content space.
+   ------------------------------------------------------------ */
+@media (max-width: 1024px) and (orientation: landscape) {
+  .navbar {
+    padding: 0.55rem 1rem; /* Tighter vertical padding saves height */
+  }
+
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .navbar-brand img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 0.88rem;
+  }
+
+  .btn-catmon,
+  .btn-catmon-outline {
+    padding: 0.35rem 0.9rem; /* Slimmer buttons to save vertical space */
+    font-size: 0.9rem;
+  }
+}
+
+/* ------------------------------------------------------------
+   RESPONSIVE — COLLAPSED LANDSCAPE (<=991.98px + landscape)
+   991.98px matches Bootstrap's md breakpoint upper bound —
+   exactly when the hamburger is showing. Inside the open
+   collapse panel, buttons revert to auto-width so they do not
+   stretch across the entire narrow collapsed area.
+   ------------------------------------------------------------ */
+@media (max-width: 991.98px) and (orientation: landscape) {
+  /* Revert full-width so buttons do not dominate the collapse panel */
+  .navbar-collapse .btn-catmon,
+  .navbar-collapse .btn-catmon-outline {
+    width: auto;
+    margin-top: 0.35rem;
+  }
+
+  .navbar-text {
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+  }
+}
+
+/* ------------------------------------------------------------
+   RESPONSIVE — SHORT LANDSCAPE (max-height <= 430px)
+   Targets iPhone-class phones in landscape (e.g. 812x375,
+   932x430). The viewport is very short so every pixel of
+   vertical space counts — shrink the navbar to its minimum.
+   ------------------------------------------------------------ */
+@media (max-height: 430px) and (orientation: landscape) {
+  .navbar {
+    padding: 0.4rem 0.75rem; /* Absolute minimum padding */
+  }
+
+  .navbar-brand {
+    font-size: 1.05rem;
+  }
+
+  .navbar-brand img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 0.8rem;
+  }
+
+  .btn-catmon,
+  .btn-catmon-outline {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.65rem;
+  }
 }

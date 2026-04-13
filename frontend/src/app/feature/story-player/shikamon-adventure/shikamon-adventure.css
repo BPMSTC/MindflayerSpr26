@@ -1,5 +1,13 @@
+/* ============================================================
+  SHIKAMON ADVENTURE PAGE
+  Shares the same structural CSS as the other story-player pages.
+  Comments here explain the shared layout behaviour while the red
+  palette and hero art identify this evolution line.
+  ============================================================ */
+
+/* Shared hero shell; the classes below swap in the relevant evolution art. */
 .hero-image {
-  background-size: cover; background-position: center 25%; height: 600px;
+  background-size: cover; background-position: center 25%; min-height: clamp(380px, 62vh, 600px);
   display: flex; justify-content: center; align-items: center;
   border-top: #390099 solid 2px; border-bottom: #390099 solid 2px; 
 }
@@ -8,13 +16,14 @@
 .matatabimon-hero { background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.45)),url('/MindflayerSpr26/Catmon/ShikaMon/MatatabiMon.png'); }
 .defeat-hero { background-image: linear-gradient(rgba(80,0,0,.6),rgba(80,0,0,.5)),url('/MindflayerSpr26/hero_image.png'); }
 .hero-text { text-align: center; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,.5); }
-.hero-text h1 { font-size: 4rem; margin-bottom: 1rem; font-weight: bold; }
-.hero-text p { font-size: 1.5rem; margin-bottom: 1rem; font-weight: bold; }
+.hero-text h1 { font-size: clamp(2.2rem, 6vw, 4rem); margin-bottom: 1rem; font-weight: bold; }
+.hero-text p { font-size: clamp(1rem, 3.5vw, 1.5rem); margin-bottom: 1rem; font-weight: bold; }
 
+/* Two gradient passes create the square grid backdrop behind story content. */
 .background {
   width: 100%; min-height: 90vh; --c: #fbff1442;
   background-image: linear-gradient(0deg,transparent 24%,var(--c) 25%,var(--c) 26%,transparent 27%,transparent 74%,var(--c) 75%,var(--c) 76%,transparent 77%,transparent),linear-gradient(90deg,transparent 24%,var(--c) 25%,var(--c) 26%,transparent 27%,transparent 74%,var(--c) 75%,var(--c) 76%,transparent 77%,transparent);
-  background-size: 55px 55px;
+  background-size: clamp(34px, 5vw, 55px) clamp(34px, 5vw, 55px);
   border-bottom: #390099 solid 2px;
 }
 .adventure-content { 
@@ -22,6 +31,7 @@
   text-align: center; 
 }
 
+/* The profile card and outcome card intentionally share the same chrome. */
 .catmon-profile,.outcome-card {
   max-width: 600px; margin: 0 auto 3rem; 
   background: linear-gradient(135deg,#2e2e2e,#555);
@@ -39,6 +49,7 @@
   text-shadow: 2px 2px 4px rgba(0,0,0,.5); 
 }
 
+/* Evolution states add stronger glow effects as the story progresses. */
 .evolution-glow { 
   box-shadow: 0 8px 20px rgba(0,0,0,.3),0 0 30px #b58dfc; 
 }
@@ -49,14 +60,15 @@
 }
 
 .catmon-image { 
-  width: 150px; 
-  height: 150px; 
+  width: clamp(110px, 20vw, 150px); 
+  height: clamp(110px, 20vw, 150px); 
   object-fit: cover; 
   border-radius: 50%; 
   margin-bottom: 1rem; 
   border: 4px solid #FEFEFE; 
 }
 
+/* Defeated state desaturates the portrait so the failure outcome reads instantly. */
 .catmon-image.defeated { 
   filter: grayscale(100%); 
   opacity: .7; 
@@ -73,6 +85,7 @@
 
 .choice-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 2rem; }
 
+/* Choice cards are the interactive branching nodes of the story. */
 .choice-card {
   background: linear-gradient(135deg,#555,#2e2e2e); 
   border-radius: 15px; overflow: hidden;
@@ -123,7 +136,7 @@
 }
 
 .victory-card h3 { 
-  font-size: 3rem; 
+  font-size: clamp(2rem, 6vw, 3rem); 
   margin-bottom: 1rem; 
   font-weight: bold; 
 }
@@ -159,9 +172,188 @@
 
 
 
+/* Large tablet portrait: slightly reduce outer padding and allow narrower cards. */
+@media (max-width:1024px) {
+  .adventure-content {
+    padding: 2.25rem 1.5rem;
+  }
+
+  .choice-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+/* Small tablet / phone portrait: collapse the choice grid to one column and make
+  action buttons full-width for easier taps. */
 @media (max-width:768px) {
+  .hero-image {
+    min-height: 52vh;
+  }
+
+  .adventure-content {
+    padding: 1.75rem 1rem;
+  }
+
   .choice-grid { grid-template-columns: 1fr; }
   .hero-text h1 { font-size: 2.5rem; }
   .catmon-profile h2,.outcome-card h2 { font-size: 2rem; }
   .navigation { flex-direction: column; align-items: center; }
+
+  .choice-card-content,
+  .catmon-profile,
+  .outcome-card,
+  .victory-card {
+    padding: 1.25rem;
+  }
+
+  .select-button,
+  .back-button {
+    width: 100%;
+  }
+}
+
+/* Phone portrait: reduce hero height and section heading size. */
+@media (max-width:480px) {
+  .hero-image {
+    min-height: 48vh;
+  }
+
+  .hero-text {
+    padding-inline: 0.75rem;
+  }
+
+  .choice-section h3 {
+    font-size: 1.55rem;
+  }
+}
+
+/* Tablet landscape: use a 2-column choice grid and compress card spacing so the
+  hero and current story state remain visible above the fold. */
+@media (max-width:1024px) and (orientation: landscape) {
+  .hero-image {
+    min-height: 42vh;
+  }
+
+  .adventure-content {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .catmon-profile,
+  .outcome-card,
+  .victory-card,
+  .choice-section {
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .catmon-profile,
+  .outcome-card,
+  .victory-card,
+  .choice-card-content {
+    padding: 1rem;
+  }
+
+  .choice-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .choice-card h4 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .choice-card p {
+    font-size: 0.92rem;
+    margin-bottom: 1rem;
+  }
+
+  .navigation {
+    margin-top: 1rem;
+  }
+}
+
+/* Phone landscape: restore auto-width buttons so they do not dominate the row. */
+@media (max-width:768px) and (orientation: landscape) {
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .select-button,
+  .back-button {
+    width: auto;
+  }
+}
+
+/* iPad landscape (1024x768): 42vh left too little room for the active choice
+  grid, so this targeted rule trims the hero to 30vh. */
+@media (min-height: 600px) and (max-width: 1024px) and (orientation: landscape) {
+  .hero-image {
+    min-height: 30vh;
+  }
+}
+
+/* Very short landscape phones: compress portrait size, headings, body copy,
+   and button padding to keep the branching UI readable. */
+@media (max-height:430px) and (orientation: landscape) {
+  .hero-image {
+    min-height: 34vh;
+  }
+
+  .hero-text h1 {
+    font-size: 1.7rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .hero-text p {
+    font-size: 0.9rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .adventure-content {
+    padding: 1rem 0.85rem;
+  }
+
+  .catmon-profile,
+  .outcome-card,
+  .victory-card,
+  .choice-card-content {
+    padding: 0.75rem;
+  }
+
+  .catmon-image {
+    width: 82px;
+    height: 82px;
+    margin-bottom: 0.6rem;
+  }
+
+  .catmon-profile h2,
+  .outcome-card h2,
+  .victory-card h3,
+  .choice-section h3 {
+    font-size: 1.35rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .catmon-description,
+  .choice-card p,
+  .victory-card p {
+    font-size: 0.84rem;
+    line-height: 1.35;
+  }
+
+  .choice-grid {
+    gap: 0.75rem;
+  }
+
+  .select-button,
+  .back-button {
+    font-size: 0.82rem;
+    padding: 0.4rem 0.7rem;
+  }
 }
