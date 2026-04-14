@@ -1,28 +1,77 @@
+/* ============================================================
+   GLOBAL STYLES — applies to the entire app
+   Bootstrap is loaded first so our rules can override it.
+   ============================================================ */
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
+/* ------------------------------------------------------------
+   DESIGN TOKENS
+   Centralised breakpoint and fluid-size values used as
+   var() references throughout component stylesheets.
+   clamp(min, preferred, max) makes values scale smoothly
+   between the min and max bounds.
+   ------------------------------------------------------------ */
+:root {
+  --bp-phone:      480px;  /* Portrait phone upper bound */
+  --bp-tablet:     768px;  /* Small tablet upper bound */
+  --bp-tablet-lg:  1024px; /* Large tablet / small laptop upper bound */
+  --container-gutter: clamp(1rem, 2.5vw, 2rem); /* Fluid horizontal padding */
+  --hero-heading:     clamp(2.2rem, 7vw, 5rem);  /* Fluid h1 in hero sections */
+  --hero-subheading:  clamp(1rem, 3.5vw, 1.5rem);/* Fluid p in hero sections */
+}
+
+/* ------------------------------------------------------------
+   BODY
+   Dark charcoal background matches the Catmon art style.
+   overflow-x: hidden prevents horizontal scroll on mobile
+   caused by elements that briefly extend past the viewport edge.
+   ------------------------------------------------------------ */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #2a2a2a;
   color: #FEFEFE;
+  margin: 0;
+  overflow-x: hidden;
 }
 
+/* ------------------------------------------------------------
+   IMAGES — global responsive guard.
+   Prevents any image from overflowing its container on narrow
+   viewports. height:auto preserves the natural aspect ratio.
+   ------------------------------------------------------------ */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ------------------------------------------------------------
+   BOOTSTRAP OVERRIDES — card chrome
+   Recolours Bootstrap's .card family to the Catmon dark theme
+   so any card used anywhere in the app looks consistent.
+   ------------------------------------------------------------ */
 .card {
-  background-color: #3a3a3a;
-  border-color: #D3A555;
+  background-color: #3a3a3a; /* Dark card body */
+  border-color: #D3A555;     /* Gold border matches primary accent */
 }
 
 .card-header {
-  background-color: #BCA591;
+  background-color: #BCA591; /* Warm tan header strip */
   color: #FEFEFE;
 }
 
 .card-footer {
-  background-color: #3a3a3a;
-  border-top-color: #D3A555;
+  background-color: #3a3a3a; /* Same dark shade as card body */
+  border-top-color: #D3A555; /* Gold divider between body and footer */
 }
 
+/* ------------------------------------------------------------
+   BOOTSTRAP OVERRIDES — form fields
+   Keeps text inputs readable on the dark background.
+   The focus ring uses a semi-transparent gold glow (#D3A555 at 25%
+   opacity) instead of Bootstrap's default blue.
+   ------------------------------------------------------------ */
 .form-control, .form-select {
-  background-color: #4a4a4a;
+  background-color: #4a4a4a; /* Slightly lighter than body so fields are visible */
   border-color: #BCA591;
   color: #FEFEFE;
 }
@@ -31,17 +80,182 @@ body {
   background-color: #4a4a4a;
   border-color: #D3A555;
   color: #FEFEFE;
-  box-shadow: 0 0 0 0.25rem rgba(211, 165, 85, 0.25);
+  box-shadow: 0 0 0 0.25rem rgba(211, 165, 85, 0.25); /* Gold focus ring */
 }
 
 .form-label {
-  color: #BCA591;
+  color: #BCA591; /* Warm tan label to pair with the gold field border */
 }
 
+/* ------------------------------------------------------------
+   LINKS — global colour overrides for anchor tags.
+   ------------------------------------------------------------ */
 a {
-  color: #D3A555;
+  color: #D3A555; /* Gold matches the primary accent */
 }
 
 a:hover {
-  color: #e8c17a;
+  color: #e8c17a; /* Lighter gold on hover for visual feedback */
+}
+
+/* ============================================================
+   SHARED AUTH PAGE STYLES — login & signup
+   The full page background and card chrome live here so the
+   two auth components stay in sync without duplicating CSS.
+   Each component file contains ONLY its unique .auth-card
+   max-width overrides per breakpoint.
+   ============================================================ */
+
+/* Full-page auth background — same yellow grid pattern used
+   on gameplay pages, keeping a consistent visual language. */
+.auth-page {
+  min-height: 80vh;
+  padding: 2rem 1rem;
+  --color: #fbff1442; /* Semi-transparent yellow for the grid lines */
+  background-color: transparent; /* Dark body background shows through */
+  /* Two overlapping linear-gradient passes create a grid:
+     the 0deg pass draws horizontal bands, the 90deg pass
+     draws vertical bands. Together they form a square grid. */
+  background-image: linear-gradient(
+      0deg,
+      transparent 24%,
+      var(--color) 25%,
+      var(--color) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--color) 75%,
+      var(--color) 76%,
+      transparent 77%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%,
+      var(--color) 25%,
+      var(--color) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--color) 75%,
+      var(--color) 76%,
+      transparent 77%,
+      transparent
+    );
+  background-size: 55px 55px; /* Controls the visible grid cell size */
+  border-top: #fbff14 solid 2px;    /* Yellow accent borders frame the page */
+  border-bottom: #fbff14 solid 2px;
+}
+
+/* Auth card fills its Bootstrap column width;
+   each component sets max-width for its own breakpoints. */
+.auth-card { width: 100%; }
+
+/* Submit button inside the auth card — bright yellow CTA */
+.auth-card .btn-catmon {
+  background-color: #fbff00;
+  border-color: #D3A555;
+  color: #000; /* Black text ensures contrast on the bright yellow */
+}
+
+/* Dark card body so form fields stand out */
+.auth-card .card-body {
+  background: #2e2e2e;
+  color: #fff;
+}
+
+/* Yellow header strip identifies the form at a glance */
+.auth-card .card-header {
+  background-color: #fbff14;
+  border-bottom-color: #fbff14;
+  color: #fff;
+}
+
+/* Footer strip (e.g. "Don't have an account?") */
+.auth-card .card-footer {
+  background: #2e2e2e;
+  border-top-color: #fbff14;
+}
+
+/* All text inside the footer, including anchor tags and <small>,
+   should stay white so it's readable on the dark background. */
+.auth-card .card-footer,
+.auth-card .card-footer small,
+.auth-card .card-footer a,
+.auth-card .card-footer a:hover {
+  color: #FEFEFE;
+}
+
+/* Override Bootstrap's default label colour inside auth cards */
+.auth-card .form-label { color: #fff; }
+
+/* ------------------------------------------------------------
+   AUTH RESPONSIVE — LARGE TABLET (≤1024px portrait)
+   ------------------------------------------------------------ */
+@media (max-width: 1024px) {
+  .auth-page {
+    background-size: 42px 42px; /* Slightly smaller grid cells on tablet */
+    padding: 1.75rem 1rem;
+  }
+}
+
+/* ------------------------------------------------------------
+   AUTH RESPONSIVE — SMALL TABLET / LARGE PHONE (≤768px portrait)
+   ------------------------------------------------------------ */
+@media (max-width: 768px) {
+  .auth-page {
+    background-size: 36px 36px; /* Even smaller grid cells on phone */
+    min-height: 72vh;           /* Reduced minimum height — content is shorter */
+    padding: 1.5rem 0.85rem;
+  }
+
+  .auth-card .card-body {
+    padding: 1rem; /* Tighter body padding to fit the narrower card */
+  }
+}
+
+/* ------------------------------------------------------------
+   AUTH RESPONSIVE — PORTRAIT PHONE (≤480px)
+   ------------------------------------------------------------ */
+@media (max-width: 480px) {
+  .auth-page {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .auth-card .card-body {
+    padding: 0.85rem;
+  }
+}
+
+/* ------------------------------------------------------------
+   AUTH RESPONSIVE — TABLET LANDSCAPE (≤1024px + landscape)
+   ------------------------------------------------------------ */
+@media (max-width: 1024px) and (orientation: landscape) {
+  .auth-page {
+    min-height: 68vh; /* Shorter viewport in landscape — reduce min-height */
+    padding: 1rem;
+  }
+
+  .auth-card .card-body {
+    padding: 1rem 1.1rem;
+  }
+
+  /* !important is required here because Bootstrap's .mb-3 utility class
+     applies margin-bottom via its own stylesheet with high specificity.
+     We need to tighten the vertical rhythm in landscape without adding
+     extra HTML attributes, so !important is the narrowest override. */
+  .mb-3 {
+    margin-bottom: 0.65rem !important;
+  }
+
+  .auth-card .btn-catmon {
+    padding: 0.45rem 1rem; /* Slightly slimmer button saves vertical space */
+  }
+}
+
+/* ------------------------------------------------------------
+   AUTH RESPONSIVE — PHONE LANDSCAPE (≤768px + landscape)
+   ------------------------------------------------------------ */
+@media (max-width: 768px) and (orientation: landscape) {
+  .auth-page {
+    padding: 0.75rem; /* Minimal padding maximises the usable card height */
+  }
 }

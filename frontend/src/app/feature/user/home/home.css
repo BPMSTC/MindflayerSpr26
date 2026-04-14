@@ -1,4 +1,9 @@
-/* === HOME PAGE STYLES === */
+/* ============================================================
+  HOME PAGE STYLES
+  This page is split into two major areas:
+  1. A hero banner with CTA
+  2. A gameplay explainer section built from themed cards
+  ============================================================ */
 
 /* === HERO SECTION STYLES === */
 .hero-image {
@@ -6,7 +11,7 @@
   background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.45)), url('/MindflayerSpr26/hero_image.png');
   background-size: cover; /* Scale image to cover entire container */
   background-position: center; /* Center the background image */
-  height: 800px; /* Fixed height for hero section */
+  min-height: clamp(420px, 70vh, 800px); /* Responsive hero sizing while preserving desktop impact */
   display: flex; /* Flexbox for centering content */
   justify-content: center; /* Center content horizontally */
   align-items: center; /* Center content vertically */
@@ -23,14 +28,14 @@
 
 /* Main heading in hero section */
 .hero-text h1 {
-  font-size: 5rem; /* Large font size for impact */
+  font-size: var(--hero-heading); /* Scales for phone/tablet while preserving desktop */
   margin-bottom: 1rem; /* Space below heading */
   font-weight: bold; /* Bold font weight */
 }
 
 /* Subtitle text in hero section */
 .hero-text p {
-  font-size: 1.5rem; /* Medium font size */
+  font-size: var(--hero-subheading); /* Fluid subtitle size */
   margin-bottom: 1rem; /* Space below paragraph */
   font-weight: bold; /* Bold font weight */
 }
@@ -57,9 +62,8 @@
 /* Main background container for gameplay content */
 .background {
   width: 100%; /* Full width */
-  height: 100%; /* Full height */
   --color: #fbff1442; /* CSS custom property for grid pattern color */
-  background-color: #79797900; /* Transparent background */
+  background-color: transparent; /* Transparent — body background shows through */
   /* Grid pattern created with linear gradients */
   background-image: linear-gradient(
       0deg, /* Vertical lines */
@@ -108,100 +112,52 @@
   font-weight: bold; /* Bold text */
 }
 
-/* Highlighted gameplay card (yellow gradient) */
-.gameplay-card {
-  width: fit-content; /* Width fits content */
-  border-radius: 20px; /* Rounded corners */
-  padding: .15rem; /* Small padding for border effect */
-  box-shadow: #000 0px 4px 8px, #000 0px 15px 30px -5px; /* Multiple shadows for depth */
-  background-image: linear-gradient(144deg, #fbff14, #fdff97 50%, #fbff14); /* Yellow gradient */
-}
-
-/* Content inside gameplay card */
-.gameplay-content {
-  background:#000; /* Black background */
-  border-radius: 20px; /* Rounded corners to match parent */
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  padding: .5rem 1rem .25rem 1rem; /* Asymmetric padding */
-}
-
-/* Title card with gray gradient */
-.gameplay-title-card {
-  width: 50%; /* Half width */
-  border-radius: 20px; /* Rounded corners */
-  padding: .15rem; /* Small padding for border effect */
-  box-shadow: #000 0px 4px 8px, #000 0px 15px 30px -5px; /* Multiple shadows */
-  background-image: linear-gradient(144deg, #555 50%, #2e2e2e, #555); /* Gray gradient */
-  margin-top: 1.5rem; /* Space above card */
-}
-
-/* Content inside title card */
-.gameplay-title-content {
-  background:#000; /* Black background */
-  border-radius: 20px; /* Rounded corners */
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  padding: .5rem 1rem .25rem 1rem; /* Asymmetric padding */
-}
-
-/* Choice card with gray gradient (different direction) */
-.gameplay-choice-card {
-  width: 50%; /* Half width */
-  border-radius: 20px; /* Rounded corners */
-  padding: .15rem; /* Small padding for border effect */
-  box-shadow: #000 0px 4px 8px, #000 0px 15px 30px -5px; /* Multiple shadows */
-  background-image: linear-gradient(144deg, #555, #2e2e2e 50%, #555); /* Gray gradient */
-  margin-top: 1.5rem; /* Space above card */
-}
-
-/* Content inside choice card */
-.gameplay-choice-content {
-  background:#000; /* Black background */
-  border-radius: 20px; /* Rounded corners */
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  padding: .5rem 1rem .25rem 1rem; /* Asymmetric padding */
-}
-
-/* Discover card with gray gradient (different direction) */
-.gameplay-discover-card {
-  width: 50%; /* Half width */
-  border-radius: 20px; /* Rounded corners */
-  padding: .15rem; /* Small padding for border effect */
-  box-shadow: #000 0px 4px 8px, #000 0px 15px 30px -5px; /* Multiple shadows */
-  background-image: linear-gradient(144deg, #555, #2e2e2e, #555 50%); /* Gray gradient */
-  margin-top: 1.5rem; /* Space above card */
-}
-
-/* Content inside discover card */
-.gameplay-discover-content {
-  background:#000; /* Black background */
-  border-radius: 20px; /* Rounded corners */
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  padding: .5rem 1rem .25rem 1rem; /* Asymmetric padding */
-}
-
-/* World card with gray gradient */
+/* Shared chrome: all cards get the same radius, inset padding, and shadow */
+.gameplay-card,
+.gameplay-title-card,
+.gameplay-choice-card,
+.gameplay-discover-card,
 .gameplay-world-card {
-  width: 50%; /* Half width */
-  border-radius: 20px; /* Rounded corners */
-  padding: .15rem; /* Small padding for border effect */
-  box-shadow: #000 0px 4px 8px, #000 0px 15px 30px -5px; /* Multiple shadows */
-  background-image: linear-gradient(144deg, #555 50%, #2e2e2e, #555); /* Gray gradient */
-  margin-top: 1.5rem; /* Space above card */
+  border-radius: 20px;
+  padding: .15rem;
+  box-shadow: #000 0px 4px 8px, #000 0px 15px 30px -5px;
 }
 
-/* Content inside world card */
-.gameplay-world-content {
-  background:#000; /* Black background */
-  border-radius: 20px; /* Rounded corners */
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  padding: .5rem 1rem .25rem 1rem; /* Asymmetric padding */
-  text-align: center; /* Center content */
+/* Featured yellow-gradient card */
+.gameplay-card {
+  width: fit-content;
+  background-image: linear-gradient(144deg, #fbff14, #fdff97 50%, #fbff14);
 }
+
+/* Secondary gray cards */
+.gameplay-title-card,
+.gameplay-choice-card,
+.gameplay-discover-card,
+.gameplay-world-card {
+  width: 50%;
+  margin-top: 1.5rem;
+}
+
+/* Individual gradient directions for each gray card */
+.gameplay-title-card   { background-image: linear-gradient(144deg, #555 50%, #2e2e2e, #555); }
+.gameplay-choice-card  { background-image: linear-gradient(144deg, #555, #2e2e2e 50%, #555); }
+.gameplay-discover-card{ background-image: linear-gradient(144deg, #555, #2e2e2e, #555 50%); }
+.gameplay-world-card   { background-image: linear-gradient(144deg, #555 50%, #2e2e2e, #555); }
+
+/* Shared inner content containers */
+.gameplay-content,
+.gameplay-title-content,
+.gameplay-choice-content,
+.gameplay-discover-content,
+.gameplay-world-content {
+  background: #000;
+  border-radius: 20px;
+  width: 100%;
+  padding: .5rem 1rem .25rem 1rem;
+}
+
+/* World map content is center-aligned */
+.gameplay-world-content { text-align: center; }
 
 /* World map image */
 .world-map {
@@ -210,4 +166,221 @@
   border-radius: 12px; /* Rounded corners */
   margin: 1rem 0; /* Vertical spacing */
   border: #fbff14 solid 2px; /* Yellow border to match theme */
+}
+
+/* Tablet portrait: reduce spacing and cap the half-width cards so they do not
+  become overly wide on 768–1024px screens. */
+@media (max-width: 1024px) {
+  .background {
+    background-size: 42px 42px;
+  }
+
+  .gameplay {
+    padding: 1.5rem var(--container-gutter);
+  }
+
+  .gameplay-title-card,
+  .gameplay-choice-card,
+  .gameplay-discover-card,
+  .gameplay-world-card {
+    width: min(720px, 100%);
+  }
+}
+
+/* Small tablet / phone portrait: stack the secondary cards full-width and
+  tighten hero and text spacing for narrow screens. */
+@media (max-width: 768px) {
+  .hero-image {
+    min-height: 58vh;
+  }
+
+  .hero-text {
+    padding-inline: 1rem;
+  }
+
+  .background {
+    background-size: 36px 36px;
+  }
+
+  .gameplay {
+    padding: 1.25rem 1rem;
+  }
+
+  .gameplay h2 {
+    font-size: 1.55rem;
+    margin: 0.75rem 0;
+  }
+
+  .gameplay p {
+    margin: 0.75rem 0;
+  }
+
+  .gameplay-title-card,
+  .gameplay-choice-card,
+  .gameplay-discover-card,
+  .gameplay-world-card {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+/* Phone portrait: make the CTA span full width and tighten inner padding. */
+@media (max-width: 480px) {
+  .hero-image {
+    min-height: 52vh;
+  }
+
+  .hero-text button {
+    width: 100%;
+  }
+
+  .gameplay-content,
+  .gameplay-title-content,
+  .gameplay-choice-content,
+  .gameplay-discover-content,
+  .gameplay-world-content {
+    padding: 0.75rem;
+  }
+}
+
+/* Tablet landscape: switch gameplay cards into a grid so the short viewport
+  still shows multiple concept blocks above the fold. */
+@media (max-width: 1024px) and (orientation: landscape) {
+  .hero-image {
+    min-height: 46vh;
+  }
+
+  .hero-text {
+    max-width: 760px;
+    padding: 1rem 1.25rem;
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.32);
+  }
+
+  .hero-text h1 {
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-text p {
+    margin-bottom: 0.65rem;
+  }
+
+  .gameplay {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .gameplay-card,
+  .gameplay-world-card {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: min(900px, 100%);
+  }
+
+  .gameplay-title-card,
+  .gameplay-choice-card,
+  .gameplay-discover-card {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .gameplay h2,
+  .gameplay p {
+    margin: 0.5rem 0;
+  }
+
+  .world-map {
+    max-height: 32vh;
+    object-fit: contain;
+  }
+}
+
+/* Phone landscape: keep the compact layout but restore auto-width CTA so it
+  does not span awkwardly across the shorter hero. */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .hero-text button {
+    width: auto;
+  }
+}
+
+/* iPad landscape (1024x768) — hero sits at 46vh (353px); reduce to 34vh so gameplay is visible above fold */
+@media (min-height: 600px) and (max-width: 1024px) and (orientation: landscape) {
+  .hero-image {
+    min-height: 34vh;
+  }
+
+  .hero-text {
+    max-width: 680px;
+    padding: 0.85rem 1rem;
+  }
+}
+
+/* Very short landscape phones: compress every vertical rhythm value so the
+  gameplay grid still feels intentional instead of cramped. */
+@media (max-height: 430px) and (orientation: landscape) {
+  .hero-image {
+    min-height: 36vh;
+  }
+
+  .hero-text {
+    max-width: 660px;
+    padding: 0.75rem 1rem;
+  }
+
+  .hero-text h1 {
+    font-size: 1.6rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .hero-text p {
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .hero-text button {
+    font-size: 0.85rem;
+    padding: 0.45rem 0.85rem;
+  }
+
+  .gameplay {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+    padding: 0.85rem;
+  }
+
+  .gameplay-card,
+  .gameplay-world-card {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .gameplay-content,
+  .gameplay-title-content,
+  .gameplay-choice-content,
+  .gameplay-discover-content,
+  .gameplay-world-content {
+    padding: 0.55rem 0.7rem 0.45rem;
+  }
+
+  .gameplay h2 {
+    font-size: 1.05rem;
+  }
+
+  .gameplay p {
+    font-size: 0.85rem;
+  }
+
+  .world-map {
+    max-height: 24vh;
+  }
 }

@@ -1,7 +1,15 @@
+/* ============================================================
+  CATDEX PAGE
+  Displays unlocked and locked Catmon cards on the shared grid
+  background. Layout is mostly handled by Bootstrap grid markup;
+  this file themes the cards and tunes image sizing responsively.
+  ============================================================ */
+
+/* Page wrapper with the shared yellow grid background */
 .catdex-page {
   min-height: 80vh;
   --color: #fbff1442;
-  background-color: #79797900;
+  background-color: transparent;
   background-image: linear-gradient(
       0deg,
       transparent 24%,
@@ -29,18 +37,22 @@
   background-size: 55px 55px;
 }
 
+/* Page title scales fluidly between mobile and desktop */
 .catdex-title {
   color: #D3A555;
   text-align: center;
   font-weight: bold;
+  font-size: clamp(2rem, 5vw, 3rem);
 }
 
+/* Supporting copy under the main title */
 .catdex-subtitle {
   color: #FEFEFE;
   text-align: center;
   margin-bottom: 2rem;
 }
 
+/* Section headers for each evolution line */
 .line-title {
   color: #D3A555;
   border-bottom: 2px solid #D3A555;
@@ -48,6 +60,7 @@
   margin-bottom: 1rem;
 }
 
+/* Individual CatDex card */
 .catdex-card {
   background: linear-gradient(144deg, #555, #2e2e2e, #555 50%);
   border: 2px solid #D3A555;
@@ -55,22 +68,85 @@
   transition: transform 0.2s ease;
 }
 
+/* Small hover lift adds affordance without dramatic movement */
 .catdex-card:hover {
   transform: translateY(-4px);
 }
 
+/* Art image area inside each card */
 .catdex-img {
-  height: 220px;
+  height: clamp(170px, 24vw, 220px);
   object-fit: contain;
   background-color: #2e2e2e;
   padding: 1rem;
 }
 
+/* Locked entries dim the art to communicate they are undiscovered */
 .catdex-card.locked .catdex-img {
   filter: grayscale(100%) brightness(0.25);
 }
 
+/* Locked entries also reduce border emphasis */
 .catdex-card.locked {
   opacity: 0.85;
   border-color: #555;
+}
+
+/* Tablet portrait: shrink the grid pattern and tighten subtitle spacing. */
+@media (max-width: 1024px) {
+  .catdex-page {
+    background-size: 42px 42px;
+  }
+
+  .catdex-subtitle {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* Small tablet / phone portrait: reduce section heading size and image padding. */
+@media (max-width: 768px) {
+  .catdex-page {
+    background-size: 36px 36px;
+  }
+
+  .line-title {
+    font-size: 1.4rem;
+  }
+
+  .catdex-img {
+    padding: 0.75rem;
+  }
+}
+
+/* Phone portrait: thin the card border to avoid heavy chrome on narrow screens. */
+@media (max-width: 480px) {
+  .catdex-subtitle {
+    margin-bottom: 1.25rem;
+  }
+
+  .catdex-card {
+    border-width: 1px;
+  }
+}
+
+/* Landscape on tablets/phones: shorter screen height means images and headings
+   must compress to keep more cards visible without scrolling. */
+@media (max-width: 1024px) and (orientation: landscape) {
+  .catdex-page {
+    min-height: 70vh;
+  }
+
+  .catdex-subtitle {
+    margin-bottom: 1rem;
+  }
+
+  .line-title {
+    font-size: 1.25rem;
+  }
+
+  .catdex-img {
+    height: clamp(120px, 16vw, 170px);
+    padding: 0.5rem;
+  }
 }

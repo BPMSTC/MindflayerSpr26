@@ -1,71 +1,31 @@
-.auth-page {
-  min-height: 80vh;
-  padding: 2rem 1rem;
-  --color: #fbff1442;
-  background-color: #79797900;
-  background-image: linear-gradient(
-      0deg,
-      transparent 24%,
-      var(--color) 25%,
-      var(--color) 26%,
-      transparent 27%,
-      transparent 74%,
-      var(--color) 75%,
-      var(--color) 76%,
-      transparent 77%,
-      transparent
-    ),
-    linear-gradient(
-      90deg,
-      transparent 24%,
-      var(--color) 25%,
-      var(--color) 26%,
-      transparent 27%,
-      transparent 74%,
-      var(--color) 75%,
-      var(--color) 76%,
-      transparent 77%,
-      transparent
-    );
-  background-size: 55px 55px;
-  border-top: #fbff14 solid 2px;
-  border-bottom: #fbff14 solid 2px;
+/* ============================================================
+   SIGNUP PAGE OVERRIDES
+   Shared auth visuals live in styles.css. This file only controls
+   how wide the signup card is allowed to grow at each breakpoint.
+   Signup gets a slightly wider base than login because the form
+   carries more fields.
+   ============================================================ */
+
+/* Desktop / large screens: wider than login to fit the longer form. */
+.auth-card { max-width: 460px; }
+
+/* Tablet portrait: allow a little extra width for multi-field form rows. */
+@media (max-width: 1024px) {
+  .auth-card { max-width: 500px; }
 }
 
-.auth-card {
-  width: 100%;
-  max-width: 460px;
+/* On narrow portrait screens the card should span the available width.
+   border-width is reduced to keep the card from feeling too heavy. */
+@media (max-width: 768px) {
+  .auth-card { max-width: 100%; border-width: 1px; }
 }
 
-.btn-catmon {
-  background-color: #fbff00;
-  border-color: #D3A555;
-  color: #000;
+/* Landscape has more horizontal room, so the card can widen substantially. */
+@media (max-width: 1024px) and (orientation: landscape) {
+  .auth-card { max-width: 700px; }
 }
 
-.auth-card .card-body {
-  background:  #2e2e2e;
-  color: #fff;
-}
-
-.auth-card .card-header {
-  background-color: #fbff14;
-  border-bottom-color: #fbff14;
-  color: #fff;
-}
-
-.auth-card .card-footer {
-  background:  #2e2e2e;
-  border-top-color: #fbff14;
-}
-
-.auth-card .card-footer,
-.auth-card .card-footer small,
-.auth-card .card-footer a,
-.auth-card .card-footer a:hover {
-  color: #FEFEFE;
-}
-
-.form-label {
-  color: #fff;
+/* Phone landscape still needs a cap so fields do not stretch excessively. */
+@media (max-width: 768px) and (orientation: landscape) {
+  .auth-card { max-width: 620px; }
 }
