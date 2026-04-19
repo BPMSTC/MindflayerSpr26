@@ -20,9 +20,9 @@ export class KirmonAdventureComponent {
   // 3 = Choose rival destination (no wrong answer)
   // 4 = Train or not before rival duel
   // 5 = Rival duel decision
-  // 8 = Final evolution (AmaterosaMon)
-  // 6 = Defeat from first fight
-  // 7 = Defeat from skipping final training
+  // 6 = Final evolution (AmaterosaMon)
+  // 7 = Defeat from first fight
+  // 8 = Defeat from skipping final training
   // 9 = Defeat from wrong rival-duel choice
   stage = 1;
 
@@ -94,14 +94,14 @@ export class KirmonAdventureComponent {
       this.trainingRoute = effective === 1 ? 'the Frost Ridge drills' : 'the Ice Cavern endurance course';
       this.stage = 2;
 
-      // STORY 2 -> STORY 3 or DEFEAT (stage 6)
+      // STORY 2 -> STORY 3 or DEFEAT (stage 7)
       // Winning this fight evolves KirMon into IneMon and unlocks it in CatDex.
     } else if (this.stage === 2) {
       if (effective === 1) {
         this.stage = 3;
         this.auth.discoverCatmon('IneMon');
       } else {
-        this.stage = 6;
+        this.stage = 7;
       }
 
       // STORY 3 -> STORY 4
@@ -110,22 +110,21 @@ export class KirmonAdventureComponent {
       this.selectedRival = effective === 1 ? 'RutoMon' : 'MaruMon';
       this.stage = 4;
 
-      // STORY 4 -> STORY 5 or DEFEAT (stage 7)
-      // Training is still the correct choice, but evolution now happens after
-      // winning the actual rival duel in story 5.
+      // STORY 4 -> STORY 5 or DEFEAT (stage 8)
+      // Training is the correct choice
     } else if (this.stage === 4) {
       if (effective === 1) {
         this.stage = 5;
       } else {
-        this.stage = 7;
+        this.stage = 8;
       }
 
-      // STORY 5 -> STORY 6 (stage 8) or DEFEAT (stage 9)
+      // STORY 5 -> STORY 6 (stage 6) or DEFEAT (stage 9)
       // The winning option depends on which rival was chosen in story 3.
     } else if (this.stage === 5) {
       const isWinningChoice = this.selectedRival === 'RutoMon' ? effective === 1 : effective === 2;
       if (isWinningChoice) {
-        this.stage = 8;
+        this.stage = 6;
         this.auth.discoverCatmon('AmaterosaMon');
       } else {
         this.stage = 9;
@@ -144,5 +143,3 @@ export class KirmonAdventureComponent {
     this.swapped = Math.random() < 0.5;
   }
 }
-
-
