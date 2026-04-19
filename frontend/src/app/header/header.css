@@ -25,10 +25,15 @@
   margin-right: 0.5rem; /* Gap between logo and brand name */
 }
 
-/* Keep brand text white on hover — Bootstrap would otherwise
-   apply a colour-shift via its anchor override */
-.navbar-brand:hover {
+/* Keep brand text white across all anchor states — Bootstrap would
+   otherwise flash the link colour on hover/focus/active/visited */
+.navbar-brand,
+.navbar-brand:hover,
+.navbar-brand:focus,
+.navbar-brand:active,
+.navbar-brand:visited {
   color: #fff;
+  text-decoration: none;
 }
 
 /* ------------------------------------------------------------
