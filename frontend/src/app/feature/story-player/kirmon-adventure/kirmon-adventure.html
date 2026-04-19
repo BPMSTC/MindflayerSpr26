@@ -282,7 +282,7 @@
   <div class="hero-image ineMon-hero">
     <div class="hero-text">
       <h1>Duel with {{ selectedRival }}</h1>
-      <p>The deciding battle begins in {{ rivalRegion }}. Hint: {{ rivalDuelHint }}</p>
+      <p>The deciding battle begins in {{ rivalRegion }}.</p>
     </div>
   </div>
 
@@ -292,13 +292,13 @@
         <div class="catmon-profile">
           <img [src]="ineMon.image" [alt]="ineMon.name" class="catmon-image">
           <h2>{{ ineMon.name }}</h2>
-          <p class="catmon-description">IneMon faces {{ selectedRival }} directly. The wrong approach will cost the duel, but the right one opens the path to final evolution.</p>
+          <p class="catmon-description">IneMon faces {{ selectedRival }} directly. To win this duel, {{ rivalDuelHint }}. The wrong approach will cost the duel, but the right one opens the path to final evolution.</p>
         </div>
 
         <div class="catmon-profile">
           <img [src]="rivalImage" [alt]="selectedRival" class="catmon-image">
           <h2>{{ selectedRival }}</h2>
-          <p class="catmon-description">Your chosen rival from {{ rivalRegion }} stands ready for the deciding clash.</p>
+          <p class="catmon-description">Your chosen rival from {{ rivalRegion }} stands ready for the deciding clash. {{ rivalDuelPlan }}</p>
         </div>
       </div>
 
@@ -458,7 +458,7 @@
         <div class="outcome-card defeat-card">
           <img [src]="ineMon.image" [alt]="ineMon.name" class="catmon-image defeated">
           <h2>Defeat</h2>
-          <p class="catmon-description">IneMon chose the wrong tactic. To defeat {{ selectedRival }}, the winning approach was to {{ rivalWinningTactic }}.</p>
+          <p class="catmon-description">IneMon chose the wrong tactic. To defeat {{ selectedRival }}, you needed to follow this plan: {{ rivalDuelHint }}</p>
         </div>
 
         <div class="catmon-profile">

@@ -74,18 +74,18 @@ export class KirmonAdventureComponent {
       : 'prove your discipline against resistance-hardened strength from Kedikure';
   }
 
-  // Correct tactical choice in story 5 depends on rival style.
-  get rivalWinningTactic(): string {
-    return this.selectedRival === 'RutoMon'
-      ? 'hold steady and counter after RutoMon overcommits'
-      : 'stay mobile and strike before MaruMon can anchor its stance';
-  }
-
-  // Stage 5 hero hint shown after training to guide the final duel choice.
+  // Rival-specific guidance used in stage 5 and the stage 9 defeat recap.
   get rivalDuelHint(): string {
     return this.selectedRival === 'RutoMon'
       ? 'Bait an emotional rush, then counter with discipline.'
       : 'Do not plant in place; keep moving and strike before they set.';
+  }
+
+  // Rival card flavor for stage 5, describing the duel plan against IneMon.
+  get rivalDuelPlan(): string {
+    return this.selectedRival === 'RutoMon'
+      ? 'RutoMon is about to unleash fast, emotion-charged bursts from the Cattail Forest style, pressing IneMon into a frantic pace and baiting it to swing early from the heart instead of waiting for a clean counter window.'
+      : 'MaruMon is about to anchor its footing, absorb IneMon\'s opening exchanges, and drag the fight into a long resistance duel shaped by Kedikure\'s hard survival.';
   }
 
   // After progressing to the next stage, bring the hero image back into view
