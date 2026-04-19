@@ -10,66 +10,139 @@ import { AuthService } from '../../auth/auth.service';
   styleUrl: './kirmon-adventure.css'
 })
 export class KirmonAdventureComponent {
+  // Auth service is used to persist CatDex discoveries for the signed-in player.
   private auth = inject(AuthService);
 
-  // Tracks which stage of the adventure the player is on
-  // 1 = KirMon intro with two choices
-  // 2 = KirMon defeated (wrong choice)
-  // 3 = IneMon evolution (correct choice from stage 1)
-  // 4 = IneMon defeated (wrong choice from stage 3)
-  // 5 = AmaterosaMon final evolution (correct choice from stage 3)
+  // Central state machine for the KirMon adventure.
+  // The template uses *ngIf blocks keyed off this number.
+  // 1 = Training in Katze Town
+  // 2 = First fight in the endless winter
+  // 3 = Choose rival destination (no wrong answer)
+  // 4 = Train or not before rival duel
+  // 5 = Rival duel decision
+  // 8 = Final evolution (AmaterosaMon)
+  // 6 = Defeat from first fight
+  // 7 = Defeat from skipping final training
+  // 9 = Defeat from wrong rival-duel choice
   stage = 1;
 
-  // Randomly determines if the correct choice appears on the right instead of the left
+  // Randomly flips visible card ordering so the "good" choice is not always
+  // in the same left/right position. The choose() method compensates for this.
   swapped = Math.random() < 0.5;
 
+  // Selected in story 3 and reused by stories 4, 5, and defeat messaging.
+  selectedRival: 'RutoMon' | 'MaruMon' = 'RutoMon';
+
+  // Stores story 1 flavor text and is surfaced in story 2's hero subtitle.
+  trainingRoute = 'the Frost Ridge drills';
+
   // Stage 1: KirMon data
-  kirmon = {
+  kirMon = {
     name: 'KirMon',
     image: 'Catmon/KirMon/KirMon.png',
-    description: 'KirMon is a strong and loyal warrior cat with a brave heart. Its thick fur crackles with static energy, and its powerful limbs can shatter stone. KirMon fights to protect those it cares about, but raw strength alone may not be enough...'
+    description: 'KirMon is Katze Town\'s steadfast partner CatMon. Built for mountain winds and deep snow, KirMon trains to protect the town from the endless winter threatening Puridian.'
   };
 
-  // Stage 3: IneMon data
-  inemon = {
+  // Used from story 3 onward after evolution.
+  ineMon = {
     name: 'IneMon',
     image: 'Catmon/KirMon/IneMon.png',
-    description: 'IneMon is the evolved form of KirMon, having channeled its loyalty into lightning-fast strikes. Bolts of energy arc between its whiskers, and its eyes glow with fierce determination. But a storm far greater than any it has faced is gathering on the horizon...'
+    description: 'IneMon is KirMon evolved, a faster and sharper storm-feline whose power was awakened in battle while defending Katze Town from the unnatural cold.'
   };
 
-  // Stage 5: AmaterosaMon data
-  ameratosamom = {
+  // Final evolution shown after winning story 5.
+  ameratosaMon = {
     name: 'AmaterosaMon',
     image: 'Catmon/KirMon/AmaterosaMon.png',
-    description: 'AmaterosaMon is the ultimate evolution — a radiant feline deity wreathed in golden lightning. Sunlight bends around its form, and thunder answers its call. AmaterosaMon has ascended beyond mortal limits, becoming a guardian of the skies themselves. Legends say its roar can split the heavens.'
+    description: 'AmaterosaMon is the final ascended form, born when IneMon masters discipline, balance, and purpose in Puridian\'s harsh trials.'
   };
 
-  // Handle the player's choice at each stage
+  // Computed display text so the template does not need conditional strings.
+  get rivalRegion(): string {
+    return this.selectedRival === 'RutoMon' ? 'Neko Village in Cattail Forest' : 'Kedikure in the Southern Reaches';
+  }
+
+  // Kept as a getter to stay aligned with selectedRival state.
+  get rivalImage(): string {
+    return this.selectedRival === 'RutoMon' ? 'Catmon/NarMon/RutoMon.png' : 'Catmon/ShikaMon/MaruMon.png';
+  }
+
+  // Narrative sentence fragment for story 5 victory text.
+  get rivalGoal(): string {
+    return this.selectedRival === 'RutoMon'
+      ? 'test your resolve in the emotional wilds of Neko Village'
+      : 'prove your discipline against resistance-hardened strength from Kedikure';
+  }
+
+  // Correct tactical choice in story 5 depends on rival style.
+  get rivalWinningTactic(): string {
+    return this.selectedRival === 'RutoMon'
+      ? 'hold steady and counter after RutoMon overcommits'
+      : 'stay mobile and strike before MaruMon can anchor its stance';
+  }
+
+  // Handles all branching decisions.
+  // option is always 1 or 2 from clicked choice cards.
   choose(option: number) {
+    // If cards were swapped visually, invert the selected option so business
+    // logic still treats "effective === 1" as the intended path.
     const effective = this.swapped ? (option === 1 ? 2 : 1) : option;
 
+    // STORY 1 -> STORY 2
+    // Both choices continue the story; they only change flavor text.
     if (this.stage === 1) {
+      this.trainingRoute = effective === 1 ? 'the Frost Ridge drills' : 'the Ice Cavern endurance course';
+      this.stage = 2;
+
+      // STORY 2 -> STORY 3 or DEFEAT (stage 6)
+      // Winning this fight evolves KirMon into IneMon and unlocks it in CatDex.
+    } else if (this.stage === 2) {
       if (effective === 1) {
         this.stage = 3;
         this.auth.discoverCatmon('IneMon');
       } else {
-        this.stage = 2;
+        this.stage = 6;
       }
+
+      // STORY 3 -> STORY 4
+      // No wrong answer here; both rivals are valid progression paths.
     } else if (this.stage === 3) {
+      this.selectedRival = effective === 1 ? 'RutoMon' : 'MaruMon';
+      this.stage = 4;
+
+      // STORY 4 -> STORY 5 or DEFEAT (stage 7)
+      // Training is still the correct choice, but evolution now happens after
+      // winning the actual rival duel in story 5.
+    } else if (this.stage === 4) {
       if (effective === 1) {
         this.stage = 5;
+      } else {
+        this.stage = 7;
+      }
+
+      // STORY 5 -> STORY 6 (stage 8) or DEFEAT (stage 9)
+      // The winning option depends on which rival was chosen in story 3.
+    } else if (this.stage === 5) {
+      const isWinningChoice = this.selectedRival === 'RutoMon' ? effective === 1 : effective === 2;
+      if (isWinningChoice) {
+        this.stage = 8;
         this.auth.discoverCatmon('AmaterosaMon');
       } else {
-        this.stage = 4;
+        this.stage = 9;
       }
     }
 
+    // Re-randomize ordering for the next decision screen.
     this.swapped = Math.random() < 0.5;
   }
 
-  // Reset the adventure back to stage 1
+  // Resets all dynamic state so a replay starts from a clean baseline.
   restart() {
     this.stage = 1;
+    this.selectedRival = 'RutoMon';
+    this.trainingRoute = 'the Frost Ridge drills';
     this.swapped = Math.random() < 0.5;
   }
 }
+
+
