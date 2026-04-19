@@ -81,6 +81,33 @@ export class KirmonAdventureComponent {
       : 'stay mobile and strike before MaruMon can anchor its stance';
   }
 
+  // Stage 5 hero hint shown after training to guide the final duel choice.
+  get rivalDuelHint(): string {
+    return this.selectedRival === 'RutoMon'
+      ? 'Bait an emotional rush, then counter with discipline.'
+      : 'Do not plant in place; keep moving and strike before they set.';
+  }
+
+  // After progressing to the next stage, bring the hero image back into view
+  // so players start each scene at the top rather than at the old navigation.
+  private scrollToStageTop() {
+    // Wait until Angular finishes rendering the next stage in the DOM.
+    requestAnimationFrame(() => {
+      // Find the first hero image for the active story stage.
+      const hero = document.querySelector('.hero-image');
+      // Guard for type safety so we can call HTMLElement methods.
+      if (hero instanceof HTMLElement) {
+        // Jump viewport to the hero banner at the top of the new stage.
+        hero.scrollIntoView({ behavior: 'auto', block: 'start' });
+        // Stop here because the primary scroll target was found.
+        return;
+      }
+
+      // Fallback: if no hero is found, scroll to the top of the page.
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    });
+  }
+
   // Handles all branching decisions.
   // option is always 1 or 2 from clicked choice cards.
   choose(option: number) {
@@ -133,6 +160,9 @@ export class KirmonAdventureComponent {
 
     // Re-randomize ordering for the next decision screen.
     this.swapped = Math.random() < 0.5;
+
+    // Jump to the top of the newly rendered stage.
+    this.scrollToStageTop();
   }
 
   // Resets all dynamic state so a replay starts from a clean baseline.
