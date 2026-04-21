@@ -1,55 +1,59 @@
-<!-- ===================== STAGE 1: KirMon Intro ===================== -->
+<!-- ===================== STORY 1: Training in Katze Town ===================== -->
+<!-- Stage gate: only render story 1 while stage === 1. -->
 <div *ngIf="stage === 1">
-  <!-- Hero section with KirMon background -->
-  <div class="hero-image kirmon-hero">
+  <!-- Shared hero shell. Character-specific background is set by kirMon-hero class. -->
+  <div class="hero-image kirMon-hero">
     <div class="hero-text">
-      <h1>{{ kirmon.name }}</h1>
-      <p>A new adventure begins...</p>
+      <h1>{{ kirMon.name }} of Katze Town</h1>
+      <p>The endless winter has tightened its grip on Puridian.</p>
     </div>
   </div>
 
-  <!-- Main content area -->
+  <!-- Adventure content wrapper used by all stages for consistent layout. -->
   <div class="background">
     <div class="adventure-content">
-      <!-- KirMon profile card -->
+      <!-- Profile card always reflects the active story creature. -->
       <div class="catmon-profile">
-        <img [src]="kirmon.image" [alt]="kirmon.name" class="catmon-image">
-        <h2>{{ kirmon.name }}</h2>
-        <p class="catmon-description">{{ kirmon.description }}</p>
+        <img [src]="kirMon.image" [alt]="kirMon.name" class="catmon-image">
+        <h2>{{ kirMon.name }}</h2>
+        <p class="catmon-description">{{ kirMon.description }}</p>
       </div>
 
-      <!-- Choice section -->
+      <!-- Each choice card calls choose(1) or choose(2); TS handles branch logic. -->
       <div class="choice-section">
-        <h3>What will KirMon do?</h3>
+        <h3>Choose a training route</h3>
         <div class="choice-grid">
+          <!-- Normal visual order when swapped is false. -->
           <ng-container *ngIf="!swapped; else stage1Swapped">
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
-                <h4>Defend the Thunder Shrine</h4>
-                <p>KirMon senses a disturbance at the ancient Thunder Shrine. By standing guard and channeling the shrine's energy, KirMon may unlock its hidden potential.</p>
+                <h4>Drill on Frost Ridge</h4>
+                <p>KirMon trains in mountain wind to harden its footing and timing before confronting the winter spirit near Katze Town.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
-                <h4>Charge into the Iron Fortress</h4>
-                <p>KirMon storms the Iron Fortress alone, hoping brute strength will be enough to topple the Ironclad General and its mechanical army.</p>
+                <h4>Condition in the Ice Caverns</h4>
+                <p>KirMon trains in narrow frozen tunnels, practicing bursts of speed and quick turns to survive blizzard ambushes.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
           </ng-container>
+          <!-- Alternate visual order when swapped is true.
+               Buttons still pass choose(1/2); component maps to effective choice. -->
           <ng-template #stage1Swapped>
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
-                <h4>Charge into the Iron Fortress</h4>
-                <p>KirMon storms the Iron Fortress alone, hoping brute strength will be enough to topple the Ironclad General and its mechanical army.</p>
+                <h4>Condition in the Ice Caverns</h4>
+                <p>KirMon trains in narrow frozen tunnels, practicing bursts of speed and quick turns to survive blizzard ambushes.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
-                <h4>Defend the Thunder Shrine</h4>
-                <p>KirMon senses a disturbance at the ancient Thunder Shrine. By standing guard and channeling the shrine's energy, KirMon may unlock its hidden potential.</p>
+                <h4>Drill on Frost Ridge</h4>
+                <p>KirMon trains in mountain wind to harden its footing and timing before confronting the winter spirit near Katze Town.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
@@ -57,7 +61,7 @@
         </div>
       </div>
 
-      <!-- Navigation -->
+      <!-- Exit path back to cat selection; does not change saved CatDex data. -->
       <div class="navigation">
         <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
       </div>
@@ -65,65 +69,107 @@
   </div>
 </div>
 
-<!-- ===================== STAGE 2: KirMon Defeated ===================== -->
+<!-- ===================== STORY 2: Fight and Evolution ===================== -->
+<!-- Stage 2 is a decision screen: win to evolve, lose to stage 6 defeat. -->
 <div *ngIf="stage === 2">
-  <div class="hero-image defeat-hero">
+  <div class="hero-image kirMon-hero">
     <div class="hero-text">
-      <h1>KirMon was Defeated!</h1>
-      <p>The Ironclad General was too powerful...</p>
+      <h1>The Blizzard Clash</h1>
+      <p>After {{ trainingRoute }}, KirMon confronts the spirit driving Katze Town's endless winter.</p>
     </div>
   </div>
 
   <div class="background">
     <div class="adventure-content">
-      <div class="outcome-card defeat-card">
-        <img [src]="kirmon.image" [alt]="kirmon.name" class="catmon-image defeated">
-        <h2>Defeat</h2>
-        <p class="catmon-description">KirMon smashed through the fortress gates with incredible force, but the Ironclad General's mechanical soldiers were endless. Without the power of the Thunder Shrine, KirMon's strength gave out. Even the bravest warrior needs more than courage — sometimes patience is the greatest weapon.</p>
+      <div class="catmon-profile">
+        <img [src]="kirMon.image" [alt]="kirMon.name" class="catmon-image">
+        <h2>{{ kirMon.name }}</h2>
+        <p class="catmon-description">The frozen wind howls. KirMon must decide whether to fight with discipline or rush forward and risk being swallowed by the storm.</p>
       </div>
 
-      <div class="navigation">
-        <button (click)="restart()" class="back-button">Try Again</button>
-        <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ===================== STAGE 3: IneMon Evolution ===================== -->
-<div *ngIf="stage === 3">
-  <div class="hero-image inemon-hero">
-    <div class="hero-text">
-      <h1>KirMon evolved into IneMon!</h1>
-      <p>A crackling new power surges forth!</p>
-    </div>
-  </div>
-
-  <div class="background">
-    <div class="adventure-content">
-      <!-- IneMon profile card -->
-      <div class="catmon-profile evolution-glow">
-        <img [src]="inemon.image" [alt]="inemon.name" class="catmon-image">
-        <h2>{{ inemon.name }}</h2>
-        <p class="catmon-description">{{ inemon.description }}</p>
-      </div>
-
-      <!-- Choice section -->
+      <!-- Reuses the same swapped/non-swapped pattern from story 1. -->
       <div class="choice-section">
-        <h3>What will IneMon do?</h3>
+        <h3>How should KirMon fight?</h3>
         <div class="choice-grid">
-          <ng-container *ngIf="!swapped; else stage3Swapped">
+          <ng-container *ngIf="!swapped; else stage2Swapped">
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
-                <h4>Ascend the Storm Peak</h4>
-                <p>IneMon feels a call from the summit of Storm Peak, where ancient lightning never stops striking. By absorbing the eternal storm, IneMon could reach its final, legendary form.</p>
+                <h4>Draw the spirit into open ground</h4>
+                <p>KirMon uses patience, reads the wind, and strikes only when the spirit overextends.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
-                <h4>Ignore the storm and strike now</h4>
-                <p>IneMon decides the current power is enough and launches a direct assault on the Ironclad General's stronghold without reaching full potential.</p>
+                <h4>Charge into the heart of the blizzard</h4>
+                <p>KirMon leaps straight into whiteout winds where sight and balance disappear.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+          </ng-container>
+          <ng-template #stage2Swapped>
+            <div class="choice-card" (click)="choose(1)">
+              <div class="choice-card-content">
+                <h4>Charge into the heart of the blizzard</h4>
+                <p>KirMon leaps straight into whiteout winds where sight and balance disappear.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+            <div class="choice-card" (click)="choose(2)">
+              <div class="choice-card-content">
+                <h4>Draw the spirit into open ground</h4>
+                <p>KirMon uses patience, reads the wind, and strikes only when the spirit overextends.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+
+      <!-- Restart sets stage and all related state back to defaults in TS restart(). -->
+      <div class="navigation">
+        <button (click)="restart()" class="back-button">← Restart Adventure</button>
+        <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== STORY 3: Choose Rival and Travel ===================== -->
+<!-- Story 3 has no fail path by design; both destinations progress to stage 4. -->
+<div *ngIf="stage === 3">
+  <!-- Hero art switches to evolved state once IneMon is unlocked in story 2. -->
+  <div class="hero-image ineMon-hero">
+    <div class="hero-text">
+      <h1>KirMon evolved into IneMon!</h1>
+      <p>Victory in Katze Town awakens a new form.</p>
+    </div>
+  </div>
+
+  <div class="background">
+    <div class="adventure-content">
+      <div class="catmon-profile evolution-glow">
+        <img [src]="ineMon.image" [alt]="ineMon.name" class="catmon-image">
+        <h2>{{ ineMon.name }}</h2>
+        <p class="catmon-description">{{ ineMon.description }}</p>
+      </div>
+
+      <!-- Choice writes selectedRival in TS, which feeds later text getters. -->
+      <div class="choice-section">
+        <h3>Pick your next destination</h3>
+        <div class="choice-grid">
+          <ng-container *ngIf="!swapped; else stage3Swapped">
+            <div class="choice-card" (click)="choose(1)">
+              <div class="choice-card-content">
+                <h4>Travel to Neko Village</h4>
+                <p>Head into Cattail Forest to challenge RutoMon and test your control against emotion-fueled pressure.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+            <div class="choice-card" (click)="choose(2)">
+              <div class="choice-card-content">
+                <h4>Travel to Kedikure</h4>
+                <p>Cross south to challenge MaruMon and test your endurance against resistance-forged tactics.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
@@ -131,15 +177,15 @@
           <ng-template #stage3Swapped>
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
-                <h4>Ignore the storm and strike now</h4>
-                <p>IneMon decides the current power is enough and launches a direct assault on the Ironclad General's stronghold without reaching full potential.</p>
+                <h4>Travel to Kedikure</h4>
+                <p>Cross south to challenge MaruMon and test your endurance against resistance-forged tactics.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
-                <h4>Ascend the Storm Peak</h4>
-                <p>IneMon feels a call from the summit of Storm Peak, where ancient lightning never stops striking. By absorbing the eternal storm, IneMon could reach its final, legendary form.</p>
+                <h4>Travel to Neko Village</h4>
+                <p>Head into Cattail Forest to challenge RutoMon and test your control against emotion-fueled pressure.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
@@ -154,21 +200,272 @@
   </div>
 </div>
 
-<!-- ===================== STAGE 4: IneMon Defeated ===================== -->
+<!-- ===================== STORY 4: Train or Skip Training ===================== -->
+<!-- Story 4 is the final branch point.
+  Train -> stage 5 win.
+  Skip  -> stage 7 defeat. -->
 <div *ngIf="stage === 4">
+  <div class="hero-image ineMon-hero">
+    <div class="hero-text">
+      <h1>Final Preparation</h1>
+      <p>IneMon arrives at {{ rivalRegion }} to face {{ selectedRival }}.</p>
+    </div>
+  </div>
+
+  <div class="background">
+    <div class="adventure-content">
+      <div class="profile-pair">
+        <div class="catmon-profile">
+          <img [src]="ineMon.image" [alt]="ineMon.name" class="catmon-image">
+          <h2>{{ ineMon.name }}</h2>
+          <p class="catmon-description">The duel is close. One last decision remains before the final clash.</p>
+        </div>
+
+        <div class="catmon-profile">
+          <img [src]="rivalImage" [alt]="selectedRival" class="catmon-image">
+          <h2>{{ selectedRival }}</h2>
+          <p class="catmon-description">Your chosen rival from {{ rivalRegion }} is preparing for the deciding duel.</p>
+        </div>
+      </div>
+
+      <!-- rivalRegion and selectedRival are dynamic values from component state. -->
+      <div class="choice-section">
+        <h3>Train once more or skip preparation?</h3>
+        <div class="choice-grid">
+          <ng-container *ngIf="!swapped; else stage4Swapped">
+            <div class="choice-card" (click)="choose(1)">
+              <div class="choice-card-content">
+                <h4>Train before the duel</h4>
+                <p>IneMon studies {{ selectedRival }} and sharpens timing, stamina, and focus.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+            <div class="choice-card" (click)="choose(2)">
+              <div class="choice-card-content">
+                <h4>Skip training and fight now</h4>
+                <p>IneMon rushes into battle without adjusting to the new terrain or rival style.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+          </ng-container>
+          <ng-template #stage4Swapped>
+            <div class="choice-card" (click)="choose(1)">
+              <div class="choice-card-content">
+                <h4>Skip training and fight now</h4>
+                <p>IneMon rushes into battle without adjusting to the new terrain or rival style.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+            <div class="choice-card" (click)="choose(2)">
+              <div class="choice-card-content">
+                <h4>Train before the duel</h4>
+                <p>IneMon studies {{ selectedRival }} and sharpens timing, stamina, and focus.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+
+      <div class="navigation">
+        <button (click)="restart()" class="back-button">← Restart Adventure</button>
+        <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== STORY 5: Rival Duel ===================== -->
+<!-- Story 5 is now the actual rival fight decision.
+     Winning here advances to story 6 (evolution). -->
+<div *ngIf="stage === 5">
+  <div class="hero-image ineMon-hero">
+    <div class="hero-text">
+      <h1>Duel with {{ selectedRival }}</h1>
+      <p>The deciding battle begins in {{ rivalRegion }}.</p>
+    </div>
+  </div>
+
+  <div class="background">
+    <div class="adventure-content">
+      <div class="profile-pair">
+        <div class="catmon-profile">
+          <img [src]="ineMon.image" [alt]="ineMon.name" class="catmon-image">
+          <h2>{{ ineMon.name }}</h2>
+          <p class="catmon-description">IneMon faces {{ selectedRival }} directly. To win this duel, {{ rivalDuelHint }}. The wrong approach will cost the duel, but the right one opens the path to final evolution.</p>
+        </div>
+
+        <div class="catmon-profile">
+          <img [src]="rivalImage" [alt]="selectedRival" class="catmon-image">
+          <h2>{{ selectedRival }}</h2>
+          <p class="catmon-description">Your chosen rival from {{ rivalRegion }} stands ready for the deciding clash. {{ rivalDuelPlan }}</p>
+        </div>
+      </div>
+
+      <div class="choice-section">
+        <h3>How should IneMon fight {{ selectedRival }}?</h3>
+        <div class="choice-grid">
+          <ng-container *ngIf="!swapped; else stage5Swapped">
+            <div class="choice-card" (click)="choose(1)">
+              <div class="choice-card-content">
+                <h4>Hold steady and counter</h4>
+                <p>Let {{ selectedRival }} commit first, then punish the opening with precise timing.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+            <div class="choice-card" (click)="choose(2)">
+              <div class="choice-card-content">
+                <h4>Stay mobile and strike first</h4>
+                <p>Keep moving constantly and force short exchanges before {{ selectedRival }} settles in.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+          </ng-container>
+          <ng-template #stage5Swapped>
+            <div class="choice-card" (click)="choose(1)">
+              <div class="choice-card-content">
+                <h4>Stay mobile and strike first</h4>
+                <p>Keep moving constantly and force short exchanges before {{ selectedRival }} settles in.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+            <div class="choice-card" (click)="choose(2)">
+              <div class="choice-card-content">
+                <h4>Hold steady and counter</h4>
+                <p>Let {{ selectedRival }} commit first, then punish the opening with precise timing.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+
+      <div class="navigation">
+        <button (click)="restart()" class="back-button">← Restart Adventure</button>
+        <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== STORY 6: AmaterosaMon Evolution ===================== -->
+<!-- Final success state after winning the actual rival duel in story 5.
+     Entering this stage unlocks AmaterosaMon in CatDex via TS choose(). -->
+<div *ngIf="stage === 6">
+  <div class="hero-image ameratosaMon-hero">
+    <div class="hero-text">
+      <h1>Final Evolution</h1>
+      <p>IneMon overcomes {{ selectedRival }} and evolves into AmaterosaMon!</p>
+    </div>
+  </div>
+
+  <div class="background">
+    <div class="adventure-content">
+      <div class="catmon-profile final-evolution-glow">
+        <img [src]="ameratosaMon.image" [alt]="ameratosaMon.name" class="catmon-image">
+        <h2>{{ ameratosaMon.name }}</h2>
+        <p class="catmon-description">{{ ameratosaMon.description }}</p>
+      </div>
+
+      <div class="victory-card">
+        <h3>Victory!</h3>
+        <p>You guided KirMon through six stories, defeated {{ selectedRival }} using the correct duel tactic to {{ rivalGoal }}, and reached the final KirMon evolution.</p>
+      </div>
+
+      <div class="navigation">
+        <button (click)="restart()" class="back-button">Play Again</button>
+        <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== DEFEAT: Story 2 Wrong Choice ===================== -->
+<!-- Loss state for choosing the reckless option during story 2. -->
+<div *ngIf="stage === 7">
   <div class="hero-image defeat-hero">
     <div class="hero-text">
-      <h1>IneMon was Defeated!</h1>
-      <p>The Ironclad General stood firm...</p>
+      <h1>KirMon was Defeated!</h1>
+      <p>The blizzard spirit overwhelmed the charge.</p>
     </div>
   </div>
 
   <div class="background">
     <div class="adventure-content">
       <div class="outcome-card defeat-card">
-        <img [src]="inemon.image" [alt]="inemon.name" class="catmon-image defeated">
+        <img [src]="kirMon.image" [alt]="kirMon.name" class="catmon-image defeated">
         <h2>Defeat</h2>
-        <p class="catmon-description">IneMon's lightning strikes scorched the fortress walls, but the Ironclad General had prepared for this. Without the full power of the eternal storm, IneMon's bolts were absorbed and turned back. The storm faded, and with it, the chance of becoming something truly divine. True power demands patience and sacrifice.</p>
+        <p class="catmon-description">KirMon rushed blind into the storm and was buried in ice and wind. Strength without patience could not break the endless winter's hold.</p>
+      </div>
+
+      <!-- Player can replay immediately or leave to cat selection. -->
+      <div class="navigation">
+        <button (click)="restart()" class="back-button">Try Again</button>
+        <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== DEFEAT: Story 4 Wrong Choice ===================== -->
+<!-- Loss state for skipping training before the final duel. -->
+<div *ngIf="stage === 8">
+  <div class="hero-image defeat-hero">
+    <div class="hero-text">
+      <h1>IneMon was Defeated!</h1>
+      <p>Skipping training cost the final duel.</p>
+    </div>
+  </div>
+
+  <div class="background">
+    <div class="adventure-content">
+      <div class="profile-pair">
+        <div class="outcome-card defeat-card">
+          <img [src]="ineMon.image" [alt]="ineMon.name" class="catmon-image defeated">
+          <h2>Defeat</h2>
+          <p class="catmon-description">IneMon fought {{ selectedRival }} without adapting to the terrain or style and lost momentum early. In Puridian, preparation matters as much as power.</p>
+        </div>
+
+        <div class="catmon-profile">
+          <img [src]="rivalImage" [alt]="selectedRival" class="catmon-image">
+          <h2>{{ selectedRival }}</h2>
+          <p class="catmon-description">{{ selectedRival }} capitalized on the missed preparation and controlled the duel's pace.</p>
+        </div>
+      </div>
+
+      <!-- Same controls as other defeat screen for consistent UX. -->
+      <div class="navigation">
+        <button (click)="restart()" class="back-button">Try Again</button>
+        <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== DEFEAT: Story 5 Wrong Duel Choice ===================== -->
+<!-- Loss state for selecting the wrong tactic against the chosen rival. -->
+<div *ngIf="stage === 9">
+  <div class="hero-image defeat-hero">
+    <div class="hero-text">
+      <h1>IneMon was Defeated!</h1>
+      <p>The duel plan failed against {{ selectedRival }}.</p>
+    </div>
+  </div>
+
+  <div class="background">
+    <div class="adventure-content">
+      <div class="profile-pair">
+        <div class="outcome-card defeat-card">
+          <img [src]="ineMon.image" [alt]="ineMon.name" class="catmon-image defeated">
+          <h2>Defeat</h2>
+          <p class="catmon-description">IneMon chose the wrong tactic. To defeat {{ selectedRival }}, you needed to follow this plan: {{ rivalDuelHint }}</p>
+        </div>
+
+        <div class="catmon-profile">
+          <img [src]="rivalImage" [alt]="selectedRival" class="catmon-image">
+          <h2>{{ selectedRival }}</h2>
+          <p class="catmon-description">{{ selectedRival }} read the approach perfectly and punished every opening.</p>
+        </div>
       </div>
 
       <div class="navigation">
@@ -179,34 +476,3 @@
   </div>
 </div>
 
-<!-- ===================== STAGE 5: AmaterosaMon Final Evolution ===================== -->
-<div *ngIf="stage === 5">
-  <div class="hero-image ameratosamom-hero">
-    <div class="hero-text">
-      <h1>IneMon evolved into AmaterosaMon!</h1>
-      <p>The ultimate evolution has been achieved!</p>
-    </div>
-  </div>
-
-  <div class="background">
-    <div class="adventure-content">
-      <!-- AmaterosaMon profile card -->
-      <div class="catmon-profile final-evolution-glow">
-        <img [src]="ameratosamom.image" [alt]="ameratosamom.name" class="catmon-image">
-        <h2>{{ ameratosamom.name }}</h2>
-        <p class="catmon-description">{{ ameratosamom.description }}</p>
-      </div>
-
-      <!-- Victory message -->
-      <div class="victory-card">
-        <h3>Victory!</h3>
-        <p>You guided KirMon through every trial, making the right choices at every turn. From a loyal warrior to the divine AmaterosaMon — the journey is complete. The skies themselves bow before you, true CatMon master!</p>
-      </div>
-
-      <div class="navigation">
-        <button (click)="restart()" class="back-button">Play Again</button>
-        <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
-      </div>
-    </div>
-  </div>
-</div>
