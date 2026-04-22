@@ -1,6 +1,13 @@
 # Dependencies
 node_modules/
 
+# Environment files
+# Ignore real environment files (they can contain secrets).
+.env
+.env.*
+# Keep example templates committed so teammates know required variables.
+!.env.example
+
 # Build output
 dist/
 

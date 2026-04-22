@@ -58,6 +58,12 @@
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "budgets": [
                 {
                   "type": "initial",
@@ -87,7 +93,8 @@
               "buildTarget": "frontend:build:production"
             },
             "development": {
-              "buildTarget": "frontend:build:development"
+              "buildTarget": "frontend:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
