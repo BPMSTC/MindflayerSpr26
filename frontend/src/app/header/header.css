@@ -6,7 +6,7 @@
    this component bundle by Angular's build step.
    ============================================================ */
 @import 'bootstrap/dist/css/bootstrap.min.css';
-
+@import url('https://fonts.googleapis.com/css2?family=Walter+Turncoat&display=swap');
 /* ------------------------------------------------------------
    BRAND LOGO + NAME
    ------------------------------------------------------------ */
@@ -17,6 +17,7 @@
   color: #fff;
   font-weight: bold;
   padding: 0 0 0 0.75rem; /* Left padding separates brand from the nav edge */
+  font-family: 'Walter Turncoat', cursive; /* Playful font for the brand name */
 }
 
 /* Logo image sits to the left of the brand text */
@@ -24,6 +25,8 @@
   border-radius: 3px;   /* Slight rounding softens the square logo */
   margin-right: 0.5rem; /* Gap between logo and brand name */
 }
+
+.nav-link
 
 /* Keep brand text white across all anchor states — Bootstrap would
    otherwise flash the link colour on hover/focus/active/visited */
@@ -46,7 +49,7 @@
    ------------------------------------------------------------ */
 .navbar {
   background-color: #333 !important; /* Dark charcoal — overrides Bootstrap bg utilities */
-  padding: 1rem;
+  padding: .5rem 1rem .5rem 1rem; /* Vertical padding creates a taller bar */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Subtle drop shadow below the bar */
 }
 
@@ -58,7 +61,7 @@
 /* Individual navigation links */
 .navbar-nav .nav-link {
   color: #fff;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   transition-duration: 0.3s; /* Smooth colour shift on hover */
 }
 
