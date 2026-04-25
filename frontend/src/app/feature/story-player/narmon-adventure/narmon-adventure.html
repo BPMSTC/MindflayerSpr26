@@ -1,39 +1,35 @@
-<!-- ===================== STAGE 1: NarMon Intro ===================== -->
+<!-- ===================== STORY 1: Entry to Neko Village ===================== -->
 <div *ngIf="stage === 1">
-  <!-- Hero section with NarMon background -->
   <div class="hero-image narmon-hero">
     <div class="hero-text">
-      <h1>{{ narmon.name }}</h1>
-      <p>A new adventure begins...</p>
+      <h1>{{ narmon.name }} of Neko Village</h1>
+      <p>Velkhar's shadow is spreading through Cattail Forest.</p>
     </div>
   </div>
 
-  <!-- Main content area --> 
   <div class="background">
     <div class="adventure-content">
-      <!-- NarMon profile card -->
       <div class="catmon-profile">
         <img [src]="narmon.image" [alt]="narmon.name" class="catmon-image">
         <h2>{{ narmon.name }}</h2>
         <p class="catmon-description">{{ narmon.description }}</p>
       </div>
 
-      <!-- Choice section -->
       <div class="choice-section">
-        <h3>What will NarMon do?</h3>
+        <h3>Choose your approach into the forest</h3>
         <div class="choice-grid">
           <ng-container *ngIf="!swapped; else stage1Swapped">
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
-                <h4>Train in the Hidden Valley</h4>
-                <p>NarMon senses a deep power within and seeks the legendary Hidden Valley to unlock its true potential through rigorous training.</p>
+                <h4>Cross the CAT-lateral bridges</h4>
+                <p>NarMon scouts the old rope spans above misty ravines, reading the movement of frightened spirits before entering Neko Village.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
-                <h4>Challenge the Shadow Beast alone</h4>
-                <p>NarMon rushes headfirst into battle against the fearsome Shadow Beast without preparing, relying on raw courage alone.</p>
+                <h4>Follow the CAT-Nip lantern trail</h4>
+                <p>NarMon follows glowing shrine markers through the underbrush, listening to villagers' shaken voices and tracking where emotion turns unstable.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
@@ -41,15 +37,15 @@
           <ng-template #stage1Swapped>
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
-                <h4>Challenge the Shadow Beast alone</h4>
-                <p>NarMon rushes headfirst into battle against the fearsome Shadow Beast without preparing, relying on raw courage alone.</p>
+                <h4>Follow the CAT-Nip lantern trail</h4>
+                <p>NarMon follows glowing shrine markers through the underbrush, listening to villagers' shaken voices and tracking where emotion turns unstable.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
-                <h4>Train in the Hidden Valley</h4>
-                <p>NarMon senses a deep power within and seeks the legendary Hidden Valley to unlock its true potential through rigorous training.</p>
+                <h4>Cross the CAT-lateral bridges</h4>
+                <p>NarMon scouts the old rope spans above misty ravines, reading the movement of frightened spirits before entering Neko Village.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
@@ -57,7 +53,6 @@
         </div>
       </div>
 
-      <!-- Navigation -->
       <div class="navigation">
         <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
       </div>
@@ -65,65 +60,101 @@
   </div>
 </div>
 
-<!-- ===================== STAGE 2: NarMon Defeated ===================== -->
+<!-- ===================== STORY 2: Velkhar Encounter ===================== -->
 <div *ngIf="stage === 2">
-  <div class="hero-image defeat-hero">
+  <div class="hero-image narmon-hero">
     <div class="hero-text">
-      <h1>NarMon was Defeated!</h1>
-      <p>The Shadow Beast was too powerful...</p>
+      <h1>The Hollow Purr Stirs</h1>
+      <p>After taking {{ approachRoute }}, NarMon reaches the CAT-tastrophe clearing where Velkhar gathers fear.</p>
     </div>
   </div>
 
   <div class="background">
     <div class="adventure-content">
-      <div class="outcome-card defeat-card">
-        <img [src]="narmon.image" [alt]="narmon.name" class="catmon-image defeated">
-        <h2>Defeat</h2>
-        <p class="catmon-description">NarMon charged bravely into battle against the Shadow Beast, but without proper training, the odds were insurmountable. The Shadow Beast's dark energy overwhelmed NarMon, leaving it unable to continue. Sometimes courage alone isn't enough — a true warrior knows when to prepare.</p>
+      <div class="catmon-profile">
+        <img [src]="narmon.image" [alt]="narmon.name" class="catmon-image">
+        <h2>{{ narmon.name }}</h2>
+        <p class="catmon-description">The many-eyed spirit feeds on panic. NarMon must choose between restoring calm in the villagers or rushing into frenzy where Velkhar is strongest.</p>
+      </div>
+
+      <div class="choice-section">
+        <h3>How should NarMon confront Velkhar?</h3>
+        <div class="choice-grid">
+          <ng-container *ngIf="!swapped; else stage2Swapped">
+            <div class="choice-card" (click)="choose(1)">
+              <div class="choice-card-content">
+                <h4>Steady the village hearts first</h4>
+                <p>NarMon anchors breath and rhythm, guiding Neko Village into focus before challenging the Hollow Purr.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+            <div class="choice-card" (click)="choose(2)">
+              <div class="choice-card-content">
+                <h4>Charge Velkhar at full speed</h4>
+                <p>NarMon leaps straight into the spirit storm where wild emotion twists every move into confusion.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+          </ng-container>
+          <ng-template #stage2Swapped>
+            <div class="choice-card" (click)="choose(1)">
+              <div class="choice-card-content">
+                <h4>Charge Velkhar at full speed</h4>
+                <p>NarMon leaps straight into the spirit storm where wild emotion twists every move into confusion.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+            <div class="choice-card" (click)="choose(2)">
+              <div class="choice-card-content">
+                <h4>Steady the village hearts first</h4>
+                <p>NarMon anchors breath and rhythm, guiding Neko Village into focus before challenging the Hollow Purr.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+          </ng-template>
+        </div>
       </div>
 
       <div class="navigation">
-        <button (click)="restart()" class="back-button">Try Again</button>
+        <button (click)="restart()" class="back-button">← Restart Adventure</button>
         <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ===================== STAGE 3: RutoMon Evolution ===================== -->
+<!-- ===================== STORY 3: Choose Rival and Route ===================== -->
 <div *ngIf="stage === 3">
   <div class="hero-image rutomon-hero">
     <div class="hero-text">
       <h1>NarMon evolved into RutoMon!</h1>
-      <p>A new power has been unleashed!</p>
+      <p>Balance returns to Neko Village, but Puridian still needs defenders.</p>
     </div>
   </div>
 
   <div class="background">
     <div class="adventure-content">
-      <!-- RutoMon profile card -->
       <div class="catmon-profile evolution-glow">
         <img [src]="rutomon.image" [alt]="rutomon.name" class="catmon-image">
         <h2>{{ rutomon.name }}</h2>
         <p class="catmon-description">{{ rutomon.description }}</p>
       </div>
 
-      <!-- Choice section -->
       <div class="choice-section">
-        <h3>What will RutoMon do?</h3>
+        <h3>Pick your next destination</h3>
         <div class="choice-grid">
           <ng-container *ngIf="!swapped; else stage3Swapped">
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
-                <h4>Embrace the Nine-Tail Spirit</h4>
-                <p>RutoMon feels an ancient presence calling from within. By meditating at the Spirit Shrine, RutoMon can merge with the legendary Nine-Tail Spirit and achieve its final form.</p>
+                <h4>Travel to Kedikure</h4>
+                <p>Meet MaruMon and test your composure against pressure shaped by hardship and resistance.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
-                <h4>Reject the power and fight alone</h4>
-                <p>RutoMon refuses the mysterious energy, believing its own strength is enough. It heads straight to confront the Dark Lord without unlocking its full potential.</p>
+                <h4>Travel to Katze Town</h4>
+                <p>Meet IneMon and challenge your timing against the northern discipline forged in endless winter.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
@@ -131,15 +162,15 @@
           <ng-template #stage3Swapped>
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
-                <h4>Reject the power and fight alone</h4>
-                <p>RutoMon refuses the mysterious energy, believing its own strength is enough. It heads straight to confront the Dark Lord without unlocking its full potential.</p>
+                <h4>Travel to Katze Town</h4>
+                <p>Meet IneMon and challenge your timing against the northern discipline forged in endless winter.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
-                <h4>Embrace the Nine-Tail Spirit</h4>
-                <p>RutoMon feels an ancient presence calling from within. By meditating at the Spirit Shrine, RutoMon can merge with the legendary Nine-Tail Spirit and achieve its final form.</p>
+                <h4>Travel to Kedikure</h4>
+                <p>Meet MaruMon and test your composure against pressure shaped by hardship and resistance.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
@@ -154,21 +185,193 @@
   </div>
 </div>
 
-<!-- ===================== STAGE 4: RutoMon Defeated ===================== -->
+<!-- ===================== STORY 4: Train or Skip ===================== -->
 <div *ngIf="stage === 4">
+  <div class="hero-image rutomon-hero">
+    <div class="hero-text">
+      <h1>Final Preparation</h1>
+      <p>RutoMon arrives at {{ rivalRegion }} to face {{ selectedRival }}.</p>
+    </div>
+  </div>
+
+  <div class="background">
+    <div class="adventure-content">
+      <div class="profile-pair">
+        <div class="catmon-profile">
+          <img [src]="rutomon.image" [alt]="rutomon.name" class="catmon-image">
+          <h2>{{ rutomon.name }}</h2>
+          <p class="catmon-description">The duel will decide whether Neko Village's restored spirit can hold across Puridian.</p>
+        </div>
+
+        <div class="catmon-profile">
+          <img [src]="rivalImage" [alt]="selectedRival" class="catmon-image">
+          <h2>{{ selectedRival }}</h2>
+          <p class="catmon-description">Your chosen rival from {{ rivalRegion }} is preparing with region-hardened tactics.</p>
+        </div>
+      </div>
+
+      <div class="choice-section">
+        <h3>Train once more or skip preparation?</h3>
+        <div class="choice-grid">
+          <ng-container *ngIf="!swapped; else stage4Swapped">
+            <div class="choice-card" (click)="choose(1)">
+              <div class="choice-card-content">
+                <h4>Train before the duel</h4>
+                <p>RutoMon studies terrain, tempo, and emotional control before stepping into the arena.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+            <div class="choice-card" (click)="choose(2)">
+              <div class="choice-card-content">
+                <h4>Skip training and fight now</h4>
+                <p>RutoMon rushes in immediately and risks repeating the same frenzy Velkhar once fed on.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+          </ng-container>
+          <ng-template #stage4Swapped>
+            <div class="choice-card" (click)="choose(1)">
+              <div class="choice-card-content">
+                <h4>Skip training and fight now</h4>
+                <p>RutoMon rushes in immediately and risks repeating the same frenzy Velkhar once fed on.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+            <div class="choice-card" (click)="choose(2)">
+              <div class="choice-card-content">
+                <h4>Train before the duel</h4>
+                <p>RutoMon studies terrain, tempo, and emotional control before stepping into the arena.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+
+      <div class="navigation">
+        <button (click)="restart()" class="back-button">← Restart Adventure</button>
+        <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== STORY 5: Rival Duel ===================== -->
+<div *ngIf="stage === 5">
+  <div class="hero-image rutomon-hero">
+    <div class="hero-text">
+      <h1>Duel with {{ selectedRival }}</h1>
+      <p>The deciding battle begins at {{ rivalRegion }}.</p>
+    </div>
+  </div>
+
+  <div class="background">
+    <div class="adventure-content">
+      <div class="profile-pair">
+        <div class="catmon-profile">
+          <img [src]="rutomon.image" [alt]="rutomon.name" class="catmon-image">
+          <h2>{{ rutomon.name }}</h2>
+          <p class="catmon-description">RutoMon faces {{ selectedRival }} directly. To win this duel, {{ rivalDuelHint }}. The wrong approach gives your rival full control.</p>
+        </div>
+
+        <div class="catmon-profile">
+          <img [src]="rivalImage" [alt]="selectedRival" class="catmon-image">
+          <h2>{{ selectedRival }}</h2>
+          <p class="catmon-description">{{ selectedRival }} enters the arena with a KITTY Cocktail of regional skill and hard-earned discipline. {{ rivalDuelPlan }}</p>
+        </div>
+      </div>
+
+      <div class="choice-section">
+        <h3>How should RutoMon fight {{ selectedRival }}?</h3>
+        <div class="choice-grid">
+          <ng-container *ngIf="!swapped; else stage5Swapped">
+            <div class="choice-card" (click)="choose(1)">
+              <div class="choice-card-content">
+                <h4>Hold steady and counter</h4>
+                <p>Let {{ selectedRival }} commit first, then punish the opening with precise timing.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+            <div class="choice-card" (click)="choose(2)">
+              <div class="choice-card-content">
+                <h4>{{ duelOptionTwoTitle }}</h4>
+                <p>{{ duelOptionTwoDescription }}</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+          </ng-container>
+          <ng-template #stage5Swapped>
+            <div class="choice-card" (click)="choose(1)">
+              <div class="choice-card-content">
+                <h4>{{ duelOptionTwoTitle }}</h4>
+                <p>{{ duelOptionTwoDescription }}</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+            <div class="choice-card" (click)="choose(2)">
+              <div class="choice-card-content">
+                <h4>Hold steady and counter</h4>
+                <p>Let {{ selectedRival }} commit first, then punish the opening with precise timing.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+
+      <div class="navigation">
+        <button (click)="restart()" class="back-button">← Restart Adventure</button>
+        <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== STORY 6: KuramaMon Evolution ===================== -->
+<div *ngIf="stage === 6">
+  <div class="hero-image kuramamon-hero">
+    <div class="hero-text">
+      <h1>Final Evolution</h1>
+      <p>RutoMon overcomes {{ selectedRival }} and evolves into KuramaMon!</p>
+    </div>
+  </div>
+
+  <div class="background">
+    <div class="adventure-content">
+      <div class="catmon-profile final-evolution-glow">
+        <img [src]="kuramamon.image" [alt]="kuramamon.name" class="catmon-image">
+        <h2>{{ kuramamon.name }}</h2>
+        <p class="catmon-description">{{ kuramamon.description }}</p>
+      </div>
+
+      <div class="victory-card">
+        <h3>Victory!</h3>
+        <p>You guided NarMon through six stories, restored balance in Neko Village, and defeated {{ selectedRival }} to {{ rivalGoal }}. Puridian's hope burns brighter because your bond held steady.</p>
+      </div>
+
+      <div class="navigation">
+        <button (click)="restart()" class="back-button">Play Again</button>
+        <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== DEFEAT: Story 2 Wrong Choice ===================== -->
+<div *ngIf="stage === 7">
   <div class="hero-image defeat-hero">
     <div class="hero-text">
-      <h1>RutoMon was Defeated!</h1>
-      <p>The Dark Lord proved too powerful...</p>
+      <h1>NarMon was Defeated!</h1>
+      <p>Velkhar twisted panic into a full spirit surge.</p>
     </div>
   </div>
 
   <div class="background">
     <div class="adventure-content">
       <div class="outcome-card defeat-card">
-        <img [src]="rutomon.image" [alt]="rutomon.name" class="catmon-image defeated">
+        <img [src]="narmon.image" [alt]="narmon.name" class="catmon-image defeated">
         <h2>Defeat</h2>
-        <p class="catmon-description">RutoMon's pride led to its downfall. Without embracing its full potential, the Dark Lord's overwhelming power crushed RutoMon's resistance. The ancient Nine-Tail Spirit faded away, and with it, the chance of becoming something truly legendary. True strength comes from accepting help when it's offered.</p>
+        <p class="catmon-description">NarMon charged into Velkhar's storm before calming the village. Fear fed the Hollow Purr, and the CAT-tastrophe clearing collapsed into chaos.</p>
       </div>
 
       <div class="navigation">
@@ -179,32 +382,66 @@
   </div>
 </div>
 
-<!-- ===================== STAGE 5: KuramaMon Final Evolution ===================== -->
-<div *ngIf="stage === 5">
-  <div class="hero-image kuramamon-hero">
+<!-- ===================== DEFEAT: Story 4 Wrong Choice ===================== -->
+<div *ngIf="stage === 8">
+  <div class="hero-image defeat-hero">
     <div class="hero-text">
-      <h1>RutoMon evolved into KuramaMon!</h1>
-      <p>The ultimate evolution has been achieved!</p>
+      <h1>RutoMon was Defeated!</h1>
+      <p>Skipping preparation broke your rhythm.</p>
     </div>
   </div>
 
   <div class="background">
     <div class="adventure-content">
-      <!-- KuramaMon profile card -->
-      <div class="catmon-profile final-evolution-glow">
-        <img [src]="kuramamon.image" [alt]="kuramamon.name" class="catmon-image">
-        <h2>{{ kuramamon.name }}</h2>
-        <p class="catmon-description">{{ kuramamon.description }}</p>
-      </div>
+      <div class="profile-pair">
+        <div class="outcome-card defeat-card">
+          <img [src]="rutomon.image" [alt]="rutomon.name" class="catmon-image defeated">
+          <h2>Defeat</h2>
+          <p class="catmon-description">RutoMon entered the duel unprepared and lost control of spacing. In Puridian, heart and planning must move together.</p>
+        </div>
 
-      <!-- Victory message -->
-      <div class="victory-card">
-        <h3>Victory!</h3>
-        <p>You guided NarMon through every challenge, making the right choices at every turn. From a clever feline to the legendary KuramaMon — the journey is complete. You are a true CatMon master!</p>
+        <div class="catmon-profile">
+          <img [src]="rivalImage" [alt]="selectedRival" class="catmon-image">
+          <h2>{{ selectedRival }}</h2>
+          <p class="catmon-description">{{ selectedRival }} capitalized on every missed adjustment and dictated the pace from start to finish.</p>
+        </div>
       </div>
 
       <div class="navigation">
-        <button (click)="restart()" class="back-button">Play Again</button>
+        <button (click)="restart()" class="back-button">Try Again</button>
+        <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== DEFEAT: Story 5 Wrong Duel Choice ===================== -->
+<div *ngIf="stage === 9">
+  <div class="hero-image defeat-hero">
+    <div class="hero-text">
+      <h1>RutoMon was Defeated!</h1>
+      <p>The duel plan failed against {{ selectedRival }}.</p>
+    </div>
+  </div>
+
+  <div class="background">
+    <div class="adventure-content">
+      <div class="profile-pair">
+        <div class="outcome-card defeat-card">
+          <img [src]="rutomon.image" [alt]="rutomon.name" class="catmon-image defeated">
+          <h2>Defeat</h2>
+          <p class="catmon-description">RutoMon chose the wrong tactic. To defeat {{ selectedRival }}, you needed to follow this plan: {{ rivalDuelHint }}</p>
+        </div>
+
+        <div class="catmon-profile">
+          <img [src]="rivalImage" [alt]="selectedRival" class="catmon-image">
+          <h2>{{ selectedRival }}</h2>
+          <p class="catmon-description">{{ selectedRival }} read your strategy perfectly and punished every opening.</p>
+        </div>
+      </div>
+
+      <div class="navigation">
+        <button (click)="restart()" class="back-button">Try Again</button>
         <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
       </div>
     </div>
