@@ -94,6 +94,9 @@
 
 /* Main container for gameplay content */
 .gameplay {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center cards horizontally */
   justify-content: space-around; /* Distribute space evenly */
   padding: 2rem; /* Padding around content */
   border-bottom: #fbff14 solid 2px; /* Yellow bottom border */
