@@ -146,6 +146,7 @@
           <ng-container *ngIf="!swapped; else stage3Swapped">
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
+                <img src="/MindflayerSpr26/katzeTown.png" alt="Katze Town" class="town-image">
                 <h4>Travel to Katze Town</h4>
                 <p>Face IneMon and test whether Kedikure's resistance tactics can crack mountain discipline.</p>
                 <button class="select-button">Choose this path</button>
@@ -153,6 +154,7 @@
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
+                <img src="/MindflayerSpr26/nekoVillage.png" alt="Neko Village" class="town-image">
                 <h4>Travel to Neko Village</h4>
                 <p>Face RutoMon and endure emotion-charged bursts from the Cattail Forest style.</p>
                 <button class="select-button">Choose this path</button>
@@ -162,6 +164,7 @@
           <ng-template #stage3Swapped>
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
+                <img src="/MindflayerSpr26/nekoVillage.png" alt="Neko Village" class="town-image">
                 <h4>Travel to Neko Village</h4>
                 <p>Face RutoMon and endure emotion-charged bursts from the Cattail Forest style.</p>
                 <button class="select-button">Choose this path</button>
@@ -169,6 +172,7 @@
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
+                <img src="/MindflayerSpr26/katzeTown.png" alt="Katze Town" class="town-image">
                 <h4>Travel to Katze Town</h4>
                 <p>Face IneMon and test whether Kedikure's resistance tactics can crack mountain discipline.</p>
                 <button class="select-button">Choose this path</button>

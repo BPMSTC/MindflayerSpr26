@@ -161,6 +161,7 @@
           <ng-container *ngIf="!swapped; else stage3Swapped">
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
+                <img src="/MindflayerSpr26/nekoVillage.png" alt="Neko Village" class="town-image">
                 <h4>Travel to Neko Village</h4>
                 <p>Head into Cattail Forest to challenge RutoMon and test your control against emotion-fueled pressure.</p>
                 <button class="select-button">Choose this path</button>
@@ -168,6 +169,7 @@
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
+                <img src="/MindflayerSpr26/kedikure.png" alt="Kedikure" class="town-image">
                 <h4>Travel to Kedikure</h4>
                 <p>Cross south to challenge MaruMon and test your endurance against resistance-forged tactics.</p>
                 <button class="select-button">Choose this path</button>
@@ -177,6 +179,7 @@
           <ng-template #stage3Swapped>
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
+                <img src="/MindflayerSpr26/kedikure.png" alt="Kedikure" class="town-image">
                 <h4>Travel to Kedikure</h4>
                 <p>Cross south to challenge MaruMon and test your endurance against resistance-forged tactics.</p>
                 <button class="select-button">Choose this path</button>
@@ -184,6 +187,7 @@
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
+                <img src="/MindflayerSpr26/nekoVillage.png" alt="Neko Village" class="town-image">
                 <h4>Travel to Neko Village</h4>
                 <p>Head into Cattail Forest to challenge RutoMon and test your control against emotion-fueled pressure.</p>
                 <button class="select-button">Choose this path</button>
