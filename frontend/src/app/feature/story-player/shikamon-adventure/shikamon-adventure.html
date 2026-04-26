@@ -1,39 +1,35 @@
-<!-- ===================== STAGE 1: ShikaMon Intro ===================== -->
+<!-- ===================== STORY 1: Entry to Kedikure ===================== -->
 <div *ngIf="stage === 1">
-  <!-- Hero section with ShikaMon background -->
   <div class="hero-image shikamon-hero">
     <div class="hero-text">
-      <h1>{{ shikamon.name }}</h1>
-      <p>A new adventure begins...</p>
+      <h1>{{ shikamon.name }} of Kedikure</h1>
+      <p>The southern village prepares to resist its oppressive overlord.</p>
     </div>
-  </div> 
+  </div>
 
-  <!-- Main content area -->
   <div class="background">
     <div class="adventure-content">
-      <!-- ShikaMon profile card -->
       <div class="catmon-profile">
         <img [src]="shikamon.image" [alt]="shikamon.name" class="catmon-image">
         <h2>{{ shikamon.name }}</h2>
         <p class="catmon-description">{{ shikamon.description }}</p>
       </div>
 
-      <!-- Choice section -->
       <div class="choice-section">
-        <h3>What will ShikaMon do?</h3>
+        <h3>Choose your resistance route</h3>
         <div class="choice-grid">
           <ng-container *ngIf="!swapped; else stage1Swapped">
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
-                <h4>Meditate in the Shadow Grove</h4>
-                <p>ShikaMon senses a deep resonance within the ancient Shadow Grove. By meditating among the whispering trees, ShikaMon may unlock the secrets of shadow manipulation.</p>
+                <h4>Drill in Clawmand Post Yard</h4>
+                <p>ShikaMon coordinates squad timing drills in a hidden training yard to sharpen resistance formations.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
-                <h4>Outsmart the Phantom Stalker</h4>
-                <p>ShikaMon attempts to outwit the Phantom Stalker using cunning alone, venturing into its labyrinth without understanding the true nature of shadows.</p>
+                <h4>Run Prowler's Parapet Course</h4>
+                <p>ShikaMon trains rooftop traversal and courier relays to outpace enforcers across Kedikure's upper lanes.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
@@ -41,15 +37,15 @@
           <ng-template #stage1Swapped>
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
-                <h4>Outsmart the Phantom Stalker</h4>
-                <p>ShikaMon attempts to outwit the Phantom Stalker using cunning alone, venturing into its labyrinth without understanding the true nature of shadows.</p>
+                <h4>Run Prowler's Parapet Course</h4>
+                <p>ShikaMon trains rooftop traversal and courier relays to outpace enforcers across Kedikure's upper lanes.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
-                <h4>Meditate in the Shadow Grove</h4>
-                <p>ShikaMon senses a deep resonance within the ancient Shadow Grove. By meditating among the whispering trees, ShikaMon may unlock the secrets of shadow manipulation.</p>
+                <h4>Drill in Clawmand Post Yard</h4>
+                <p>ShikaMon coordinates squad timing drills in a hidden training yard to sharpen resistance formations.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
@@ -57,7 +53,6 @@
         </div>
       </div>
 
-      <!-- Navigation -->
       <div class="navigation">
         <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
       </div>
@@ -65,65 +60,101 @@
   </div>
 </div>
 
-<!-- ===================== STAGE 2: ShikaMon Defeated ===================== -->
+<!-- ===================== STORY 2: First Uprising Clash ===================== -->
 <div *ngIf="stage === 2">
-  <div class="hero-image defeat-hero">
+  <div class="hero-image shikamon-hero">
     <div class="hero-text">
-      <h1>ShikaMon was Defeated!</h1>
-      <p>The Phantom Stalker vanished into darkness...</p>
+      <h1>The Kedikure Uprising</h1>
+      <p>After taking {{ resistanceRoute }}, ShikaMon must break the first enforcer line.</p>
     </div>
   </div>
 
   <div class="background">
     <div class="adventure-content">
-      <div class="outcome-card defeat-card">
-        <img [src]="shikamon.image" [alt]="shikamon.name" class="catmon-image defeated">
-        <h2>Defeat</h2>
-        <p class="catmon-description">ShikaMon's brilliant mind wove trap after trap, but the Phantom Stalker was born from shadow itself. Without learning to control the darkness, ShikaMon's strategies unraveled one by one. The labyrinth consumed every trick, every plan. Even the greatest strategist must first understand their battlefield before they can conquer it.</p>
+      <div class="catmon-profile">
+        <img [src]="shikamon.image" [alt]="shikamon.name" class="catmon-image">
+        <h2>{{ shikamon.name }}</h2>
+        <p class="catmon-description">The citizens rally, but one wrong move could trigger a CAT-tastrophe. ShikaMon must choose between disciplined coordination and a reckless frontal rush.</p>
+      </div>
+
+      <div class="choice-section">
+        <h3>How should ShikaMon lead the first clash?</h3>
+        <div class="choice-grid">
+          <ng-container *ngIf="!swapped; else stage2Swapped">
+            <div class="choice-card" (click)="choose(1)">
+              <div class="choice-card-content">
+                <h4>Disrupt supply lines, then strike</h4>
+                <p>ShikaMon coordinates timed resistance waves, forcing enforcers to split before engaging head-on.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+            <div class="choice-card" (click)="choose(2)">
+              <div class="choice-card-content">
+                <h4>Charge the command post directly</h4>
+                <p>ShikaMon pushes into fortified ranks without support, hoping momentum alone will break the line.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+          </ng-container>
+          <ng-template #stage2Swapped>
+            <div class="choice-card" (click)="choose(1)">
+              <div class="choice-card-content">
+                <h4>Charge the command post directly</h4>
+                <p>ShikaMon pushes into fortified ranks without support, hoping momentum alone will break the line.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+            <div class="choice-card" (click)="choose(2)">
+              <div class="choice-card-content">
+                <h4>Disrupt supply lines, then strike</h4>
+                <p>ShikaMon coordinates timed resistance waves, forcing enforcers to split before engaging head-on.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+          </ng-template>
+        </div>
       </div>
 
       <div class="navigation">
-        <button (click)="restart()" class="back-button">Try Again</button>
+        <button (click)="restart()" class="back-button">← Restart Adventure</button>
         <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ===================== STAGE 3: MaruMon Evolution ===================== -->
+<!-- ===================== STORY 3: Choose Rival and Route ===================== -->
 <div *ngIf="stage === 3">
   <div class="hero-image marumon-hero">
     <div class="hero-text">
       <h1>ShikaMon evolved into MaruMon!</h1>
-      <p>The shadows bend to a new master!</p>
+      <p>Kedikure stands stronger, but greater rivals now await.</p>
     </div>
   </div>
 
   <div class="background">
     <div class="adventure-content">
-      <!-- MaruMon profile card -->
       <div class="catmon-profile evolution-glow">
         <img [src]="marumon.image" [alt]="marumon.name" class="catmon-image">
         <h2>{{ marumon.name }}</h2>
         <p class="catmon-description">{{ marumon.description }}</p>
       </div>
 
-      <!-- Choice section -->
       <div class="choice-section">
-        <h3>What will MaruMon do?</h3>
+        <h3>Pick your next destination</h3>
         <div class="choice-grid">
           <ng-container *ngIf="!swapped; else stage3Swapped">
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
-                <h4>Enter the Spirit Gate</h4>
-                <p>MaruMon discovers a shimmering gateway between the physical world and the spirit realm. By passing through, MaruMon can merge with the ancient phantom energy and achieve its final, transcendent form.</p>
+                <h4>Travel to Katze Town</h4>
+                <p>Face IneMon and test whether Kedikure's resistance tactics can crack mountain discipline.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
-                <h4>Seal the gate and keep current power</h4>
-                <p>MaruMon fears the unknown beyond the Spirit Gate. It chooses to seal the gateway and face the Phantom Stalker with only its current shadow abilities.</p>
+                <h4>Travel to Neko Village</h4>
+                <p>Face RutoMon and endure emotion-charged bursts from the Cattail Forest style.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
@@ -131,15 +162,15 @@
           <ng-template #stage3Swapped>
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
-                <h4>Seal the gate and keep current power</h4>
-                <p>MaruMon fears the unknown beyond the Spirit Gate. It chooses to seal the gateway and face the Phantom Stalker with only its current shadow abilities.</p>
+                <h4>Travel to Neko Village</h4>
+                <p>Face RutoMon and endure emotion-charged bursts from the Cattail Forest style.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
-                <h4>Enter the Spirit Gate</h4>
-                <p>MaruMon discovers a shimmering gateway between the physical world and the spirit realm. By passing through, MaruMon can merge with the ancient phantom energy and achieve its final, transcendent form.</p>
+                <h4>Travel to Katze Town</h4>
+                <p>Face IneMon and test whether Kedikure's resistance tactics can crack mountain discipline.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
@@ -154,57 +185,263 @@
   </div>
 </div>
 
-<!-- ===================== STAGE 4: MaruMon Defeated ===================== -->
+<!-- ===================== STORY 4: Train or Skip ===================== -->
 <div *ngIf="stage === 4">
-  <div class="hero-image defeat-hero">
+  <div class="hero-image marumon-hero">
     <div class="hero-text">
-      <h1>MaruMon was Defeated!</h1>
-      <p>The Phantom Stalker consumed the shadows...</p>
+      <h1>Final Preparation</h1>
+      <p>MaruMon arrives at {{ rivalRegion }} to face {{ selectedRival }}.</p>
     </div>
   </div>
 
   <div class="background">
     <div class="adventure-content">
-      <div class="outcome-card defeat-card">
-        <img [src]="marumon.image" [alt]="marumon.name" class="catmon-image defeated">
-        <h2>Defeat</h2>
-        <p class="catmon-description">MaruMon's shadow powers clashed with the Phantom Stalker, but without crossing into the spirit realm, its abilities were only half-formed. The Phantom Stalker devoured MaruMon's shadows one by one until nothing remained but silence. The Spirit Gate crumbled, and with it, the path to transcendence. True wisdom means embracing the unknown, not running from it.</p>
+      <div class="profile-pair">
+        <div class="catmon-profile">
+          <img [src]="marumon.image" [alt]="marumon.name" class="catmon-image">
+          <h2>{{ marumon.name }}</h2>
+          <p class="catmon-description">The duel will decide whether Kedikure's uprising can stand as a model for all of Puridian.</p>
+        </div>
+
+        <div class="catmon-profile">
+          <img [src]="rivalImage" [alt]="selectedRival" class="catmon-image">
+          <h2>{{ selectedRival }}</h2>
+          <p class="catmon-description">Your chosen rival from {{ rivalRegion }} is preparing a region-tested game plan.</p>
+        </div>
+      </div>
+
+      <div class="choice-section">
+        <h3>Train once more or skip preparation?</h3>
+        <div class="choice-grid">
+          <ng-container *ngIf="!swapped; else stage4Swapped">
+            <div class="choice-card" (click)="choose(1)">
+              <div class="choice-card-content">
+                <h4>Train before the duel</h4>
+                <p>MaruMon drills timing, spacing, and pressure control specific to {{ selectedRival }}.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+            <div class="choice-card" (click)="choose(2)">
+              <div class="choice-card-content">
+                <h4>Skip training and fight now</h4>
+                <p>MaruMon enters the duel immediately and risks losing tactical initiative from the start.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+          </ng-container>
+          <ng-template #stage4Swapped>
+            <div class="choice-card" (click)="choose(1)">
+              <div class="choice-card-content">
+                <h4>Skip training and fight now</h4>
+                <p>MaruMon enters the duel immediately and risks losing tactical initiative from the start.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+            <div class="choice-card" (click)="choose(2)">
+              <div class="choice-card-content">
+                <h4>Train before the duel</h4>
+                <p>MaruMon drills timing, spacing, and pressure control specific to {{ selectedRival }}.</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+          </ng-template>
+        </div>
       </div>
 
       <div class="navigation">
-        <button (click)="restart()" class="back-button">Try Again</button>
+        <button (click)="restart()" class="back-button">← Restart Adventure</button>
         <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ===================== STAGE 5: MatatabiMon Final Evolution ===================== -->
+<!-- ===================== STORY 5: Rival Duel ===================== -->
 <div *ngIf="stage === 5">
-  <div class="hero-image matatabimon-hero">
+  <div class="hero-image marumon-hero">
     <div class="hero-text">
-      <h1>MaruMon evolved into MatatabiMon!</h1>
-      <p>The ultimate evolution has been achieved!</p>
+      <h1>Duel with {{ selectedRival }}</h1>
+      <p>The deciding battle begins at {{ rivalRegion }}.</p>
     </div>
   </div>
 
   <div class="background">
     <div class="adventure-content">
-      <!-- MatatabiMon profile card -->
+      <div class="profile-pair">
+        <div class="catmon-profile">
+          <img [src]="marumon.image" [alt]="marumon.name" class="catmon-image">
+          <h2>{{ marumon.name }}</h2>
+          <p class="catmon-description">MaruMon faces {{ selectedRival }} directly. To win this duel, {{ rivalDuelHint }}. One wrong read gives the rival full control.</p>
+        </div>
+
+        <div class="catmon-profile">
+          <img [src]="rivalImage" [alt]="selectedRival" class="catmon-image">
+          <h2>{{ selectedRival }}</h2>
+          <p class="catmon-description">{{ selectedRival }} arrives with a KITTY Cocktail of regional discipline and pressure. {{ rivalDuelPlan }}</p>
+        </div>
+      </div>
+
+      <div class="choice-section">
+        <h3>How should MaruMon fight {{ selectedRival }}?</h3>
+        <div class="choice-grid">
+          <ng-container *ngIf="!swapped; else stage5Swapped">
+            <div class="choice-card" (click)="choose(1)">
+              <div class="choice-card-content">
+                <h4>{{ duelOptionOne }}</h4>
+                <p>{{ duelOptionOneDescription }}</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+            <div class="choice-card" (click)="choose(2)">
+              <div class="choice-card-content">
+                <h4>{{ duelOptionTwo }}</h4>
+                <p>{{ duelOptionTwoDescription }}</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+          </ng-container>
+          <ng-template #stage5Swapped>
+            <div class="choice-card" (click)="choose(1)">
+              <div class="choice-card-content">
+                <h4>{{ duelOptionTwo }}</h4>
+                <p>{{ duelOptionTwoDescription }}</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+            <div class="choice-card" (click)="choose(2)">
+              <div class="choice-card-content">
+                <h4>{{ duelOptionOne }}</h4>
+                <p>{{ duelOptionOneDescription }}</p>
+                <button class="select-button">Choose this path</button>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+
+      <div class="navigation">
+        <button (click)="restart()" class="back-button">← Restart Adventure</button>
+        <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== STORY 6: MatatabiMon Evolution ===================== -->
+<div *ngIf="stage === 6">
+  <div class="hero-image matatabimon-hero">
+    <div class="hero-text">
+      <h1>Final Evolution</h1>
+      <p>MaruMon overcomes {{ selectedRival }} and evolves into MatatabiMon!</p>
+    </div>
+  </div>
+
+  <div class="background">
+    <div class="adventure-content">
       <div class="catmon-profile final-evolution-glow">
         <img [src]="matatabimon.image" [alt]="matatabimon.name" class="catmon-image">
         <h2>{{ matatabimon.name }}</h2>
         <p class="catmon-description">{{ matatabimon.description }}</p>
       </div>
 
-      <!-- Victory message -->
       <div class="victory-card">
         <h3>Victory!</h3>
-        <p>You guided ShikaMon through every shadow, making the right choices at every turn. From a mysterious strategist to the transcendent MatatabiMon — the journey is complete. The veil between worlds parts before you, true CatMon master!</p>
+        <p>You guided ShikaMon through six stories, strengthened Kedikure's resistance, and defeated {{ selectedRival }} to {{ rivalGoal }}. The people of the south now have a future worth building.</p>
       </div>
 
       <div class="navigation">
         <button (click)="restart()" class="back-button">Play Again</button>
+        <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== DEFEAT: Story 2 Wrong Choice ===================== -->
+<div *ngIf="stage === 7">
+  <div class="hero-image defeat-hero">
+    <div class="hero-text">
+      <h1>ShikaMon was Defeated!</h1>
+      <p>The first uprising push collapsed under enforcer pressure.</p>
+    </div>
+  </div>
+
+  <div class="background">
+    <div class="adventure-content">
+      <div class="outcome-card defeat-card">
+        <img [src]="shikamon.image" [alt]="shikamon.name" class="catmon-image defeated">
+        <h2>Defeat</h2>
+        <p class="catmon-description">ShikaMon charged the command line too early. Without coordinated disruption, Kedikure's citizens were forced back and the revolt lost momentum.</p>
+      </div>
+
+      <div class="navigation">
+        <button (click)="retryFromCheckpoint()" class="back-button">Try Again</button>
+        <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== DEFEAT: Story 4 Wrong Choice ===================== -->
+<div *ngIf="stage === 8">
+  <div class="hero-image defeat-hero">
+    <div class="hero-text">
+      <h1>MaruMon was Defeated!</h1>
+      <p>Skipping preparation cost the deciding duel.</p>
+    </div>
+  </div>
+
+  <div class="background">
+    <div class="adventure-content">
+      <div class="profile-pair">
+        <div class="outcome-card defeat-card">
+          <img [src]="marumon.image" [alt]="marumon.name" class="catmon-image defeated">
+          <h2>Defeat</h2>
+          <p class="catmon-description">MaruMon entered unprepared and lost control of tempo early. In Kedikure's struggle, planning is the edge that keeps hope alive.</p>
+        </div>
+
+        <div class="catmon-profile">
+          <img [src]="rivalImage" [alt]="selectedRival" class="catmon-image">
+          <h2>{{ selectedRival }}</h2>
+          <p class="catmon-description">{{ selectedRival }} exploited every gap and dictated the pace from the opening exchange.</p>
+        </div>
+      </div>
+
+      <div class="navigation">
+        <button (click)="retryFromCheckpoint()" class="back-button">Try Again</button>
+        <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== DEFEAT: Story 5 Wrong Duel Choice ===================== -->
+<div *ngIf="stage === 9">
+  <div class="hero-image defeat-hero">
+    <div class="hero-text">
+      <h1>MaruMon was Defeated!</h1>
+      <p>The duel plan failed against {{ selectedRival }}.</p>
+    </div>
+  </div>
+
+  <div class="background">
+    <div class="adventure-content">
+      <div class="profile-pair">
+        <div class="outcome-card defeat-card">
+          <img [src]="marumon.image" [alt]="marumon.name" class="catmon-image defeated">
+          <h2>Defeat</h2>
+          <p class="catmon-description">MaruMon chose the wrong tactic. To defeat {{ selectedRival }}, you needed to follow this plan: {{ rivalDuelHint }}</p>
+        </div>
+
+        <div class="catmon-profile">
+          <img [src]="rivalImage" [alt]="selectedRival" class="catmon-image">
+          <h2>{{ selectedRival }}</h2>
+          <p class="catmon-description">{{ selectedRival }} read your strategy perfectly and punished every opening.</p>
+        </div>
+      </div>
+
+      <div class="navigation">
+        <button (click)="retryFromCheckpoint()" class="back-button">Try Again</button>
         <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
       </div>
     </div>

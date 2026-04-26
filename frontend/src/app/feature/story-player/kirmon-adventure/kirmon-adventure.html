@@ -27,15 +27,15 @@
           <ng-container *ngIf="!swapped; else stage1Swapped">
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
-                <h4>Drill on Frost Ridge</h4>
-                <p>KirMon trains in mountain wind to harden its footing and timing before confronting the winter spirit near Katze Town.</p>
+                <h4>Drill at Purrmafrost Proving Grounds</h4>
+                <p>KirMon runs frozen obstacle lines and timing drills across packed snow to sharpen disciplined counters.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
-                <h4>Condition in the Ice Caverns</h4>
-                <p>KirMon trains in narrow frozen tunnels, practicing bursts of speed and quick turns to survive blizzard ambushes.</p>
+                <h4>Condition through Whiskerwind Chasm Course</h4>
+                <p>KirMon practices footwork under crosswinds and tight turns to stay balanced when blizzard gusts hit hard.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
@@ -45,15 +45,15 @@
           <ng-template #stage1Swapped>
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
-                <h4>Condition in the Ice Caverns</h4>
-                <p>KirMon trains in narrow frozen tunnels, practicing bursts of speed and quick turns to survive blizzard ambushes.</p>
+                <h4>Condition through Whiskerwind Chasm Course</h4>
+                <p>KirMon practices footwork under crosswinds and tight turns to stay balanced when blizzard gusts hit hard.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
-                <h4>Drill on Frost Ridge</h4>
-                <p>KirMon trains in mountain wind to harden its footing and timing before confronting the winter spirit near Katze Town.</p>
+                <h4>Drill at Purrmafrost Proving Grounds</h4>
+                <p>KirMon runs frozen obstacle lines and timing drills across packed snow to sharpen disciplined counters.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
@@ -308,15 +308,15 @@
           <ng-container *ngIf="!swapped; else stage5Swapped">
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
-                <h4>Hold steady and counter</h4>
-                <p>Let {{ selectedRival }} commit first, then punish the opening with precise timing.</p>
+                <h4>{{ duelOptionOne }}</h4>
+                <p>{{ duelOptionOneDescription }}</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
-                <h4>Stay mobile and strike first</h4>
-                <p>Keep moving constantly and force short exchanges before {{ selectedRival }} settles in.</p>
+                <h4>{{ duelOptionTwo }}</h4>
+                <p>{{ duelOptionTwoDescription }}</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
@@ -324,15 +324,15 @@
           <ng-template #stage5Swapped>
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
-                <h4>Stay mobile and strike first</h4>
-                <p>Keep moving constantly and force short exchanges before {{ selectedRival }} settles in.</p>
+                <h4>{{ duelOptionTwo }}</h4>
+                <p>{{ duelOptionTwoDescription }}</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
-                <h4>Hold steady and counter</h4>
-                <p>Let {{ selectedRival }} commit first, then punish the opening with precise timing.</p>
+                <h4>{{ duelOptionOne }}</h4>
+                <p>{{ duelOptionOneDescription }}</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
@@ -400,7 +400,7 @@
 
       <!-- Player can replay immediately or leave to cat selection. -->
       <div class="navigation">
-        <button (click)="restart()" class="back-button">Try Again</button>
+        <button (click)="retryFromCheckpoint()" class="back-button">Try Again</button>
         <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
       </div>
     </div>
@@ -435,7 +435,7 @@
 
       <!-- Same controls as other defeat screen for consistent UX. -->
       <div class="navigation">
-        <button (click)="restart()" class="back-button">Try Again</button>
+        <button (click)="retryFromCheckpoint()" class="back-button">Try Again</button>
         <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
       </div>
     </div>
@@ -469,7 +469,7 @@
       </div>
 
       <div class="navigation">
-        <button (click)="restart()" class="back-button">Try Again</button>
+        <button (click)="retryFromCheckpoint()" class="back-button">Try Again</button>
         <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
       </div>
     </div>

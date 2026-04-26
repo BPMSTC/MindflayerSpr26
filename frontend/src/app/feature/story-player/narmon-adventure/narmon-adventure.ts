@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../auth/auth.service';
+import { DuelCommand, StoryId, buildFinalDuelChoices, getDuelCommandDescription, getRivalInfo } from '../final-duel/final-duel';
 
 @Component({
   selector: 'app-narmon-adventure',
@@ -10,6 +11,10 @@ import { AuthService } from '../../auth/auth.service';
   styleUrl: './narmon-adventure.css'
 })
 export class NarmonAdventureComponent {
+  // Tells shared final-duel helpers which story configuration to use.
+  // This key maps to the `narmon` section in `RIVAL_INFO_BY_STORY`.
+  private readonly storyId: StoryId = 'narmon';
+
   // Auth service is used to persist CatDex discoveries for the signed-in player.
   private auth = inject(AuthService);
 
@@ -34,7 +39,14 @@ export class NarmonAdventureComponent {
   selectedRival: 'MaruMon' | 'IneMon' = 'MaruMon';
 
   // Stores story 1 flavor text and is surfaced in story 2's hero subtitle.
-  approachRoute = 'the CAT-lateral rope bridges';
+  approachRoute = 'the Purrlane Canopy Run';
+
+  // Stores the command assigned to option button 1 in stage 5.
+  // Value is generated when entering the final duel.
+  duelOptionOne: DuelCommand = 'Hold steady and counter';
+  // Stores the command assigned to option button 2 in stage 5.
+  // Value is generated when entering the final duel.
+  duelOptionTwo: DuelCommand = 'Stay mobile and strike first';
 
   // Stage 1: NarMon data
   narmon = {
@@ -69,35 +81,50 @@ export class NarmonAdventureComponent {
 
   // Narrative sentence fragment for story 5 victory text.
   get rivalGoal(): string {
-    return this.selectedRival === 'MaruMon'
-      ? 'prove your discipline against resistance-hardened strength from Kedikure'
-      : 'show discipline strong enough to stand beside Katze Town\'s storm-trained defenders';
+    // Pulled from centralized rival metadata (single source of truth).
+    return getRivalInfo(this.storyId, this.selectedRival).goal;
   }
 
   // Rival-specific guidance used in stage 5 and the stage 9 defeat recap.
   get rivalDuelHint(): string {
-    return this.selectedRival === 'MaruMon'
-      ? 'Do not plant in place; keep moving and strike before they set.'
-      : 'Break their rhythm with a tempo-feint burst before they can settle into counters.';
+    // Pulled from centralized rival metadata (single source of truth).
+    return getRivalInfo(this.storyId, this.selectedRival).duelHint;
   }
 
   // Rival card flavor for stage 5, describing the duel plan against RutoMon.
   get rivalDuelPlan(): string {
-    return this.selectedRival === 'MaruMon'
-      ? 'MaruMon is about to anchor its footing, absorb IneMon\'s opening exchanges, and drag the fight into a long resistance duel shaped by Kedikure\'s hard survival.'
-      : 'IneMon plans to hold disciplined spacing from Katze Town and punish predictable counters, forcing RutoMon to change rhythm to create a true opening.';
+    // Pulled from centralized rival metadata (single source of truth).
+    return getRivalInfo(this.storyId, this.selectedRival).duelPlan;
   }
 
-  // Story 5 option labels are rival-dependent to support a strategy triangle.
-  get duelOptionTwoTitle(): string {
-    return this.selectedRival === 'MaruMon' ? 'Stay mobile and strike first' : 'Use Tempo Feint and Burst';
+  // Returns the single correct counter for the current rival matchup.
+  // This is the source of truth used when validating the selected answer.
+  get correctDuelCommand(): DuelCommand {
+    // Pulled from centralized rival metadata (single source of truth).
+    return getRivalInfo(this.storyId, this.selectedRival).correctCommand;
   }
 
-  // Option 2 details shift by rival while option 1 remains "Hold steady and counter".
+  // Generates option-1 body text from whichever command is currently assigned.
+  get duelOptionOneDescription(): string {
+    return getDuelCommandDescription(this.duelOptionOne, this.selectedRival);
+  }
+
+  // Generates option-2 body text from whichever command is currently assigned.
   get duelOptionTwoDescription(): string {
-    return this.selectedRival === 'MaruMon'
-      ? 'Keep moving constantly and force short exchanges before MaruMon settles in.'
-      : 'Stutter your timing with a feint step, then burst through before IneMon can read and counter.';
+    return getDuelCommandDescription(this.duelOptionTwo, this.selectedRival);
+  }
+
+  // Generates stage-5 options as:
+  // 1) the true counter command
+  // 2) one random incorrect command from the remaining two
+  private setupFinalDuelChoices() {
+    // Ask centralized rival metadata for the correct command.
+    const correct = this.correctDuelCommand;
+    // Delegate option generation to shared helper for consistent behavior.
+    const choices = buildFinalDuelChoices(correct);
+    // Save generated commands into stage-5 option slots.
+    this.duelOptionOne = choices.optionOne;
+    this.duelOptionTwo = choices.optionTwo;
   }
 
   // After progressing to the next stage, bring the hero image back into view
@@ -130,7 +157,7 @@ export class NarmonAdventureComponent {
     // STORY 1 -> STORY 2
     // Both choices continue the story; they only change flavor text.
     if (this.stage === 1) {
-      this.approachRoute = effective === 1 ? 'the CAT-lateral rope bridges' : 'the CAT-Nip lantern paths';
+      this.approachRoute = effective === 1 ? 'the Purrlane Canopy Run' : 'the Whiskerwillow Whisper Trail';
       this.stage = 2;
 
       // STORY 2 -> STORY 3 or DEFEAT (stage 7)
@@ -153,7 +180,10 @@ export class NarmonAdventureComponent {
       // Training is the correct choice.
     } else if (this.stage === 4) {
       if (effective === 1) {
+        // Enter final duel stage.
         this.stage = 5;
+        // Build fresh command options each time we reach stage 5.
+        this.setupFinalDuelChoices();
       } else {
         this.stage = 8;
       }
@@ -161,11 +191,10 @@ export class NarmonAdventureComponent {
       // STORY 5 -> STORY 6 (stage 6) or DEFEAT (stage 9)
       // The winning option depends on which rival was chosen in story 3.
     } else if (this.stage === 5) {
-      // Triangle logic:
-      // Hold steady/counter beats RutoMon in the IneMon story,
-      // Stay mobile/strike first beats MaruMon,
-      // Tempo Feint and Burst beats IneMon.
-      const isWinningChoice = effective === 2;
+      // Convert clicked slot into the actual command shown in that slot.
+      const selectedCommand = effective === 1 ? this.duelOptionOne : this.duelOptionTwo;
+      // Win only when selected command matches the matchup's true counter.
+      const isWinningChoice = selectedCommand === this.correctDuelCommand;
       if (isWinningChoice) {
         this.stage = 6;
         this.auth.discoverCatmon('KuramaMon');
@@ -185,7 +214,32 @@ export class NarmonAdventureComponent {
   restart() {
     this.stage = 1;
     this.selectedRival = 'MaruMon';
-    this.approachRoute = 'the CAT-lateral rope bridges';
+    this.approachRoute = 'the Purrlane Canopy Run';
+    // Reset duel slots to deterministic defaults before next run.
+    // setupFinalDuelChoices() will overwrite these when stage 5 is entered.
+    this.duelOptionOne = 'Hold steady and counter';
+    this.duelOptionTwo = 'Stay mobile and strike first';
     this.swapped = Math.random() < 0.5;
+  }
+
+  // Retry from the nearest checkpoint before evolution stages.
+  // Stage 7 (first defeat) -> stage 2 checkpoint.
+  // Stage 8 (training skip defeat) -> stage 4 checkpoint.
+  // Stage 9 (final duel defeat) -> stage 5 checkpoint.
+  retryFromCheckpoint() {
+    if (this.stage === 7) {
+      this.stage = 2;
+    } else if (this.stage === 8) {
+      this.stage = 4;
+    } else if (this.stage === 9) {
+      this.stage = 5;
+      this.setupFinalDuelChoices();
+    } else {
+      this.restart();
+      return;
+    }
+
+    this.swapped = Math.random() < 0.5;
+    this.scrollToStageTop();
   }
 }

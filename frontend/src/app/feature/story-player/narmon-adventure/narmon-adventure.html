@@ -21,15 +21,15 @@
           <ng-container *ngIf="!swapped; else stage1Swapped">
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
-                <h4>Cross the CAT-lateral bridges</h4>
-                <p>NarMon scouts the old rope spans above misty ravines, reading the movement of frightened spirits before entering Neko Village.</p>
+                <h4>Sprint the Purrlane Canopy Run</h4>
+                <p>NarMon trains on elevated branch paths to sharpen reaction speed and keep momentum in dense forest terrain.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
-                <h4>Follow the CAT-Nip lantern trail</h4>
-                <p>NarMon follows glowing shrine markers through the underbrush, listening to villagers' shaken voices and tracking where emotion turns unstable.</p>
+                <h4>Train along Whiskerwillow Whisper Trail</h4>
+                <p>NarMon practices focus and spirit control on winding woodland lanes where distractions test emotional balance.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
@@ -37,15 +37,15 @@
           <ng-template #stage1Swapped>
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
-                <h4>Follow the CAT-Nip lantern trail</h4>
-                <p>NarMon follows glowing shrine markers through the underbrush, listening to villagers' shaken voices and tracking where emotion turns unstable.</p>
+                <h4>Train along Whiskerwillow Whisper Trail</h4>
+                <p>NarMon practices focus and spirit control on winding woodland lanes where distractions test emotional balance.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
-                <h4>Cross the CAT-lateral bridges</h4>
-                <p>NarMon scouts the old rope spans above misty ravines, reading the movement of frightened spirits before entering Neko Village.</p>
+                <h4>Sprint the Purrlane Canopy Run</h4>
+                <p>NarMon trains on elevated branch paths to sharpen reaction speed and keep momentum in dense forest terrain.</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
@@ -287,14 +287,14 @@
           <ng-container *ngIf="!swapped; else stage5Swapped">
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
-                <h4>Hold steady and counter</h4>
-                <p>Let {{ selectedRival }} commit first, then punish the opening with precise timing.</p>
+                <h4>{{ duelOptionOne }}</h4>
+                <p>{{ duelOptionOneDescription }}</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
-                <h4>{{ duelOptionTwoTitle }}</h4>
+                <h4>{{ duelOptionTwo }}</h4>
                 <p>{{ duelOptionTwoDescription }}</p>
                 <button class="select-button">Choose this path</button>
               </div>
@@ -303,15 +303,15 @@
           <ng-template #stage5Swapped>
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
-                <h4>{{ duelOptionTwoTitle }}</h4>
+                <h4>{{ duelOptionTwo }}</h4>
                 <p>{{ duelOptionTwoDescription }}</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
-                <h4>Hold steady and counter</h4>
-                <p>Let {{ selectedRival }} commit first, then punish the opening with precise timing.</p>
+                <h4>{{ duelOptionOne }}</h4>
+                <p>{{ duelOptionOneDescription }}</p>
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
@@ -375,7 +375,7 @@
       </div>
 
       <div class="navigation">
-        <button (click)="restart()" class="back-button">Try Again</button>
+        <button (click)="retryFromCheckpoint()" class="back-button">Try Again</button>
         <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
       </div>
     </div>
@@ -408,7 +408,7 @@
       </div>
 
       <div class="navigation">
-        <button (click)="restart()" class="back-button">Try Again</button>
+        <button (click)="retryFromCheckpoint()" class="back-button">Try Again</button>
         <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
       </div>
     </div>
@@ -441,7 +441,7 @@
       </div>
 
       <div class="navigation">
-        <button (click)="restart()" class="back-button">Try Again</button>
+        <button (click)="retryFromCheckpoint()" class="back-button">Try Again</button>
         <button routerLink="/catmon-select" class="back-button">← Back to CatMon Select</button>
       </div>
     </div>
