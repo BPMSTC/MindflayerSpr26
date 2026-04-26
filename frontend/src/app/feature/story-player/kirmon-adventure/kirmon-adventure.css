@@ -303,6 +303,11 @@
   .back-button {
     width: auto;
   }
+
+  .profile-pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
 }
 
 /* iPad landscape (1024x768): 42vh left too little room for the active choice
@@ -364,6 +369,21 @@
 
   .choice-grid {
     gap: 0.75rem;
+  }
+
+  .profile-pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .choice-card h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .town-image {
+    max-height: 110px;
+    margin-bottom: 0.6rem;
   }
 
   .select-button,
