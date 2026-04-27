@@ -7,9 +7,14 @@
 
 /* Shared hero shell; the classes below swap in the relevant evolution art. */
 .hero-image {
-  background-size: cover; background-position: center 25%; min-height: clamp(380px, 62vh, 600px);
-  display: flex; justify-content: center; align-items: center;
-  border-top: #57c1ff solid 2px; border-bottom: #57c1ff solid 2px;
+  background-size: cover; 
+  background-position: center 25%; 
+  min-height: clamp(380px, 62vh, 600px);
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  border-top: #57c1ff solid 2px; 
+  border-bottom: #57c1ff solid 2px;
 }
 .kirMon-hero { background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.45)),url('/MindflayerSpr26/Catmon/KirMon/KirMon.png'); }
 .ineMon-hero { background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.45)),url('/MindflayerSpr26/Catmon/KirMon/IneMon.png'); }
