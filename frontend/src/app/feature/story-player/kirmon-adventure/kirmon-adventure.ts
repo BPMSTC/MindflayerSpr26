@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../auth/auth.service';
+import { DuelCommand, StoryId, buildFinalDuelChoices, getDuelCommandDescription, getRivalInfo } from '../final-duel/final-duel';
 
 @Component({
   selector: 'app-kirmon-adventure',
@@ -10,6 +11,10 @@ import { AuthService } from '../../auth/auth.service';
   styleUrl: './kirmon-adventure.css'
 })
 export class KirmonAdventureComponent {
+  // Tells shared final-duel helpers which story configuration to use.
+  // This key maps to the `kirmon` section in `RIVAL_INFO_BY_STORY`.
+  private readonly storyId: StoryId = 'kirmon';
+
   // Auth service is used to persist CatDex discoveries for the signed-in player.
   private auth = inject(AuthService);
 
@@ -34,7 +39,14 @@ export class KirmonAdventureComponent {
   selectedRival: 'RutoMon' | 'MaruMon' = 'RutoMon';
 
   // Stores story 1 flavor text and is surfaced in story 2's hero subtitle.
-  trainingRoute = 'the Frost Ridge drills';
+  trainingRoute = 'the Purrmafrost Proving Grounds';
+
+  // Stores the command assigned to option button 1 in stage 5.
+  // Value is generated when entering the final duel.
+  duelOptionOne: DuelCommand = 'Hold steady and counter';
+  // Stores the command assigned to option button 2 in stage 5.
+  // Value is generated when entering the final duel.
+  duelOptionTwo: DuelCommand = 'Stay mobile and strike first';
 
   // Stage 1: KirMon data
   kirMon = {
@@ -69,23 +81,50 @@ export class KirmonAdventureComponent {
 
   // Narrative sentence fragment for story 5 victory text.
   get rivalGoal(): string {
-    return this.selectedRival === 'RutoMon'
-      ? 'test your resolve in the emotional wilds of Neko Village'
-      : 'prove your discipline against resistance-hardened strength from Kedikure';
+    // Pulled from centralized rival metadata (single source of truth).
+    return getRivalInfo(this.storyId, this.selectedRival).goal;
   }
 
   // Rival-specific guidance used in stage 5 and the stage 9 defeat recap.
   get rivalDuelHint(): string {
-    return this.selectedRival === 'RutoMon'
-      ? 'Bait an emotional rush, then counter with discipline.'
-      : 'Do not plant in place; keep moving and strike before they set.';
+    // Pulled from centralized rival metadata (single source of truth).
+    return getRivalInfo(this.storyId, this.selectedRival).duelHint;
   }
 
   // Rival card flavor for stage 5, describing the duel plan against IneMon.
   get rivalDuelPlan(): string {
-    return this.selectedRival === 'RutoMon'
-      ? 'RutoMon is about to unleash fast, emotion-charged bursts from the Cattail Forest style, pressing IneMon into a frantic pace and baiting it to swing early from the heart instead of waiting for a clean counter window.'
-      : 'MaruMon is about to anchor its footing, absorb IneMon\'s opening exchanges, and drag the fight into a long resistance duel shaped by Kedikure\'s hard survival.';
+    // Pulled from centralized rival metadata (single source of truth).
+    return getRivalInfo(this.storyId, this.selectedRival).duelPlan;
+  }
+
+  // Returns the single correct counter for the current rival matchup.
+  // This is the source of truth used when validating the selected answer.
+  get correctDuelCommand(): DuelCommand {
+    // Pulled from centralized rival metadata (single source of truth).
+    return getRivalInfo(this.storyId, this.selectedRival).correctCommand;
+  }
+
+  // Generates option-1 body text from whichever command is currently assigned.
+  get duelOptionOneDescription(): string {
+    return getDuelCommandDescription(this.duelOptionOne, this.selectedRival);
+  }
+
+  // Generates option-2 body text from whichever command is currently assigned.
+  get duelOptionTwoDescription(): string {
+    return getDuelCommandDescription(this.duelOptionTwo, this.selectedRival);
+  }
+
+  // Generates stage-5 options as:
+  // 1) the true counter command
+  // 2) one random incorrect command from the remaining two
+  private setupFinalDuelChoices() {
+    // Ask centralized rival metadata for the correct command.
+    const correct = this.correctDuelCommand;
+    // Delegate option generation to shared helper for consistent behavior.
+    const choices = buildFinalDuelChoices(correct);
+    // Save generated commands into stage-5 option slots.
+    this.duelOptionOne = choices.optionOne;
+    this.duelOptionTwo = choices.optionTwo;
   }
 
   // After progressing to the next stage, bring the hero image back into view
@@ -118,7 +157,7 @@ export class KirmonAdventureComponent {
     // STORY 1 -> STORY 2
     // Both choices continue the story; they only change flavor text.
     if (this.stage === 1) {
-      this.trainingRoute = effective === 1 ? 'the Frost Ridge drills' : 'the Ice Cavern endurance course';
+      this.trainingRoute = effective === 1 ? 'the Purrmafrost Proving Grounds' : 'the Whiskerwind Chasm Course';
       this.stage = 2;
 
       // STORY 2 -> STORY 3 or DEFEAT (stage 7)
@@ -141,7 +180,10 @@ export class KirmonAdventureComponent {
       // Training is the correct choice
     } else if (this.stage === 4) {
       if (effective === 1) {
+        // Enter final duel stage.
         this.stage = 5;
+        // Build fresh command options each time we reach stage 5.
+        this.setupFinalDuelChoices();
       } else {
         this.stage = 8;
       }
@@ -149,7 +191,10 @@ export class KirmonAdventureComponent {
       // STORY 5 -> STORY 6 (stage 6) or DEFEAT (stage 9)
       // The winning option depends on which rival was chosen in story 3.
     } else if (this.stage === 5) {
-      const isWinningChoice = this.selectedRival === 'RutoMon' ? effective === 1 : effective === 2;
+      // Convert clicked slot into the actual command shown in that slot.
+      const selectedCommand = effective === 1 ? this.duelOptionOne : this.duelOptionTwo;
+      // Win only when selected command matches the matchup's true counter.
+      const isWinningChoice = selectedCommand === this.correctDuelCommand;
       if (isWinningChoice) {
         this.stage = 6;
         this.auth.discoverCatmon('AmaterosaMon');
@@ -169,7 +214,32 @@ export class KirmonAdventureComponent {
   restart() {
     this.stage = 1;
     this.selectedRival = 'RutoMon';
-    this.trainingRoute = 'the Frost Ridge drills';
+    this.trainingRoute = 'the Purrmafrost Proving Grounds';
+    // Reset duel slots to deterministic defaults before next run.
+    // setupFinalDuelChoices() will overwrite these when stage 5 is entered.
+    this.duelOptionOne = 'Hold steady and counter';
+    this.duelOptionTwo = 'Stay mobile and strike first';
     this.swapped = Math.random() < 0.5;
+  }
+
+  // Retry from the nearest checkpoint before evolution stages.
+  // Stage 7 (first defeat) -> stage 2 checkpoint.
+  // Stage 8 (training skip defeat) -> stage 4 checkpoint.
+  // Stage 9 (final duel defeat) -> stage 5 checkpoint.
+  retryFromCheckpoint() {
+    if (this.stage === 7) {
+      this.stage = 2;
+    } else if (this.stage === 8) {
+      this.stage = 4;
+    } else if (this.stage === 9) {
+      this.stage = 5;
+      this.setupFinalDuelChoices();
+    } else {
+      this.restart();
+      return;
+    }
+
+    this.swapped = Math.random() < 0.5;
+    this.scrollToStageTop();
   }
 }

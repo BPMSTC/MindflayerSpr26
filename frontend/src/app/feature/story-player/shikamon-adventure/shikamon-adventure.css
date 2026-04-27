@@ -42,6 +42,21 @@
   color: #FEFEFE;
 }
 
+/* Pairs MaruMon and rival cards side-by-side after rival selection. */
+.profile-pair {
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.profile-pair .catmon-profile,
+.profile-pair .outcome-card {
+  max-width: 100%;
+  margin: 0;
+}
+
 .catmon-profile h2,.outcome-card h2 { 
   font-size: 2.5rem; 
   margin-bottom: 1rem; 
@@ -97,6 +112,15 @@
 .choice-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,.4); }
 
 .choice-card-content { padding: 1.5rem; text-align: center; color: #fff; }
+
+.town-image {
+  width: 100%;
+  max-height: 170px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  border: 2px solid #b58dfc;
+}
 
 .choice-card h4 { font-size: 1.5rem; margin-bottom: 1rem; font-weight: bold; }
 
@@ -196,6 +220,7 @@
   }
 
   .choice-grid { grid-template-columns: 1fr; }
+  .profile-pair { grid-template-columns: 1fr; gap: 1.25rem; }
   .hero-text h1 { font-size: 2.5rem; }
   .catmon-profile h2,.outcome-card h2 { font-size: 2rem; }
   .navigation { flex-direction: column; align-items: center; }
@@ -288,6 +313,11 @@
   .back-button {
     width: auto;
   }
+
+  .profile-pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
 }
 
 /* iPad landscape (1024x768): 42vh left too little room for the active choice
@@ -349,6 +379,21 @@
 
   .choice-grid {
     gap: 0.75rem;
+  }
+
+  .profile-pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .choice-card h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .town-image {
+    max-height: 110px;
+    margin-bottom: 0.6rem;
   }
 
   .select-button,
