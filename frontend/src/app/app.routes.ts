@@ -20,6 +20,9 @@ import { CatdexComponent } from './feature/catdex/catdex.js';
 
 // Footer components
 import { AboutUs } from './about-us/about-us.js';
+import { Contact } from './contact/contact.js';
+import { Privacy } from './privacy/privacy.js';
+import { Terms } from './terms/terms.js';
 
 
 // Define the application routes - maps URLs to components
@@ -42,7 +45,10 @@ export const routes: Routes = [
 
   // Footer routes
   { path: 'about', component: AboutUs },
-  
+  { path: 'contact', component: Contact },
+  { path: 'privacy', component: Privacy },
+  { path: 'terms', component: Terms },
+
   // Wildcard route - any unmatched URL redirects to the home page
   { path: '**', redirectTo: '' }
 ];

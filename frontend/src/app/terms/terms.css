@@ -1,4 +1,4 @@
-.about-section {
+.terms-section {
   --color: #fbff1442;
   background-color: transparent;
   background-image: linear-gradient(
@@ -31,18 +31,18 @@
 }
 
 @media (max-width: 1024px) {
-  .about-section {
+  .terms-section {
     background-size: 42px 42px;
   }
 }
 
 @media (max-width: 768px) {
-  .about-section {
+  .terms-section {
     background-size: 36px 36px;
   }
 }
 
-.about-title {
+.terms-title {
   color: #fbff14;
   font-weight: 700;
   letter-spacing: 1.5px;
@@ -50,7 +50,7 @@
   margin: 1rem;
 }
 
-.about-text {
+.terms-text {
   max-width: 75%;
   font-size: 1.1rem;
   line-height: 1.7;
@@ -67,9 +67,9 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.intro-card .about-text {
-  margin-bottom: 0;
+.intro-card .terms-text {
   max-width: 100%;
+  margin-bottom: 1rem;
 }
 
 .py-5 {
@@ -77,8 +77,7 @@
   padding-bottom: 3rem;
 }
 
-/* Accent divider */
-.about-section::after {
+.terms-section::after {
   content: '';
   display: block;
   width: 70px;
@@ -87,40 +86,37 @@
   margin: 25px auto 0;
 }
 
-/* Hero section */
 .hero-image {
-  background-size: cover; 
-  background-position: center 85%; 
+  background-size: cover;
+  background-position: center 85%;
   min-height: clamp(380px, 50vh, 600px);
-  display: flex; 
-  justify-content: center; 
+  display: flex;
+  justify-content: center;
   align-items: center;
   background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.45)), url('/MindflayerSpr26/CatMonStudios.png');
-  border-top: #fbff14 solid 2px; border-bottom: #fbff14 solid 2px;
-
+  border-top: #fbff14 solid 2px;
+  border-bottom: #fbff14 solid 2px;
 }
 
 .hero-text {
-  text-align: center; 
-  color: #fff; 
+  text-align: center;
+  color: #fff;
   text-shadow: 2px 2px 4px rgba(0,0,0,.5);
 }
 
 .hero-text h1 {
-  font-size: clamp(2.2rem, 6vw, 8rem); 
-  margin-bottom: 1rem; 
+  font-size: clamp(2.2rem, 6vw, 8rem);
+  margin-bottom: 1rem;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   letter-spacing: .35rem;
 }
 
 .hero-text h3 {
-  font-size: clamp(1.2rem, 4vw, 2.5rem); 
-  margin-bottom: 0; 
+  font-size: clamp(1.2rem, 4vw, 2.5rem);
+  margin-bottom: 0;
 }
 
-/* Team member cards */
-
-.about-card {
+.terms-card {
   background-color: #444;
   border-radius: 8px;
   padding: 1.5rem;
@@ -128,13 +124,7 @@
   color: #fff;
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
   max-width: 540px;
-}
-
-.about-card img {
   width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 50px;
 }
 
 .card-title {
@@ -143,12 +133,21 @@
   margin-top: 0rem;
 }
 
-.card-text{
+.card-text {
   margin-right: 1rem;
   margin-left: 1rem;
   font-size: 1rem;
   line-height: 1.5;
   color: #ddd;
+}
+
+.card-text a {
+  color: #fbff14;
+  text-decoration: none;
+}
+
+.card-text a:hover {
+  text-decoration: underline;
 }
 
 @media (min-width: 425px) {
