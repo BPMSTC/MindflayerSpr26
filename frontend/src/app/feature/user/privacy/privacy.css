@@ -1,0 +1,52 @@
+/* Shared informational-page layout used by Contact, Privacy, and Terms. */
+.info-page {
+  display: flex;
+  justify-content: center;
+  padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 5vw, 4rem);
+  min-height: 60vh;
+}
+
+.info-card {
+  width: min(820px, 100%);
+  background: #000;
+  color: #fefefe;
+  border: 2px solid #fbff14;
+  border-radius: 20px;
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+  box-shadow: #000 0px 4px 8px, #000 0px 15px 30px -5px;
+}
+
+.info-card h1 {
+  color: #fbff14;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+.info-card h2 {
+  color: #fbff14;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.info-card p,
+.info-card li {
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.info-card ul {
+  padding-left: 1.25rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.info-card li {
+  margin: 0.35rem 0;
+}
+
+.updated {
+  color: #c9c9c9;
+  font-style: italic;
+  margin-bottom: 1.25rem;
+}

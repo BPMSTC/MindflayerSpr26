@@ -1,0 +1,37 @@
+<section class="info-page">
+  <div class="info-card">
+    <h1>Contact Us</h1>
+    <p class="lead">
+      Have a question, a bug report, or a story idea you'd like to share with the
+      Catmon team? Drop us a line and a Mindflayer trainer will get back to you.
+    </p>
+
+    <div class="contact-details">
+      <p><strong>Email:</strong> support&#64;mindflayer.games</p>
+      <p><strong>Studio:</strong> Mindflayer Games &mdash; Spring 2026</p>
+    </div>
+
+    @if (submitted()) {
+      <div class="success">Thanks! Your message has been sent.</div>
+    }
+
+    <form (ngSubmit)="submit()" #contactForm="ngForm" class="contact-form">
+      <label>
+        <span>Name</span>
+        <input type="text" name="name" [(ngModel)]="name" required />
+      </label>
+
+      <label>
+        <span>Email</span>
+        <input type="email" name="email" [(ngModel)]="email" required />
+      </label>
+
+      <label>
+        <span>Message</span>
+        <textarea name="message" rows="6" [(ngModel)]="message" required></textarea>
+      </label>
+
+      <button type="submit" [disabled]="contactForm.invalid">SEND MESSAGE</button>
+    </form>
+  </div>
+</section>

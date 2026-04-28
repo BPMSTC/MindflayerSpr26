@@ -12,6 +12,10 @@ import { HomeComponent } from './feature/user/home/home.js';
 import { LoginComponent } from './feature/auth/login/login.js';
 import { SignupComponent } from './feature/auth/signup/signup.js';
 import { CatdexComponent } from './feature/catdex/catdex.js';
+// Informational pages linked from the footer
+import { ContactComponent } from './feature/user/contact/contact.js';
+import { PrivacyComponent } from './feature/user/privacy/privacy.js';
+import { TermsComponent } from './feature/user/terms/terms.js';
 
 // Define the application routes - maps URLs to components
 export const routes: Routes = [
@@ -27,6 +31,10 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'catdex', component: CatdexComponent },
+  // Footer informational pages
+  { path: 'contact', component: ContactComponent },
+  { path: 'privacy', component: PrivacyComponent },
+  { path: 'terms', component: TermsComponent },
   // Wildcard route - any unmatched URL redirects to the home page
   { path: '**', redirectTo: '' }
 ];
