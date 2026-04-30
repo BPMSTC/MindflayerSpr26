@@ -16,7 +16,7 @@
   justify-content: center; /* Horizontally center content */
   align-items: center; /* Vertically center content */
   border-top: #fbff14 solid 2px; /* Yellow top border */
-  border-bottom: #fbff14 solid 2px; /* Yellow bottom border */
+  border-bottom: #fbff14 solid 2px; /* Yellow bottom border */ 
 } 
 
 /* Text container within hero section */

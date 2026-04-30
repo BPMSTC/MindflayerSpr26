@@ -10,7 +10,7 @@
   <div class="background">
     <div class="adventure-content">
       <div class="catmon-profile">
-        <img [src]="narmon.image" [alt]="narmon.name" class="catmon-image">
+        <img [src]="narmon.image" [alt]="narmon.alt" class="catmon-image">
         <h2>{{ narmon.name }}</h2>
         <p class="catmon-description">{{ narmon.description }}</p>
       </div>
@@ -26,7 +26,7 @@
                 <button class="select-button">Choose this path</button>
               </div>
             </div>
-            <div class="choice-card" (click)="choose(2)">
+            <div class="choice-card" (click)="choose(2)"> 
               <div class="choice-card-content">
                 <h4>Train along Whiskerwillow Whisper Trail</h4>
                 <p>NarMon practices focus and spirit control on winding woodland lanes where distractions test emotional balance.</p>
@@ -72,7 +72,7 @@
   <div class="background">
     <div class="adventure-content">
       <div class="catmon-profile">
-        <img [src]="narmon.image" [alt]="narmon.name" class="catmon-image">
+        <img [src]="narmon.image" [alt]="narmon.alt" class="catmon-image">
         <h2>{{ narmon.name }}</h2>
         <p class="catmon-description">The many-eyed spirit feeds on panic. NarMon must choose between restoring calm in the villagers or rushing into frenzy where Velkhar is strongest.</p>
       </div>
@@ -135,7 +135,7 @@
   <div class="background">
     <div class="adventure-content">
       <div class="catmon-profile evolution-glow">
-        <img [src]="rutomon.image" [alt]="rutomon.name" class="catmon-image">
+        <img [src]="rutomon.image" [alt]="rutomon.alt" class="catmon-image">
         <h2>{{ rutomon.name }}</h2>
         <p class="catmon-description">{{ rutomon.description }}</p>
       </div>
@@ -202,7 +202,7 @@
     <div class="adventure-content">
       <div class="profile-pair">
         <div class="catmon-profile">
-          <img [src]="rutomon.image" [alt]="rutomon.name" class="catmon-image">
+          <img [src]="rutomon.image" [alt]="rutomon.alt" class="catmon-image">
           <h2>{{ rutomon.name }}</h2>
           <p class="catmon-description">The duel will decide whether Neko Village's restored spirit can hold across Puridian.</p>
         </div>
@@ -273,7 +273,7 @@
     <div class="adventure-content">
       <div class="profile-pair">
         <div class="catmon-profile">
-          <img [src]="rutomon.image" [alt]="rutomon.name" class="catmon-image">
+          <img [src]="rutomon.image" [alt]="rutomon.alt" class="catmon-image">
           <h2>{{ rutomon.name }}</h2>
           <p class="catmon-description">RutoMon faces {{ selectedRival }} directly. To win this duel, {{ rivalDuelHint }}. The wrong approach gives your rival full control.</p>
         </div>
@@ -343,7 +343,7 @@
   <div class="background">
     <div class="adventure-content">
       <div class="catmon-profile final-evolution-glow">
-        <img [src]="kuramamon.image" [alt]="kuramamon.name" class="catmon-image">
+        <img [src]="kuramamon.image" [alt]="kuramamon.alt" class="catmon-image">
         <h2>{{ kuramamon.name }}</h2>
         <p class="catmon-description">{{ kuramamon.description }}</p>
       </div>
@@ -373,7 +373,7 @@
   <div class="background">
     <div class="adventure-content">
       <div class="outcome-card defeat-card">
-        <img [src]="narmon.image" [alt]="narmon.name" class="catmon-image defeated">
+        <img [src]="narmon.image" [alt]="narmon.alt" class="catmon-image defeated">
         <h2>Defeat</h2>
         <p class="catmon-description">NarMon charged into Velkhar's storm before calming the village. Fear fed the Hollow Purr, and the CAT-tastrophe clearing collapsed into chaos.</p>
       </div>
@@ -399,7 +399,7 @@
     <div class="adventure-content">
       <div class="profile-pair">
         <div class="outcome-card defeat-card">
-          <img [src]="rutomon.image" [alt]="rutomon.name" class="catmon-image defeated">
+          <img [src]="rutomon.image" [alt]="rutomon.alt" class="catmon-image defeated">
           <h2>Defeat</h2>
           <p class="catmon-description">RutoMon entered the duel unprepared and lost control of spacing. In Puridian, heart and planning must move together.</p>
         </div>
@@ -432,7 +432,7 @@
     <div class="adventure-content">
       <div class="profile-pair">
         <div class="outcome-card defeat-card">
-          <img [src]="rutomon.image" [alt]="rutomon.name" class="catmon-image defeated">
+          <img [src]="rutomon.image" [alt]="rutomon.alt" class="catmon-image defeated">
           <h2>Defeat</h2>
           <p class="catmon-description">RutoMon chose the wrong tactic. To defeat {{ selectedRival }}, you needed to follow this plan: {{ rivalDuelHint }}</p>
         </div>
