@@ -23,7 +23,7 @@ import { AboutUs } from './about-us/about-us.js';
 import { Contact } from './contact/contact.js';
 import { Privacy } from './privacy/privacy.js';
 import { Terms } from './terms/terms.js';
-
+ 
 
 // Define the application routes - maps URLs to components
 export const routes: Routes = [
