@@ -22,7 +22,7 @@ export class NarmonAdventureComponent {
   // The template uses *ngIf blocks keyed off this number.
   // 1 = Approach through Cattail Forest to Neko Village
   // 2 = First fight against Velkhar's influence
-  // 3 = Choose rival destination (no wrong answer)
+  // 3 = Choose rival destination (no wrong answer) 
   // 4 = Train or skip before rival duel
   // 5 = Rival duel decision
   // 6 = Final evolution (KuramaMon)
@@ -52,6 +52,7 @@ export class NarmonAdventureComponent {
   narmon = {
     name: 'NarMon',
     image: 'Catmon/NarMon/NarMon.png',
+    alt: 'A fiery, striped cat with bright red eyes, adorned with a golden ankh on its forehead. It is breaking golden chains with determination.', // For accessibility and in case the image fails to load.
     description: 'NarMon is Neko Village\'s quick-hearted partner CatMon. In the living maze of Cattail Forest, NarMon helps guide villagers back toward balance as Velkhar, the Hollow Purr, spreads fear through their shared emotions.'
   };
 
@@ -59,6 +60,7 @@ export class NarmonAdventureComponent {
   rutomon = {
     name: 'RutoMon',
     image: 'Catmon/NarMon/RutoMon.png',
+    alt: 'A fierce warrior cat clad in ornate golden armor with a glowing ankh symbol. It has fiery eyes, bared teeth, and a dynamic, powerful stance amidst swirling sparks.', // For accessibility and in case the image fails to load.
     description: 'RutoMon is NarMon evolved, a sharper and faster spirit-feline awakened when NarMon steadied the frenzy at Neko Village and faced Velkhar without losing heart.'
   };
 
@@ -66,6 +68,7 @@ export class NarmonAdventureComponent {
   kuramamon = {
     name: 'KuramaMon',
     image: 'Catmon/NarMon/KuramaMon.png',
+    alt: 'A ferocious black cat adorned in ornate golden armor stands with eight swirling tails, glowing red eyes, and an open mouth, set against a fiery, dramatic background.', // For accessibility and in case the image fails to load.
     description: 'KuramaMon is the final ascended form, born when RutoMon harmonizes courage and restraint to protect Puridian from emotion turned chaos.'
   };
 

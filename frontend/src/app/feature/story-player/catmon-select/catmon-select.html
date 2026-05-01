@@ -16,7 +16,7 @@
       <div class="catmon-card" *ngFor="let catmon of catmons">
         <div class="catmon-card-content">
           <!-- Dynamic image source using catmon.image property -->
-          <img [src]="catmon.image" [alt]="catmon.name" class="catmon-image">
+          <img [src]="catmon.image" [alt]="catmon.alt" class="catmon-image"> 
           <!-- Dynamic heading using catmon.name property -->
           <h3>{{ catmon.name }}</h3>
           <!-- Dynamic description using catmon.description property -->
