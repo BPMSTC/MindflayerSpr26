@@ -21,6 +21,7 @@
           <ng-container *ngIf="!swapped; else stage1Swapped">
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
+                <img src="/MindflayerSpr26/Training-Grounds/purrlaneCanopyRun.png" alt="Purrlane Canopy Run" class="town-image">
                 <h4>Sprint the Purrlane Canopy Run</h4>
                 <p>NarMon trains on elevated branch paths to sharpen reaction speed and keep momentum in dense forest terrain.</p>
                 <button class="select-button">Choose this path</button>
@@ -28,6 +29,7 @@
             </div>
             <div class="choice-card" (click)="choose(2)"> 
               <div class="choice-card-content">
+                <img src="/MindflayerSpr26/Training-Grounds/whiskerwillowWhisperTrail.png" alt="Whiskerwillow Whisper Trail" class="town-image">
                 <h4>Train along Whiskerwillow Whisper Trail</h4>
                 <p>NarMon practices focus and spirit control on winding woodland lanes where distractions test emotional balance.</p>
                 <button class="select-button">Choose this path</button>
@@ -37,6 +39,7 @@
           <ng-template #stage1Swapped>
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
+                <img src="/MindflayerSpr26/Training-Grounds/whiskerwillowWhisperTrail.png" alt="Whiskerwillow Whisper Trail" class="town-image">
                 <h4>Train along Whiskerwillow Whisper Trail</h4>
                 <p>NarMon practices focus and spirit control on winding woodland lanes where distractions test emotional balance.</p>
                 <button class="select-button">Choose this path</button>
@@ -44,6 +47,7 @@
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
+                <img src="/MindflayerSpr26/Training-Grounds/purrlaneCanopyRun.png" alt="Purrlane Canopy Run" class="town-image">
                 <h4>Sprint the Purrlane Canopy Run</h4>
                 <p>NarMon trains on elevated branch paths to sharpen reaction speed and keep momentum in dense forest terrain.</p>
                 <button class="select-button">Choose this path</button>
@@ -62,7 +66,7 @@
 
 <!-- ===================== STORY 2: Velkhar Encounter ===================== -->
 <div *ngIf="stage === 2">
-  <div class="hero-image narmon-hero">
+  <div class="hero-image" [style.background-image]="'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.45)), url(' + selectedTrainingGroundImage + ')'">
     <div class="hero-text">
       <h1>The Hollow Purr Stirs</h1>
       <p>After taking {{ approachRoute }}, NarMon reaches the CAT-tastrophe clearing where Velkhar gathers fear.</p>
@@ -191,7 +195,7 @@
 
 <!-- ===================== STORY 4: Train or Skip ===================== -->
 <div *ngIf="stage === 4">
-  <div class="hero-image rutomon-hero">
+  <div class="hero-image" [style.background-image]="'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.45)), url(' + selectedRivalVillageImage + ')'">
     <div class="hero-text">
       <h1>Final Preparation</h1>
       <p>RutoMon arrives at {{ rivalRegion }} to face {{ selectedRival }}.</p>
@@ -262,7 +266,7 @@
 
 <!-- ===================== STORY 5: Rival Duel ===================== -->
 <div *ngIf="stage === 5">
-  <div class="hero-image rutomon-hero">
+  <div class="hero-image" [style.background-image]="'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.45)), url(' + selectedRivalVillageImage + ')'">
     <div class="hero-text">
       <h1>Duel with {{ selectedRival }}</h1>
       <p>The deciding battle begins at {{ rivalRegion }}.</p>

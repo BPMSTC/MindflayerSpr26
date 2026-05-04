@@ -27,6 +27,7 @@
           <ng-container *ngIf="!swapped; else stage1Swapped">
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
+                <img src="/MindflayerSpr26/Training-Grounds/purrmafrostProvingGrounds.png" alt="Purrmafrost Proving Grounds" class="town-image">
                 <h4>Drill at Purrmafrost Proving Grounds</h4>
                 <p>KirMon runs frozen obstacle lines and timing drills across packed snow to sharpen disciplined counters.</p>
                 <button class="select-button">Choose this path</button>
@@ -34,6 +35,7 @@
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
+                <img src="/MindflayerSpr26/Training-Grounds/whiskerwindChasmCourse.png" alt="Whiskerwind Chasm Course" class="town-image">
                 <h4>Condition through Whiskerwind Chasm Course</h4>
                 <p>KirMon practices footwork under crosswinds and tight turns to stay balanced when blizzard gusts hit hard.</p>
                 <button class="select-button">Choose this path</button>
@@ -45,6 +47,7 @@
           <ng-template #stage1Swapped>
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
+                <img src="/MindflayerSpr26/Training-Grounds/whiskerwindChasmCourse.png" alt="Whiskerwind Chasm Course" class="town-image">
                 <h4>Condition through Whiskerwind Chasm Course</h4>
                 <p>KirMon practices footwork under crosswinds and tight turns to stay balanced when blizzard gusts hit hard.</p>
                 <button class="select-button">Choose this path</button>
@@ -52,6 +55,7 @@
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
+                <img src="/MindflayerSpr26/Training-Grounds/purrmafrostProvingGrounds.png" alt="Purrmafrost Proving Grounds" class="town-image">
                 <h4>Drill at Purrmafrost Proving Grounds</h4>
                 <p>KirMon runs frozen obstacle lines and timing drills across packed snow to sharpen disciplined counters.</p>
                 <button class="select-button">Choose this path</button>
@@ -72,7 +76,7 @@
 <!-- ===================== STORY 2: Fight and Evolution ===================== -->
 <!-- Stage 2 is a decision screen: win to evolve, lose to stage 6 defeat. -->
 <div *ngIf="stage === 2">
-  <div class="hero-image kirMon-hero">
+  <div class="hero-image" [style.background-image]="'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.45)), url(' + selectedTrainingGroundImage + ')'">
     <div class="hero-text">
       <h1>The Blizzard Clash</h1>
       <p>After {{ trainingRoute }}, KirMon confronts the spirit driving Katze Town's endless winter.</p>
@@ -209,7 +213,7 @@
   Train -> stage 5 win.
   Skip  -> stage 7 defeat. -->
 <div *ngIf="stage === 4">
-  <div class="hero-image ineMon-hero">
+  <div class="hero-image" [style.background-image]="'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.45)), url(' + selectedRivalVillageImage + ')'">
     <div class="hero-text">
       <h1>Final Preparation</h1>
       <p>IneMon arrives at {{ rivalRegion }} to face {{ selectedRival }}.</p>
@@ -283,7 +287,7 @@
 <!-- Story 5 is now the actual rival fight decision.
      Winning here advances to story 6 (evolution). -->
 <div *ngIf="stage === 5">
-  <div class="hero-image ineMon-hero">
+  <div class="hero-image" [style.background-image]="'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.45)), url(' + selectedRivalVillageImage + ')'">
     <div class="hero-text">
       <h1>Duel with {{ selectedRival }}</h1>
       <p>The deciding battle begins in {{ rivalRegion }}.</p>

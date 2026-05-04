@@ -79,6 +79,20 @@ export class KirmonAdventureComponent {
     return this.selectedRival === 'RutoMon' ? 'Catmon/NarMon/RutoMon.png' : 'Catmon/ShikaMon/MaruMon.png';
   }
 
+  // Selected training ground image shown in the stage-2 header.
+  get selectedTrainingGroundImage(): string {
+    return this.trainingRoute === 'the Purrmafrost Proving Grounds'
+      ? '/MindflayerSpr26/Training-Grounds/purrmafrostProvingGrounds.png'
+      : '/MindflayerSpr26/Training-Grounds/whiskerwindChasmCourse.png';
+  }
+
+  // Selected rival village image shown in late-stage duel headers.
+  get selectedRivalVillageImage(): string {
+    return this.selectedRival === 'RutoMon'
+      ? '/MindflayerSpr26/nekoVillage.png'
+      : '/MindflayerSpr26/kedikure.png';
+  }
+
   // Narrative sentence fragment for story 5 victory text.
   get rivalGoal(): string {
     // Pulled from centralized rival metadata (single source of truth).
