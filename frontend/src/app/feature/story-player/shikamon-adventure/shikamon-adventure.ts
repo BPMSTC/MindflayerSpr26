@@ -79,6 +79,20 @@ export class ShikamonAdventureComponent {
     return this.selectedRival === 'IneMon' ? 'Catmon/KirMon/IneMon.png' : 'Catmon/NarMon/RutoMon.png';
   }
 
+  // Selected training ground image shown in the stage-2 header.
+  get selectedTrainingGroundImage(): string {
+    return this.resistanceRoute === 'the Clawmand Post Yard'
+      ? '/MindflayerSpr26/Training-Grounds/clawmandPostYard.png'
+      : '/MindflayerSpr26/Training-Grounds/prowlersParapetRun.png';
+  }
+
+  // Selected rival village image shown in late-stage duel headers.
+  get selectedRivalVillageImage(): string {
+    return this.selectedRival === 'IneMon'
+      ? '/MindflayerSpr26/katzeTown.png'
+      : '/MindflayerSpr26/nekoVillage.png';
+  }
+
   // Narrative sentence fragment for story 5 victory text.
   get rivalGoal(): string {
     // Pulled from centralized rival metadata (single source of truth).
