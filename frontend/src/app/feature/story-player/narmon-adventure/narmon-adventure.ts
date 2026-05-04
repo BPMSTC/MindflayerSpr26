@@ -50,7 +50,7 @@ export class NarmonAdventureComponent {
 
   // Stage 1: NarMon data
   narmon = {
-    name: 'NarMon',
+    name: 'NarMon', 
     image: 'Catmon/NarMon/NarMon.png',
     alt: 'A fiery, striped cat with bright red eyes, adorned with a golden ankh on its forehead. It is breaking golden chains with determination.', // For accessibility and in case the image fails to load.
     description: 'NarMon is Neko Village\'s quick-hearted partner CatMon. In the living maze of Cattail Forest, NarMon helps guide villagers back toward balance as Velkhar, the Hollow Purr, spreads fear through their shared emotions.'

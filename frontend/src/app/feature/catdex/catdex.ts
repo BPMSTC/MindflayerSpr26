@@ -36,17 +36,17 @@ const IMAGE_PATHS: Record<string, string> = {
 
 // Maps Catmon names to descriptive alt text for accessibility.
 const ALT_TEXTS: Record<string, string> = {
-  NarMon: 'Image of NarMon. the starter fiery, striped CatMon with bright red eyes, adorned with a golden ankh on its forehead. It is breaking golden chains with determination.',
-  RutoMon: 'Image of RutoMon. the second evolution in the NarMon line. It is a fierce warrior cat clad in ornate golden armor with a glowing ankh symbol. It has fiery eyes, bared teeth, and a dynamic, powerful stance amidst swirling sparks.',
-  KuramaMon: 'Image of KuramaMon. the final NarMon evolution. It is a ferocious black cat adorned in ornate golden armor stands with eight swirling tails, glowing red eyes, and an open mouth, set against a fiery, dramatic background.',
+  NarMon: 'Image of NarMon. The fiery starter CatMon with bright red eyes, adorned with a golden ankh on its forehead.',
+  RutoMon: 'Image of RutoMon. The evolution in the NarMon line. It is a fierce warrior cat clad in ornate golden armor with a glowing ankh symbol. It has fiery eyes, bared teeth, and a dynamic, powerful stance amidst swirling sparks.',
+  KuramaMon: 'Image of KuramaMon. The final NarMon evolution. It is a ferocious black cat adorned in ornate golden armor stands with eight swirling tails, glowing red eyes, and an open mouth, set against a fiery, dramatic background.',
 
-  KirMon: 'Image of KirMon. the silver-armored Catmon with bright blue eyes.',
-  IneMon: 'Image of IneMon. the noble KirMon evolution with elegant armor details.',
-  AmaterosaMon: 'Image of AmaterosaMon. the majestic final evolution in the KirMon line.',
+  KirMon: 'Image of KirMon. The brave starter Catmon with bright blue eyes, in detailed silver armor.',
+  IneMon: 'Image of IneMon. The evolution in the KirMon line. It is a fearless guardian with sparkling silver armor decorated with blue gems.',
+  AmaterosaMon: 'Image of AmaterosaMon. The majestic final evolution in the KirMon line. It is a regal cat with radiant silver armor adorned with blue gems, standing proudly with a flowing pair of tails and a serene expression.',  
 
-  ShikaMon: 'Image of ShikaMon. the purple Catmon wrapped in chains and ready to strike.',
-  MaruMon: 'Image of MaruMon. the powerful evolved ShikaMon with glowing tails.',
-  MatatabiMon: 'Image of MatatabiMon. the ultimate ShikaMon evolution with swirling energy.',
+  ShikaMon: 'Image of ShikaMon. The purple Catmon wrapped in chains and ready to strike.',
+  MaruMon: 'Image of MaruMon. The powerful evolved ShikaMon with glowing tails.',
+  MatatabiMon: 'Image of MatatabiMon. The ultimate ShikaMon evolution with swirling energy.',
 };
 
 // The CatdexComponent is responsible for displaying the user's Catdex,
