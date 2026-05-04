@@ -10,7 +10,7 @@
   <div class="background">
     <div class="adventure-content">
       <div class="catmon-profile">
-        <img [src]="shikamon.image" [alt]="shikamon.name" class="catmon-image">
+        <img [src]="shikamon.image" [alt]="shikamon.alt" class="catmon-image">
         <h2>{{ shikamon.name }}</h2>
         <p class="catmon-description">{{ shikamon.description }}</p>
       </div>
@@ -21,6 +21,7 @@
           <ng-container *ngIf="!swapped; else stage1Swapped">
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
+                <img src="/MindflayerSpr26/Training-Grounds/clawmandPostYard.png" alt="Clawmand Post Yard" class="town-image">
                 <h4>Drill in Clawmand Post Yard</h4>
                 <p>ShikaMon coordinates squad timing drills in a hidden training yard to sharpen resistance formations.</p>
                 <button class="select-button">Choose this path</button>
@@ -28,6 +29,7 @@
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
+                <img src="/MindflayerSpr26/Training-Grounds/prowlersParapetRun.png" alt="Prowler's Parapet Course" class="town-image">
                 <h4>Run Prowler's Parapet Course</h4>
                 <p>ShikaMon trains rooftop traversal and courier relays to outpace enforcers across Kedikure's upper lanes.</p>
                 <button class="select-button">Choose this path</button>
@@ -37,6 +39,7 @@
           <ng-template #stage1Swapped>
             <div class="choice-card" (click)="choose(1)">
               <div class="choice-card-content">
+                <img src="/MindflayerSpr26/Training-Grounds/prowlersParapetRun.png" alt="Prowler's Parapet Course" class="town-image">
                 <h4>Run Prowler's Parapet Course</h4>
                 <p>ShikaMon trains rooftop traversal and courier relays to outpace enforcers across Kedikure's upper lanes.</p>
                 <button class="select-button">Choose this path</button>
@@ -44,6 +47,7 @@
             </div>
             <div class="choice-card" (click)="choose(2)">
               <div class="choice-card-content">
+                <img src="/MindflayerSpr26/Training-Grounds/clawmandPostYard.png" alt="Clawmand Post Yard" class="town-image">
                 <h4>Drill in Clawmand Post Yard</h4>
                 <p>ShikaMon coordinates squad timing drills in a hidden training yard to sharpen resistance formations.</p>
                 <button class="select-button">Choose this path</button>
@@ -62,7 +66,7 @@
 
 <!-- ===================== STORY 2: First Uprising Clash ===================== -->
 <div *ngIf="stage === 2">
-  <div class="hero-image shikamon-hero">
+  <div class="hero-image" [style.background-image]="'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.45)), url(' + selectedTrainingGroundImage + ')'">
     <div class="hero-text">
       <h1>The Kedikure Uprising</h1>
       <p>After taking {{ resistanceRoute }}, ShikaMon must break the first enforcer line.</p>
@@ -72,7 +76,7 @@
   <div class="background">
     <div class="adventure-content">
       <div class="catmon-profile">
-        <img [src]="shikamon.image" [alt]="shikamon.name" class="catmon-image">
+        <img [src]="shikamon.image" [alt]="shikamon.alt" class="catmon-image">
         <h2>{{ shikamon.name }}</h2>
         <p class="catmon-description">The citizens rally, but one wrong move could trigger a CAT-tastrophe. ShikaMon must choose between disciplined coordination and a reckless frontal rush.</p>
       </div>
@@ -135,7 +139,7 @@
   <div class="background">
     <div class="adventure-content">
       <div class="catmon-profile evolution-glow">
-        <img [src]="marumon.image" [alt]="marumon.name" class="catmon-image">
+        <img [src]="marumon.image" [alt]="marumon.alt" class="catmon-image">
         <h2>{{ marumon.name }}</h2>
         <p class="catmon-description">{{ marumon.description }}</p>
       </div>
@@ -191,7 +195,7 @@
 
 <!-- ===================== STORY 4: Train or Skip ===================== -->
 <div *ngIf="stage === 4">
-  <div class="hero-image marumon-hero">
+  <div class="hero-image" [style.background-image]="'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.45)), url(' + selectedRivalVillageImage + ')'">
     <div class="hero-text">
       <h1>Final Preparation</h1>
       <p>MaruMon arrives at {{ rivalRegion }} to face {{ selectedRival }}.</p>
@@ -202,7 +206,7 @@
     <div class="adventure-content">
       <div class="profile-pair">
         <div class="catmon-profile">
-          <img [src]="marumon.image" [alt]="marumon.name" class="catmon-image">
+          <img [src]="marumon.image" [alt]="marumon.alt" class="catmon-image">
           <h2>{{ marumon.name }}</h2>
           <p class="catmon-description">The duel will decide whether Kedikure's uprising can stand as a model for all of Puridian.</p>
         </div>
@@ -262,7 +266,7 @@
 
 <!-- ===================== STORY 5: Rival Duel ===================== -->
 <div *ngIf="stage === 5">
-  <div class="hero-image marumon-hero">
+  <div class="hero-image" [style.background-image]="'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.45)), url(' + selectedRivalVillageImage + ')'">
     <div class="hero-text">
       <h1>Duel with {{ selectedRival }}</h1>
       <p>The deciding battle begins at {{ rivalRegion }}.</p>
@@ -273,7 +277,7 @@
     <div class="adventure-content">
       <div class="profile-pair">
         <div class="catmon-profile">
-          <img [src]="marumon.image" [alt]="marumon.name" class="catmon-image">
+          <img [src]="marumon.image" [alt]="marumon.alt" class="catmon-image">
           <h2>{{ marumon.name }}</h2>
           <p class="catmon-description">MaruMon faces {{ selectedRival }} directly. To win this duel, {{ rivalDuelHint }}. One wrong read gives the rival full control.</p>
         </div>
@@ -343,7 +347,7 @@
   <div class="background">
     <div class="adventure-content">
       <div class="catmon-profile final-evolution-glow">
-        <img [src]="matatabimon.image" [alt]="matatabimon.name" class="catmon-image">
+        <img [src]="matatabimon.image" [alt]="matatabimon.alt" class="catmon-image">
         <h2>{{ matatabimon.name }}</h2>
         <p class="catmon-description">{{ matatabimon.description }}</p>
       </div>
@@ -373,7 +377,7 @@
   <div class="background">
     <div class="adventure-content">
       <div class="outcome-card defeat-card">
-        <img [src]="shikamon.image" [alt]="shikamon.name" class="catmon-image defeated">
+        <img [src]="shikamon.image" [alt]="shikamon.alt" class="catmon-image defeated">
         <h2>Defeat</h2>
         <p class="catmon-description">ShikaMon charged the command line too early. Without coordinated disruption, Kedikure's citizens were forced back and the revolt lost momentum.</p>
       </div>
@@ -399,7 +403,7 @@
     <div class="adventure-content">
       <div class="profile-pair">
         <div class="outcome-card defeat-card">
-          <img [src]="marumon.image" [alt]="marumon.name" class="catmon-image defeated">
+          <img [src]="marumon.image" [alt]="marumon.alt" class="catmon-image defeated">
           <h2>Defeat</h2>
           <p class="catmon-description">MaruMon entered unprepared and lost control of tempo early. In Kedikure's struggle, planning is the edge that keeps hope alive.</p>
         </div>
@@ -432,7 +436,7 @@
     <div class="adventure-content">
       <div class="profile-pair">
         <div class="outcome-card defeat-card">
-          <img [src]="marumon.image" [alt]="marumon.name" class="catmon-image defeated">
+          <img [src]="marumon.image" [alt]="marumon.alt" class="catmon-image defeated">
           <h2>Defeat</h2>
           <p class="catmon-description">MaruMon chose the wrong tactic. To defeat {{ selectedRival }}, you needed to follow this plan: {{ rivalDuelHint }}</p>
         </div>

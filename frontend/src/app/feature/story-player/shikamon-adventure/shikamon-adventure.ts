@@ -52,6 +52,7 @@ export class ShikamonAdventureComponent {
   shikamon = {
     name: 'ShikaMon',
     image: 'Catmon/ShikaMon/ShikaMon.png',
+    alt: 'Image of ShikaMon, a sly purple kitten with glowing gold eyes, wrapped in black chains, lunging forward.', // Alt text for accessibility
     description: 'ShikaMon is Kedikure\'s watchful partner CatMon. In a village drained by a distant overlord, ShikaMon helps organize quiet resistance cells and keep hope alive under heavy skies.'
   };
 
@@ -59,6 +60,7 @@ export class ShikamonAdventureComponent {
   marumon = {
     name: 'MaruMon',
     image: 'Catmon/ShikaMon/MaruMon.png',
+    alt: 'Image of MaruMon, a powerful evolved ShikaMon. A crafty purple cat in black armor crouches on a cracked surface, with yellow eyes and bared fangs.', // Alt text for accessibility
     description: 'MaruMon is ShikaMon evolved, a grounded tactician forged by Kedikure\'s struggle. It turns patience and timing into pressure that can crack even elite enforcer lines.'
   };
 
@@ -66,6 +68,7 @@ export class ShikamonAdventureComponent {
   matatabimon = {
     name: 'MatatabiMon',
     image: 'Catmon/ShikaMon/MatatabiMon.png',
+    alt: 'Image of MatatabiMon, the ultimate ShikaMon evolution. A cunning purple feline clad in dark armor crouches with its claws extended.', // Alt text for accessibility
     description: 'MatatabiMon is the final ascended form, born when MaruMon unites resistance, resolve, and strategy to reclaim Kedikure\'s future.'
   };
 
@@ -77,6 +80,20 @@ export class ShikamonAdventureComponent {
   // Kept as a getter to stay aligned with selectedRival state.
   get rivalImage(): string {
     return this.selectedRival === 'IneMon' ? 'Catmon/KirMon/IneMon.png' : 'Catmon/NarMon/RutoMon.png';
+  }
+
+  // Selected training ground image shown in the stage-2 header.
+  get selectedTrainingGroundImage(): string {
+    return this.resistanceRoute === 'the Clawmand Post Yard'
+      ? '/MindflayerSpr26/Training-Grounds/clawmandPostYard.png'
+      : '/MindflayerSpr26/Training-Grounds/prowlersParapetRun.png';
+  }
+
+  // Selected rival village image shown in late-stage duel headers.
+  get selectedRivalVillageImage(): string {
+    return this.selectedRival === 'IneMon'
+      ? '/MindflayerSpr26/katzeTown.png'
+      : '/MindflayerSpr26/nekoVillage.png';
   }
 
   // Narrative sentence fragment for story 5 victory text.

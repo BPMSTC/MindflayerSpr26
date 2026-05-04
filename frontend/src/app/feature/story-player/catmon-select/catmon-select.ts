@@ -29,7 +29,7 @@ export class CatmonSelectComponent {
     {
       name: 'ShikaMon', // Display name for the third catmon
       image: 'Catmon/ShikaMon/ShikaMon.png', // Path to the catmon image in the assets
-      alt: 'Image of ShikaMon, a fierce purple cat with glowing gold eyes, wrapped in black chains, lunging forward amid floating debris.', // Alt text for accessibility
+      alt: 'Image of ShikaMon, a fierce purple cat with glowing gold eyes, wrapped in black chains and lunging forward.', // Alt text for accessibility
       description: 'A mysterious and graceful cat with ancient wisdom.' // Description text
     } 
   ];
