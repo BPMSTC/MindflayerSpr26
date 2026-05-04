@@ -14,7 +14,7 @@
     <div class="adventure-content">
       <!-- Profile card always reflects the active story creature. -->
       <div class="catmon-profile">
-        <img [src]="kirMon.image" [alt]="kirMon.name" class="catmon-image">
+        <img [src]="kirMon.image" [alt]="kirMon.alt" class="catmon-image">
         <h2>{{ kirMon.name }}</h2>
         <p class="catmon-description">{{ kirMon.description }}</p>
       </div>
@@ -86,7 +86,7 @@
   <div class="background">
     <div class="adventure-content">
       <div class="catmon-profile">
-        <img [src]="kirMon.image" [alt]="kirMon.name" class="catmon-image">
+        <img [src]="kirMon.image" [alt]="kirMon.alt" class="catmon-image">
         <h2>{{ kirMon.name }}</h2>
         <p class="catmon-description">The frozen wind howls. KirMon must decide whether to fight with discipline or rush forward and risk being swallowed by the storm.</p>
       </div>
@@ -153,7 +153,7 @@
   <div class="background">
     <div class="adventure-content">
       <div class="catmon-profile evolution-glow">
-        <img [src]="ineMon.image" [alt]="ineMon.name" class="catmon-image">
+        <img [src]="ineMon.image" [alt]="ineMon.alt" class="catmon-image">
         <h2>{{ ineMon.name }}</h2>
         <p class="catmon-description">{{ ineMon.description }}</p>
       </div>
@@ -224,7 +224,7 @@
     <div class="adventure-content">
       <div class="profile-pair">
         <div class="catmon-profile">
-          <img [src]="ineMon.image" [alt]="ineMon.name" class="catmon-image">
+          <img [src]="ineMon.image" [alt]="ineMon.alt" class="catmon-image">
           <h2>{{ ineMon.name }}</h2>
           <p class="catmon-description">The duel is close. One last decision remains before the final clash.</p>
         </div>
@@ -298,7 +298,7 @@
     <div class="adventure-content">
       <div class="profile-pair">
         <div class="catmon-profile">
-          <img [src]="ineMon.image" [alt]="ineMon.name" class="catmon-image">
+          <img [src]="ineMon.image" [alt]="ineMon.alt" class="catmon-image">
           <h2>{{ ineMon.name }}</h2>
           <p class="catmon-description">IneMon faces {{ selectedRival }} directly. To win this duel, {{ rivalDuelHint }}. The wrong approach will cost the duel, but the right one opens the path to final evolution.</p>
         </div>
@@ -370,7 +370,7 @@
   <div class="background">
     <div class="adventure-content">
       <div class="catmon-profile final-evolution-glow">
-        <img [src]="ameratosaMon.image" [alt]="ameratosaMon.name" class="catmon-image">
+        <img [src]="ameratosaMon.image" [alt]="ameratosaMon.alt" class="catmon-image">
         <h2>{{ ameratosaMon.name }}</h2>
         <p class="catmon-description">{{ ameratosaMon.description }}</p>
       </div>
@@ -401,7 +401,7 @@
   <div class="background">
     <div class="adventure-content">
       <div class="outcome-card defeat-card">
-        <img [src]="kirMon.image" [alt]="kirMon.name" class="catmon-image defeated">
+        <img [src]="kirMon.image" [alt]="kirMon.alt" class="catmon-image defeated">
         <h2>Defeat</h2>
         <p class="catmon-description">KirMon rushed blind into the storm and was buried in ice and wind. Strength without patience could not break the endless winter's hold.</p>
       </div>
@@ -429,7 +429,7 @@
     <div class="adventure-content">
       <div class="profile-pair">
         <div class="outcome-card defeat-card">
-          <img [src]="ineMon.image" [alt]="ineMon.name" class="catmon-image defeated">
+          <img [src]="ineMon.image" [alt]="ineMon.alt" class="catmon-image defeated">
           <h2>Defeat</h2>
           <p class="catmon-description">IneMon fought {{ selectedRival }} without adapting to the terrain or style and lost momentum early. In Puridian, preparation matters as much as power.</p>
         </div>
@@ -464,7 +464,7 @@
     <div class="adventure-content">
       <div class="profile-pair">
         <div class="outcome-card defeat-card">
-          <img [src]="ineMon.image" [alt]="ineMon.name" class="catmon-image defeated">
+          <img [src]="ineMon.image" [alt]="ineMon.alt" class="catmon-image defeated">
           <h2>Defeat</h2>
           <p class="catmon-description">IneMon chose the wrong tactic. To defeat {{ selectedRival }}, you needed to follow this plan: {{ rivalDuelHint }}</p>
         </div>

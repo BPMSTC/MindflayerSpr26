@@ -52,6 +52,7 @@ export class KirmonAdventureComponent {
   kirMon = {
     name: 'KirMon',
     image: 'Catmon/KirMon/KirMon.png',
+    alt: 'Image of KirMon. The brave starter Catmon with bright blue eyes, in detailed silver armor.',
     description: 'KirMon is Katze Town\'s steadfast partner CatMon. Built for mountain winds and deep snow, KirMon trains to protect the town from the endless winter threatening Puridian.'
   };
 
@@ -59,6 +60,7 @@ export class KirmonAdventureComponent {
   ineMon = {
     name: 'IneMon',
     image: 'Catmon/KirMon/IneMon.png',
+    alt: 'Image of IneMon. The evolution in the KirMon line. It is a fearless guardian with sparkling silver armor decorated with blue gems.',
     description: 'IneMon is KirMon evolved, a faster and sharper storm-feline whose power was awakened in battle while defending Katze Town from the unnatural cold.'
   };
 
@@ -66,6 +68,7 @@ export class KirmonAdventureComponent {
   ameratosaMon = {
     name: 'AmaterosaMon',
     image: 'Catmon/KirMon/AmaterosaMon.png',
+    alt: 'Image of AmaterosaMon. The majestic final evolution in the KirMon line. It is a regal cat with radiant silver armor adorned with blue gems, standing proudly with a flowing pair of tails and a serene expression.',
     description: 'AmaterosaMon is the final ascended form, born when IneMon masters discipline, balance, and purpose in Puridian\'s harsh trials.'
   };
 
