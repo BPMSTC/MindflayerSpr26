@@ -52,6 +52,7 @@ export class ShikamonAdventureComponent {
   shikamon = {
     name: 'ShikaMon',
     image: 'Catmon/ShikaMon/ShikaMon.png',
+    alt: 'Image of ShikaMon, a sly purple kitten with glowing gold eyes, wrapped in black chains, lunging forward.', // Alt text for accessibility
     description: 'ShikaMon is Kedikure\'s watchful partner CatMon. In a village drained by a distant overlord, ShikaMon helps organize quiet resistance cells and keep hope alive under heavy skies.'
   };
 
@@ -59,6 +60,7 @@ export class ShikamonAdventureComponent {
   marumon = {
     name: 'MaruMon',
     image: 'Catmon/ShikaMon/MaruMon.png',
+    alt: 'Image of MaruMon, a powerful evolved ShikaMon. A crafty purple cat in black armor crouches on a cracked surface, with yellow eyes and bared fangs.', // Alt text for accessibility
     description: 'MaruMon is ShikaMon evolved, a grounded tactician forged by Kedikure\'s struggle. It turns patience and timing into pressure that can crack even elite enforcer lines.'
   };
 
@@ -66,6 +68,7 @@ export class ShikamonAdventureComponent {
   matatabimon = {
     name: 'MatatabiMon',
     image: 'Catmon/ShikaMon/MatatabiMon.png',
+    alt: 'Image of MatatabiMon, the ultimate ShikaMon evolution. A cunning purple feline clad in dark armor crouches with its claws extended.', // Alt text for accessibility
     description: 'MatatabiMon is the final ascended form, born when MaruMon unites resistance, resolve, and strategy to reclaim Kedikure\'s future.'
   };
 
