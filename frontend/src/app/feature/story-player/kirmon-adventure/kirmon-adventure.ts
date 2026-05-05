@@ -96,6 +96,13 @@ export class KirmonAdventureComponent {
       : '/MindflayerSpr26/kedikure.png';
   }
 
+  // Selected rival-fight image shown after choosing to train.
+  get selectedRivalFightImage(): string {
+    return this.selectedRival === 'RutoMon'
+      ? '/MindflayerSpr26/Rival%20Fights/IneMon/IneMon-RutoMon.png'
+      : '/MindflayerSpr26/Rival%20Fights/IneMon/IneMon-MaruMon.png';
+  }
+
   // Narrative sentence fragment for story 5 victory text.
   get rivalGoal(): string {
     // Pulled from centralized rival metadata (single source of truth).

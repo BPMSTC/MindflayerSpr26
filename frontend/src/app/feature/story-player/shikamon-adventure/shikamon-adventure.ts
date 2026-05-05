@@ -96,6 +96,13 @@ export class ShikamonAdventureComponent {
       : '/MindflayerSpr26/nekoVillage.png';
   }
 
+  // Selected rival-fight image shown after choosing to train.
+  get selectedRivalFightImage(): string {
+    return this.selectedRival === 'IneMon'
+      ? '/MindflayerSpr26/Rival%20Fights/MaruMon/MaruMon-IneMon.png'
+      : '/MindflayerSpr26/Rival%20Fights/MaruMon/MaruMon-RutoMon.png';
+  }
+
   // Narrative sentence fragment for story 5 victory text.
   get rivalGoal(): string {
     // Pulled from centralized rival metadata (single source of truth).

@@ -96,6 +96,13 @@ export class NarmonAdventureComponent {
       : '/MindflayerSpr26/katzeTown.png';
   }
 
+  // Selected rival-fight image shown after choosing to train.
+  get selectedRivalFightImage(): string {
+    return this.selectedRival === 'MaruMon'
+      ? '/MindflayerSpr26/Rival%20Fights/RutoMon/RutoMon-MaruMon.png'
+      : '/MindflayerSpr26/Rival%20Fights/RutoMon/RutoMon-IneMon.png';
+  }
+
   // Narrative sentence fragment for story 5 victory text.
   get rivalGoal(): string {
     // Pulled from centralized rival metadata (single source of truth).
