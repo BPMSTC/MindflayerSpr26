@@ -17,8 +17,8 @@ export class LoginComponent {
 
   constructor(private auth: AuthService, private router: Router) {}
 
-  submit(): void {
-    const result = this.auth.login(this.email, this.password);
+  async submit(): Promise<void> {
+    const result = await this.auth.login(this.email, this.password);
     if (result.ok) {
       this.error.set(null);
       this.router.navigateByUrl('/');

@@ -18,8 +18,8 @@ export class SignupComponent {
 
   constructor(private auth: AuthService, private router: Router) {}
 
-  submit(): void {
-    const result = this.auth.signup(this.username, this.email, this.password);
+  async submit(): Promise<void> {
+    const result = await this.auth.signup(this.username, this.email, this.password);
     if (result.ok) {
       this.error.set(null);
       this.router.navigateByUrl('/');
